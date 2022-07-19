@@ -1,6 +1,9 @@
 .bg-red{
     background-color: #B22D2B;
 }
+.bg-custom-black{
+    background-color: #141212;
+}
 .btn-radius{
     border-radius: 15px;
 }

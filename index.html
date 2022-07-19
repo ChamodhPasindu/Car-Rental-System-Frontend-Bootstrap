@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Easy Car Rental</title>
+    <link rel="stylesheet" href="assets/font/css/all.css">
+
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style/common.css">
     <link rel="stylesheet" href="assets/style/landing.css">
     <link rel="stylesheet" href="assets/style/registerForm.css">
     <link rel="stylesheet" href="assets/style/loginPage.css">
+    <link rel="stylesheet" href="assets/style/customerPage.css">
+    <link rel="stylesheet" href="assets/style/customerReservation.css">
+    <link rel="stylesheet" href="assets/style/customerAccount.css">
 
 </head>
 <body>
@@ -15,10 +20,51 @@
 <main>
 
     <header>
-        <nav style="display: none" id="homeNavbar" class="navbar bg-red">
+        <nav style="display: none" id="landingNavbar" class="navbar navbar-expand-lg bg-red">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bolder fs-1 text-light ms-5">ECR.</a>
-                    <button class="btn btn-dark fs-5 btn-radius fw-bold me-5" type="submit">LOGIN</button>
+                <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
+                <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
+                <div class="collapse navbar-collapse" >
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    </ul>
+                    <span class="navbar-text me-5">
+                   <button class="btn btn-dark fs-6 btn-radius fw-bold " type="submit">LOGIN</button>
+                       </span>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <nav style="display: block" id="customerNavbar" class="navbar navbar-expand-lg bg-custom-black ">
+            <div class="container-fluid">
+                <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
+                <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item">
+                            <button id="dashboardBtn" class="bg-transparent fw-bold border-0">
+                                <a class="nav-link text-secondary fs-5 me-3 ">Home</a>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="orderBtn" class="bg-transparent fw-bold border-0">
+                                <a class="nav-link text-secondary fs-5 me-3 ">Reservation</a>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="itemBtn" class="bg-transparent fw-bold border-0">
+                                <a class="nav-link text-secondary fs-5 me-3">My Account</a>
+                            </button>
+                        </li>
+                    </ul>
+                    <span class="navbar-text me-5">
+
+                    <button type="button" class="btn btn-outline-danger fw-bold btn-radius">Log Out</button>
+                       </span>
+                </div>
+
             </div>
         </nav>
 
@@ -27,7 +73,7 @@
 
 
     <section style="display:none" id="landingPage">
-        <div  class="custom-container-one">
+        <div class="custom-container-one">
             <div class="container-one">
                 <div class="sub-container-one">
                     <p class="header-title">
@@ -93,50 +139,59 @@
 
     <section style="display: none" id="registerForm">
         <div class="custom-container-two">
-            <div class="container-inside-two" >
-                <img style="width: 100%; height: 65%"  src="assets/img/rent-img.jpg" alt="image of car"/>
+            <div class="container-inside-two">
+                <img style="width: 100%; height: 65%" src="assets/img/rent-img.jpg" alt="image of car"/>
             </div>
             <div class="container-inside-one">
-                <div class="container-title" >
+                <div class="container-title">
                     <h3 class="fw-bold ">
                         REGISTRATION FORM
                     </h3>
                 </div>
                 <div class="sub-container">
-                    <div class="box-row-one" >
+                    <div class="box-row-one">
                         <div class="detail-container ">
                             <div class="form-floating w-100">
-                                <input style="height: 10%;" type="text" class="form-control border-secondary" id="register-form-name" placeholder="kamal Perera">
+                                <input style="height: 10%;" type="text" class="form-control border-secondary"
+                                       id="register-form-name" placeholder="kamal Perera">
                                 <label for="register-form-name">Full Name</label>
                             </div>
                             <div class="form-floating w-100">
-                                <input type="text" class="form-control border-secondary" id="register-form-nic" placeholder="212006300336">
+                                <input type="text" class="form-control border-secondary" id="register-form-nic"
+                                       placeholder="212006300336">
                                 <label for="register-form-nic">NIC No</label>
                             </div>
                             <div class="form-floating w-100">
-                                <input type="email" class="form-control border-secondary" id="register-form-email" placeholder="name@example.com">
+                                <input type="email" class="form-control border-secondary" id="register-form-email"
+                                       placeholder="name@example.com">
                                 <label for="register-form-email">Email </label>
                             </div>
                             <div class="form-floating w-100">
-                                <input type="number" class="form-control border-secondary" id="register-form-mobile" placeholder="0771257878">
+                                <input type="number" class="form-control border-secondary" id="register-form-mobile"
+                                       placeholder="0771257878">
                                 <label for="register-form-mobile">Mobile</label>
-                            </div>   <div class="form-floating w-100">
-                                <input type="date" class="form-control border-secondary" id="register-form-date" placeholder="2020-05-12">
+                            </div>
+                            <div class="form-floating w-100">
+                                <input type="date" class="form-control border-secondary" id="register-form-date"
+                                       placeholder="2020-05-12">
                                 <label for="register-form-date">Date</label>
                             </div>
                         </div>
-                        <div class="detail-container" >
+                        <div class="detail-container">
 
                             <div class="form-floating w-100  ">
-                                <input type="text" class="form-control border-secondary" id="register-form-address" placeholder="Panadura">
+                                <input type="text" class="form-control border-secondary" id="register-form-address"
+                                       placeholder="Panadura">
                                 <label for="register-form-address">Address</label>
                             </div>
                             <div class="form-floating w-100">
-                                <input type="text" class="form-control border-secondary" id="register-form-user-name" placeholder="Kamal">
+                                <input type="text" class="form-control border-secondary" id="register-form-user-name"
+                                       placeholder="Kamal">
                                 <label for="register-form-user-name">User Name</label>
                             </div>
-                            <div class="form-floating w-100" >
-                                <input type="password" class="form-control border-secondary" id="register-form-password" placeholder="Password">
+                            <div class="form-floating w-100">
+                                <input type="password" class="form-control border-secondary" id="register-form-password"
+                                       placeholder="Password">
                                 <label for="register-form-password">Password</label>
                             </div>
                             <div class="w-100">
@@ -145,12 +200,13 @@
                             </div>
                             <div class=" w-100">
                                 <label for="register-form-License-image" class="form-label">License Image</label>
-                                <input class="form-control border-secondary" type="file" id="register-form-License-image">
+                                <input class="form-control border-secondary" type="file"
+                                       id="register-form-License-image">
                             </div>
 
                         </div>
                     </div>
-                    <div class="box-row-two" >
+                    <div class="box-row-two">
                         <button type="button" class="btn btn-dark register-form-btn">Register</button>
 
 
@@ -162,22 +218,24 @@
 
     </section>
 
-    <section id="loginPage">
-        <div class="login-container" >
-            <div class="login-inside-container-one" >
+    <section style="display: none" id="loginPage">
+        <div class="login-container">
+            <div class="login-inside-container-one">
                 <div class="login-container-title">
-                    <h3 style="font-weight: bold;" >
+                    <h3 style="font-weight: bold;">
                         Login
                     </h3>
                 </div>
-                <div class="login-sub-container" >
+                <div class="login-sub-container">
                     <div class="login-box-row-one">
                         <div class="form-floating w-100">
-                            <input type="text" class="form-control border-secondary" id="login-page-user-name" placeholder="Kamal">
+                            <input type="text" class="form-control border-secondary" id="login-page-user-name"
+                                   placeholder="Kamal">
                             <label for="login-page-user-name">User Name</label>
                         </div>
-                        <div class="form-floating w-100 mt-3" >
-                            <input type="password" class="form-control border-secondary " id="login-page-password" placeholder="Password">
+                        <div class="form-floating w-100 mt-3">
+                            <input type="password" class="form-control border-secondary " id="login-page-password"
+                                   placeholder="Password">
                             <label for="login-page-password">Password</label>
                         </div>
                     </div>
@@ -199,15 +257,182 @@
         </div>
 
     </section>
-    <!-- <section id="customer">
-       <div>
-           <h1>
-               Hellow
-           </h1>
-       </div>
-   </section>
-   <section id="driver"></section>
-   <section id="admin"></section>-->
+
+    <section style="display:block;" id="customer">
+
+        <section style="display: none" id="customerHome">
+            <div class="customer-home-container" >
+                <div class="customer-home-container-one" >
+                    <div class="customer-home-sub-container-one">
+                        <p class="fs-1 fw-bold text-light">Why Are You Waiting ? <br/> Plan Your Trip Now </p>
+                        <div class="customer-home-detail-container" >
+                            <div  class="form-floating w-75 mt-4 bg-red" >
+                                <input type="date"  class="form-control border-secondary " id="customer-home-pickup"
+                                       placeholder="2020-05-12">
+                                <label for="register-form-date">Date</label>
+                            </div>
+                            <div class="form-floating w-75 mt-3 ">
+                            <input type="date"  class="form-control border-secondary" id="customer-home-return"
+                                   placeholder="2020-05-12">
+                            <label for="register-form-date" >Date</label>
+                            <button type="button" style="width: 100% " class="btn bg-black text-light register-form-btn mt-4 ">Register</button>
+                        </div>
+
+                        </div>
+                    </div>
+                    <div class="customer-home-sub-container-two">
+                        <p class="fs-1 fw-bold text-light">Great Car Hire Deals</p>
+                        <h4 style=" color: #545454" >A car rental,hire car or car hire agency is a company <br/>that rents automobiles for short periods of time,generally <br/>  raging from a few hours to a few weeks</h4>
+                        <img class="customer-home-background-image"  src="assets/img/black-car.png" alt="audi car">
+                    </div>
+                </div>
+                <div class="customer-home-container-two" >
+                    <div class="customer-home-div-one">
+                        <p class="fs-1 fw-bold text-black">Available Cars</p>
+                    </div>
+                    <div class="customer-home-main-two" >
+                        <div class="customer-home-div" ></div>
+                        <div class="customer-home-div"></div>
+                        <div class="customer-home-div" ></div>
+                        <div class="customer-home-div" ></div>
+                        <div class="customer-home-div" ></div>
+                        <div class="customer-home-div" ></div></div>
+                    <div class="customer-home-div-one" >
+                        <button type="button" class="btn btn-light me-1" >
+                            <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-light ms-1">
+                            <i class="fa-solid fs-2 fa-circle-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section style="display: none" id="customerReservation">
+
+            <div class="customer-res-container" >
+                <div class="customer-res-sub__container">
+                    <div>
+                        <button class="btn btn-outline-dark fs-5"> Previous Reservation</button>
+                        <button style="margin-left: 20px" class="btn btn-outline-dark fs-5"> Upcoming Reservation</button>
+
+                    </div>
+                    <div class="customer-res-detail__container">
+
+                    </div>
+                    <div style="margin-top: 40px">
+                        <button type="button" class="btn btn-light me-1" >
+                            <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-light ms-1">
+                            <i class="fa-solid fs-2 fa-circle-arrow-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="customerProfile">
+            <div class="customer-pro-container" >
+                <p class="fs-2 fw-bold text-black border-5 border-dark" >Update Profile</h2>
+                <div class="customer-pro-sub-container">
+                    <div class="customer-pro-detail-container-one">
+                        <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn mt-5">Information</button>
+                        <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn">Password</button>
+
+                    </div>
+                    <div class="customer-pro-detail-container-two">
+                        <div class="customer-pro-box">
+                            <div class="customer-pro-box-row-one">
+                                <div class="customer-pro-detail-container">
+                                    <div class="form-floating w-100">
+                                        <input style="height: 10%;" type="text" class="form-control border-secondary"
+                                               id="customer-profile-name" placeholder="kamal Perera">
+                                        <label for="customer-profile-name">Full Name</label>
+                                    </div>
+                                    <div class="form-floating w-100">
+                                        <input type="text" class="form-control border-secondary" id="customer-profile-nic"
+                                               placeholder="212006300336">
+                                        <label for="customer-profile-nic">NIC No</label>
+                                    </div>
+                                    <div class="form-floating w-100">
+                                        <input type="email" class="form-control border-secondary" id="customer-profile-email"
+                                               placeholder="name@example.com">
+                                        <label for="customer-profile-email">Email </label>
+                                    </div>
+                                    <div class="form-floating w-100">
+                                        <input type="number" class="form-control border-secondary" id="customer-profile-mobile"
+                                               placeholder="0771257878">
+                                        <label for="customer-profile-mobile">Mobile</label>
+                                    </div>
+                                </div>
+                                <div class="customer-pro-detail-container">
+                                    <div class="form-floating w-100  ">
+                                        <input type="text" class="form-control border-secondary" id="customer-profile-address"
+                                               placeholder="Panadura">
+                                        <label for="customer-profile-address">Address</label>
+
+
+                                        <div class="w-100">
+                                            <label for="register-form-NIC-image" class="form-label ">NIC Image</label>
+                                            <input class="form-control border-secondary" type="file" id="customer-profile-NIC-image">
+                                        </div>
+                                        <div class=" w-100">
+                                            <label for="register-form-License-image" class="form-label">License Image</label>
+                                            <input class="form-control border-secondary" type="file"
+                                                   id="customer-profile-License-image">
+                                        </div>
+                                   <!-- <Button style={{width:'80%',marginBottom:'10px',background:'#515151'}}
+                                            variant="contained"
+                                            component="label"
+                                            color={'warning'}
+                                    >
+                                        Upload NIC
+                                        <input
+                                                type="file"
+                                                hidden
+                                        />
+                                    </Button>
+                                    <Button style={{width:'80%',marginBottom:'10px',background:'#515151'}}
+                                            variant="contained"
+                                            component="label"
+                                            color={'warning'}
+
+                                    >
+                                        Upload License
+                                        <input
+                                                type="file"
+                                                hidden
+                                        />
+                                    </Button>
+-->
+
+                                </div>
+                            </div>
+                            <div class="customer-pro-box-row-two">
+                                <Button sx={{fontSize:'large',width:'20%',background:'black'}} variant={'contained'} size={'medium'}>Save</Button>
+                            </div>
+                        </div>
+                        <div style={{marginBottom:'100px',marginRight:'150px',display:'none'}}>
+                            <h2 style={{color:'black'}}>Change Password</h2>
+                            <TextField style={{width:'100%',marginTop:'30px'}} id="outlined-basic" label="Full Name" variant="outlined" />
+                            <TextField style={{width:'100%',marginTop:'30px'}} id="outlined-basic" label="NIC No" variant="outlined" />
+                            <Button sx={{fontSize:'large',width:'20%',background:'#B22D2B',marginTop:'30px'}} variant={'contained'} size={'medium'}>Change</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <!--
+<section id="driver"></section>
+<section id="admin"></section>-->
 </main>
 
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>

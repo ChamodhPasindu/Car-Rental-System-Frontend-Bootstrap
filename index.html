@@ -17,60 +17,56 @@
 </head>
 <body>
 
-<main>
-
-    <header>
-        <nav style="display: none" id="landingNavbar" class="navbar navbar-expand-lg bg-red">
-            <div class="container-fluid">
-                <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
-                <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
-                <div class="collapse navbar-collapse" >
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    </ul>
-                    <span class="navbar-text me-5">
+<header>
+    <nav style="display: none" id="landingNavbar" class="navbar navbar-expand-lg bg-red">
+        <div class="container-fluid">
+            <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
+            <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                </ul>
+                <span class="navbar-text me-5">
                    <button class="btn btn-dark fs-6 btn-radius fw-bold " type="submit">LOGIN</button>
                        </span>
-                </div>
-
             </div>
-        </nav>
 
+        </div>
+    </nav>
 
-        <nav style="display: block" id="customerNavbar" class="navbar navbar-expand-lg bg-custom-black ">
-            <div class="container-fluid">
-                <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
-                <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
+    <nav style="display: block" id="customerNavbar" class="navbar navbar-expand-lg bg-custom-black ">
+        <div class="container-fluid">
+            <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
+            <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                        <li class="nav-item">
-                            <button id="dashboardBtn" class="bg-transparent fw-bold border-0">
-                                <a class="nav-link text-secondary fs-5 me-3 ">Home</a>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button id="orderBtn" class="bg-transparent fw-bold border-0">
-                                <a class="nav-link text-secondary fs-5 me-3 ">Reservation</a>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button id="itemBtn" class="bg-transparent fw-bold border-0">
-                                <a class="nav-link text-secondary fs-5 me-3">My Account</a>
-                            </button>
-                        </li>
-                    </ul>
-                    <span class="navbar-text me-5">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <button id="dashboardBtn" class="bg-transparent fw-bold border-0">
+                            <a class="nav-link text-secondary fs-5 me-3 ">Home</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="orderBtn" class="bg-transparent fw-bold border-0">
+                            <a class="nav-link text-secondary fs-5 me-3 ">Reservation</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="itemBtn" class="bg-transparent fw-bold border-0">
+                            <a class="nav-link text-secondary fs-5 me-3">My Account</a>
+                        </button>
+                    </li>
+                </ul>
+                <span class="navbar-text me-5">
 
                     <button type="button" class="btn btn-outline-danger fw-bold btn-radius">Log Out</button>
                        </span>
-                </div>
-
             </div>
-        </nav>
 
+        </div>
+    </nav>
+</header>
 
-    </header>
-
+<main>
 
     <section style="display:none" id="landingPage">
         <div class="custom-container-one">
@@ -260,45 +256,111 @@
 
     <section style="display:block;" id="customer">
 
-        <section style="display: none" id="customerHome">
-            <div class="customer-home-container" >
-                <div class="customer-home-container-one" >
+        <section style="display: block" id="customerHome">
+            <div class="customer-home-container">
+                <div class="customer-home-container-one">
                     <div class="customer-home-sub-container-one">
-                        <p class="fs-1 fw-bold text-light">Why Are You Waiting ? <br/> Plan Your Trip Now </p>
-                        <div class="customer-home-detail-container" >
-                            <div  class="form-floating w-75 mt-4 bg-red" >
-                                <input type="date"  class="form-control border-secondary " id="customer-home-pickup"
+                        <p class="fs-1 fw-bold text-light mb-5">Why Are You Waiting ? <br/> Plan Your Trip Now </p>
+                        <div class="customer-home-detail-container">
+                            <div class="form-floating w-75 mt-4 bg-red">
+                                <input type="date" class="form-control border-secondary " id="customer-home-pickup"
                                        placeholder="2020-05-12">
                                 <label for="register-form-date">Date</label>
                             </div>
                             <div class="form-floating w-75 mt-3 ">
-                            <input type="date"  class="form-control border-secondary" id="customer-home-return"
-                                   placeholder="2020-05-12">
-                            <label for="register-form-date" >Date</label>
-                            <button type="button" style="width: 100% " class="btn bg-black text-light register-form-btn mt-4 ">Register</button>
-                        </div>
+                                <input type="date" class="form-control border-secondary" id="customer-home-return"
+                                       placeholder="2020-05-12">
+                                <label for="register-form-date">Date</label>
+                                <button type="button" style="width: 100% "
+                                        class="btn bg-black text-light register-form-btn mt-4 ">Register
+                                </button>
+                            </div>
 
                         </div>
                     </div>
                     <div class="customer-home-sub-container-two">
                         <p class="fs-1 fw-bold text-light">Great Car Hire Deals</p>
-                        <h4 style=" color: #545454" >A car rental,hire car or car hire agency is a company <br/>that rents automobiles for short periods of time,generally <br/>  raging from a few hours to a few weeks</h4>
-                        <img class="customer-home-background-image"  src="assets/img/black-car.png" alt="audi car">
+                        <h4 style=" color: #545454">A car rental,hire car or car hire agency is a company <br/>that
+                            rents automobiles for short periods of time,generally <br/> raging from a few hours to a few
+                            weeks</h4>
+                        <img class="customer-home-background-image" src="assets/img/black-car.png" alt="audi car">
                     </div>
                 </div>
-                <div class="customer-home-container-two" >
+                <div class="customer-home-container-two">
                     <div class="customer-home-div-one">
                         <p class="fs-1 fw-bold text-black">Available Cars</p>
                     </div>
-                    <div class="customer-home-main-two" >
-                        <div class="customer-home-div" ></div>
-                        <div class="customer-home-div"></div>
-                        <div class="customer-home-div" ></div>
-                        <div class="customer-home-div" ></div>
-                        <div class="customer-home-div" ></div>
-                        <div class="customer-home-div" ></div></div>
-                    <div class="customer-home-div-one" >
-                        <button type="button" class="btn btn-light me-1" >
+                    <div class="customer-home-main-two">
+                        <div class="card custom-card ">
+                            <img src="assets/img/black-car.png" style="height: 35%;width: 85%; display: block;margin-right: auto;margin-left:auto;margin-top: 3%"  alt="...">
+                            <div class="card-body">
+                                <h8>Luxury</h8>
+                                <h3 class="card-title">Mercedes Benz</h3>
+                                <br>
+                                <h5 style="text-align:left;float:left;">Daily</h5>
+                                <h5 style="text-align:right;float:right;color:red;">RS:5200</h5>
+                                <br style="clear:both;">
+                                <h5 style="text-align:left;float:left;" >Monthly</h5>
+                                <h5 style="text-align:right;float:right;color:red;">RS:5200</h5>
+
+                                <hr style="clear:both;"/>
+                                <h5 style="text-align:left;float:left;" >
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <h5 style="text-align:right;float:right;">
+                                    <i class="fa-solid fs-3 mt-2 me-1 text-secondary fa-car-rear"></i>Auto</h5>
+                                <br style="clear:both;">
+                                <a style="display: block;width: 100%;;margin-left: auto;margin-right: auto;" class="btn btn-dark mt-4">Book Now</a>
+                            </div>
+                        </div>
+                        <div class="card custom-card">
+                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="card custom-card" >
+                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="card custom-card" >
+                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="card custom-card" >
+                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        <div class="card custom-card" >
+                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="customer-home-div-one">
+                        <button type="button" class="btn btn-light me-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
                         </button>
                         <button type="button" class="btn btn-light ms-1">
@@ -313,18 +375,19 @@
 
         <section style="display: none" id="customerReservation">
 
-            <div class="customer-res-container" >
+            <div class="customer-res-container">
                 <div class="customer-res-sub__container">
                     <div>
                         <button class="btn btn-outline-dark fs-5"> Previous Reservation</button>
-                        <button style="margin-left: 20px" class="btn btn-outline-dark fs-5"> Upcoming Reservation</button>
+                        <button style="margin-left: 20px" class="btn btn-outline-dark fs-5"> Upcoming Reservation
+                        </button>
 
                     </div>
                     <div class="customer-res-detail__container">
 
                     </div>
                     <div style="margin-top: 40px">
-                        <button type="button" class="btn btn-light me-1" >
+                        <button type="button" class="btn btn-light me-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
                         </button>
                         <button type="button" class="btn btn-light ms-1">
@@ -337,17 +400,21 @@
 
         </section>
 
-        <section id="customerProfile">
-            <div class="customer-pro-container" >
-                <p class="fs-2 fw-bold text-black border-5 border-dark" >Update Profile</h2>
+        <section style="display: none" id="customerProfile">
+            <div class="customer-pro-container">
+                <p class="fs-2 fw-bold text-black border-5 border-dark">Update Profile</p>
                 <div class="customer-pro-sub-container">
                     <div class="customer-pro-detail-container-one">
-                        <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn mt-5">Information</button>
-                        <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn">Password</button>
+                        <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn mt-5">
+                            Information
+                        </button>
+                        <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn">Password
+                        </button>
 
                     </div>
+
                     <div class="customer-pro-detail-container-two">
-                        <div class="customer-pro-box">
+                        <div style="display: block" class="customer-pro-box">
                             <div class="customer-pro-box-row-one">
                                 <div class="customer-pro-detail-container">
                                     <div class="form-floating w-100">
@@ -356,74 +423,68 @@
                                         <label for="customer-profile-name">Full Name</label>
                                     </div>
                                     <div class="form-floating w-100">
-                                        <input type="text" class="form-control border-secondary" id="customer-profile-nic"
+                                        <input type="text" class="form-control border-secondary"
+                                               id="customer-profile-nic"
                                                placeholder="212006300336">
                                         <label for="customer-profile-nic">NIC No</label>
                                     </div>
                                     <div class="form-floating w-100">
-                                        <input type="email" class="form-control border-secondary" id="customer-profile-email"
+                                        <input type="email" class="form-control border-secondary"
+                                               id="customer-profile-email"
                                                placeholder="name@example.com">
                                         <label for="customer-profile-email">Email </label>
                                     </div>
                                     <div class="form-floating w-100">
-                                        <input type="number" class="form-control border-secondary" id="customer-profile-mobile"
+                                        <input type="number" class="form-control border-secondary"
+                                               id="customer-profile-mobile"
                                                placeholder="0771257878">
                                         <label for="customer-profile-mobile">Mobile</label>
                                     </div>
                                 </div>
-                                <div class="customer-pro-detail-container">
-                                    <div class="form-floating w-100  ">
-                                        <input type="text" class="form-control border-secondary" id="customer-profile-address"
+                                <div class="customer-pro-detail-container mt-2 ">
+                                    <div class="form-floating w-100">
+                                        <input type="text" class="form-control border-secondary"
+                                               id="customer-profile-address"
                                                placeholder="Panadura">
                                         <label for="customer-profile-address">Address</label>
+                                    </div>
 
-
-                                        <div class="w-100">
-                                            <label for="register-form-NIC-image" class="form-label ">NIC Image</label>
-                                            <input class="form-control border-secondary" type="file" id="customer-profile-NIC-image">
-                                        </div>
-                                        <div class=" w-100">
-                                            <label for="register-form-License-image" class="form-label">License Image</label>
-                                            <input class="form-control border-secondary" type="file"
-                                                   id="customer-profile-License-image">
-                                        </div>
-                                   <!-- <Button style={{width:'80%',marginBottom:'10px',background:'#515151'}}
-                                            variant="contained"
-                                            component="label"
-                                            color={'warning'}
-                                    >
-                                        Upload NIC
-                                        <input
-                                                type="file"
-                                                hidden
-                                        />
-                                    </Button>
-                                    <Button style={{width:'80%',marginBottom:'10px',background:'#515151'}}
-                                            variant="contained"
-                                            component="label"
-                                            color={'warning'}
-
-                                    >
-                                        Upload License
-                                        <input
-                                                type="file"
-                                                hidden
-                                        />
-                                    </Button>
--->
+                                    <div class="w-100 mb-3 mt-3">
+                                        <label for="register-form-NIC-image" class="form-label ">NIC Image</label>
+                                        <input class="form-control border-secondary" type="file"
+                                               id="customer-profile-NIC-image">
+                                    </div>
+                                    <div class="w-100 mb-5">
+                                        <label for="register-form-License-image" class="form-label">License
+                                            Image</label>
+                                        <input class="form-control border-secondary" type="file"
+                                               id="customer-profile-License-image">
+                                    </div>
 
                                 </div>
                             </div>
                             <div class="customer-pro-box-row-two">
-                                <Button sx={{fontSize:'large',width:'20%',background:'black'}} variant={'contained'} size={'medium'}>Save</Button>
+                                <button type="button" class="btn btn-dark register-form-btn mt-5 w-25">Save</button>
+
                             </div>
-                        </div>
-                        <div style={{marginBottom:'100px',marginRight:'150px',display:'none'}}>
-                            <h2 style={{color:'black'}}>Change Password</h2>
-                            <TextField style={{width:'100%',marginTop:'30px'}} id="outlined-basic" label="Full Name" variant="outlined" />
-                            <TextField style={{width:'100%',marginTop:'30px'}} id="outlined-basic" label="NIC No" variant="outlined" />
-                            <Button sx={{fontSize:'large',width:'20%',background:'#B22D2B',marginTop:'30px'}} variant={'contained'} size={'medium'}>Change</Button>
-                        </div>
+                        </div><!--Display block Information of customer-->
+
+                        <div style="display:none;margin-right:200px ">
+                            <h2 class="text-black mb-5">Change Password</h2>
+                            <div style="width: 450px; margin-bottom: 20px;" class="form-floating ">
+                                <input type="text" class="form-control border-secondary" id="customer-profile-user-name"
+                                       placeholder="Kamal">
+                                <label for="customer-profile-user-name">User Name</label>
+                            </div>
+                            <div class="form-floating w-100">
+                                <input type="password" class="form-control border-secondary"
+                                       id="customer-profile-password"
+                                       placeholder="Password">
+                                <label for="customer-profile-password">Password</label>
+                            </div>
+                            <button type="button" class="btn btn-dark register-form-btn mt-5 w-20">Change</button>
+
+                        </div><!--Display block change Password of customer-->
                     </div>
                 </div>
             </div>

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Easy Car Rental</title>
+
+    <link rel="icon" href="assets/img/car.png">
     <link rel="stylesheet" href="assets/font/css/all.css">
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -36,7 +38,7 @@
     <nav style="display: block" id="customerNavbar" class="navbar navbar-expand-lg bg-custom-black ">
         <div class="container-fluid">
             <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
-            <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
+            <a class="navbar-brand fw-bolder fs-1 text-light me-5">ECR .</a>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
@@ -75,11 +77,85 @@
                     <p class="header-title">
                         DRIVE A NEW <br/>
                         CAR EVERY MONTH. <br/>
-                    </p>
+                    </p >
+                    <h2 style="color:white;" >
+                        FIND THE BEST
+                        CAR FOR YOU
+                    </h2>
                     <button type="button" class="btn btn-dark register-btn-landing">Get Started</button>
                 </div>
                 <div class="sub-container-two">
                     <img class="background-image" src="assets/img/bmw%20i8%20red%201.png" alt="bmw"/>
+                </div>
+            </div>
+            <div class="container-side-one ">
+                <div style=" height: 5%;margin-bottom: 1%">  <p class="fs-2 fw-bold mt-3 text-black">Today Available Cars</p></div>
+                <div class="home-car-detail">
+                    <div class="card landing-custom-card ">
+                        <img src="assets/img/bmw%20i8%20red%201.png" class="landing-custom-card-img" alt="...">
+                        <div class="card-body">
+                            <h8>Luxury</h8>
+                            <h3 class="card-title">Mercedes Benz</h3><br>
+                            <h5 class="custom-card-daily">Daily</h5>
+                            <h5 class="custom-card-price">RS:5200</h5>
+                            <br style="clear:both;">
+                            <h5 class="custom-card-daily">Monthly</h5>
+                            <h5 class="custom-card-price">RS:5200</h5>
+
+                            <hr style="clear:both;"/>
+                            <h5 class=" float-start ms-2">
+                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                            <h5 class="float-end me-2">
+                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                            <br style="clear:both;">
+                        </div>
+                    </div>
+                    <div class="card landing-custom-card ">
+                        <img src="assets/img/bmw%20i8%20red%201.png" class="landing-custom-card-img" alt="...">
+                        <div class="card-body">
+                            <h8>Luxury</h8>
+                            <h3 class="card-title">Mercedes Benz</h3><br>
+                            <h5 class="custom-card-daily">Daily</h5>
+                            <h5 class="custom-card-price">RS:5200</h5>
+                            <br style="clear:both;">
+                            <h5 class="custom-card-daily">Monthly</h5>
+                            <h5 class="custom-card-price">RS:5200</h5>
+
+                            <hr style="clear:both;"/>
+                            <h5 class=" float-start ms-2">
+                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                            <h5 class="float-end me-2">
+                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                            <br style="clear:both;">
+                        </div>
+                    </div>
+                    <div class="card landing-custom-card ">
+                        <img src="assets/img/bmw%20i8%20red%201.png" class="landing-custom-card-img" alt="...">
+                        <div class="card-body">
+                            <h8>Luxury</h8>
+                            <h3 class="card-title">Mercedes Benz</h3><br>
+                            <h5 class="custom-card-daily">Daily</h5>
+                            <h5 class="custom-card-price">RS:5200</h5>
+                            <br style="clear:both;">
+                            <h5 class="custom-card-daily">Monthly</h5>
+                            <h5 class="custom-card-price">RS:5200</h5>
+
+                            <hr style="clear:both;"/>
+                            <h5 class=" float-start ms-2">
+                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                            <h5 class="float-end me-2">
+                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                            <br style="clear:both;">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 1%;margin-top: 1%;">
+                    <button type="button" class="btn btn-light me-1">
+                        <i class="fa-solid fs-2 text-danger fa-circle-arrow-left"></i>
+                    </button>
+                    <button type="button" class="btn btn-light ms-1">
+                        <i class="fa-solid fs-2 text-danger fa-circle-arrow-right"></i>
+                    </button>
                 </div>
             </div>
             <div class="container-two">
@@ -272,7 +348,7 @@
                                        placeholder="2020-05-12">
                                 <label for="register-form-date">Date</label>
                                 <button type="button" style="width: 100% "
-                                        class="btn bg-black text-light register-form-btn mt-4 ">Register
+                                        class="btn bg-black text-light register-form-btn mt-4 ">Search Car
                                 </button>
                             </div>
 
@@ -288,78 +364,133 @@
                 </div>
                 <div class="customer-home-container-two">
                     <div class="customer-home-div-one">
-                        <p class="fs-1 fw-bold text-black">Available Cars</p>
+                        <p class="fs-1 fw-bold mt-4 text-black">Available Cars</p>
                     </div>
                     <div class="customer-home-main-two">
                         <div class="card custom-card ">
-                            <img src="assets/img/black-car.png" style="height: 35%;width: 85%; display: block;margin-right: auto;margin-left:auto;margin-top: 3%"  alt="...">
-                            <div class="card-body">
+                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                            <div class="card-body ">
                                 <h8>Luxury</h8>
-                                <h3 class="card-title">Mercedes Benz</h3>
-                                <br>
-                                <h5 style="text-align:left;float:left;">Daily</h5>
-                                <h5 style="text-align:right;float:right;color:red;">RS:5200</h5>
+                                <h3 class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
                                 <br style="clear:both;">
-                                <h5 style="text-align:left;float:left;" >Monthly</h5>
-                                <h5 style="text-align:right;float:right;color:red;">RS:5200</h5>
+                                <h5 class="custom-card-daily">Monthly</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
 
                                 <hr style="clear:both;"/>
-                                <h5 style="text-align:left;float:left;" >
+                                <h5 class=" float-start ms-2">
                                     <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
-                                <h5 style="text-align:right;float:right;">
-                                    <i class="fa-solid fs-3 mt-2 me-1 text-secondary fa-car-rear"></i>Auto</h5>
+                                <h5 class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
                                 <br style="clear:both;">
-                                <a style="display: block;width: 100%;;margin-left: auto;margin-right: auto;" class="btn btn-dark mt-4">Book Now</a>
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
                             </div>
                         </div>
-                        <div class="card custom-card">
-                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="card custom-card  ">
+                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                            <div class="card-body ">
+                                <h8>Luxury</h8>
+                                <h3 class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+                                <br style="clear:both;">
+                                <h5 class="custom-card-daily">Monthly</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+
+                                <hr style="clear:both;"/>
+                                <h5 class=" float-start ms-2">
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <h5 class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <br style="clear:both;">
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
                             </div>
                         </div>
-                        <div class="card custom-card" >
-                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="card custom-card  ">
+                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                            <div class="card-body ">
+                                <h8>Luxury</h8>
+                                <h3 class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+                                <br style="clear:both;">
+                                <h5 class="custom-card-daily">Monthly</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+
+                                <hr style="clear:both;"/>
+                                <h5 class=" float-start ms-2">
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <h5 class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <br style="clear:both;">
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
                             </div>
                         </div>
-                        <div class="card custom-card" >
-                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="card custom-card  ">
+                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                            <div class="card-body ">
+                                <h8>Luxury</h8>
+                                <h3 class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+                                <br style="clear:both;">
+                                <h5 class="custom-card-daily">Monthly</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+
+                                <hr style="clear:both;"/>
+                                <h5 class=" float-start ms-2">
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <h5 class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <br style="clear:both;">
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
                             </div>
                         </div>
-                        <div class="card custom-card" >
-                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="card custom-card ">
+                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                            <div class="card-body ">
+                                <h8>Luxury</h8>
+                                <h3 class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+                                <br style="clear:both;">
+                                <h5 class="custom-card-daily">Monthly</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+
+                                <hr style="clear:both;"/>
+                                <h5 class=" float-start ms-2">
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <h5 class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <br style="clear:both;">
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
                             </div>
                         </div>
-                        <div class="card custom-card" >
-                            <img src="assets/img/black-car.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="card custom-card ">
+                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                            <div class="card-body ">
+                                <h8>Luxury</h8>
+                                <h3 class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+                                <br style="clear:both;">
+                                <h5 class="custom-card-daily">Monthly</h5>
+                                <h5 class="custom-card-price">RS:5200</h5>
+
+                                <hr style="clear:both;"/>
+                                <h5 class=" float-start ms-2">
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <h5 class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <br style="clear:both;">
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
                             </div>
                         </div>
 
+
                     </div>
-                    <div class="customer-home-div-one">
+                    <div  class="customer-home-div-one">
                         <button type="button" class="btn btn-light me-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
                         </button>
@@ -378,15 +509,46 @@
             <div class="customer-res-container">
                 <div class="customer-res-sub__container">
                     <div>
-                        <button class="btn btn-outline-dark fs-5"> Previous Reservation</button>
-                        <button style="margin-left: 20px" class="btn btn-outline-dark fs-5"> Upcoming Reservation
+                        <button class="btn btn-outline-dark fs-5"> Upcoming Reservation</button>
+                        <button style="display:none;margin-left: 20px" class="btn btn-outline-dark fs-5"> Previous
+                            Reservation
                         </button>
 
                     </div>
                     <div class="customer-res-detail__container">
+                        <div class="card text-bg-light border-radius-shadow w-50" style="height: 80%;">
+                            <div class="card-header border-2 fw-bold">Reservation Status<span
+                                    class=" ms-3 text-success fw-bold">ACTIVE</span></div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title text-center fw-bolder">Reservation ID : <span>RID-00001</span>
+                                </h5>
+                                <br>
+                                <p class="card-title fs-5 fw-bold">Name : <span>Chamodh Pasindu</span></p>
+                                <p class="card-title fs-5 fw-bold">Vehicle No : <span>CDB-2112</span></p>
+                                <p class="card-title fs-5 fw-bold">Pickup venue : <span>Panadura</span></p>
+                                <p class="card-title fs-5 fw-bold">pickup Time : <span>14:30PM</span></p>
+                                <p class="card-title fs-5 fw-bold">Pickup Date : <span>2022-01-01</span></p>
+                                <p class="card-title fs-5 fw-bold">Return Date : <span>2022-01-05</span></p>
+                                <p class="card-title fs-5 fw-bold">No Of Days : <span>5</span></p>
 
+                            </div>
+                        </div>
+                        <div class="card text-bg-light border-radius-shadow w-25" style="margin-right: 5%;height: 80%">
+                            <div class="card-header fw-bold">Driver Status <span
+                                    class="ms-3 text-success fw-bold">YES</span></div>
+                            <div class="card-body">
+                                <h5 class="card-title text-center fw-bolder">Driver ID : <span>200006300336</span></h5>
+                                <br>
+                                <p class="card-title fs-5 fw-bold">Name : <span>Tharindu Lakruwan</span></p>
+                                <p class="card-title fs-5 fw-bold">License No : <span>15789752</span></p>
+                                <p class="card-title fs-5 fw-bold">Join Date : <span>2018-08-08</span></p>
+                                <p class="card-title fs-5 fw-bold">Mobile : <span>0788706233</span></p>
+
+
+                            </div>
+                        </div>
                     </div>
-                    <div style="margin-top: 40px">
+                    <div style="">
                         <button type="button" class="btn btn-light me-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
                         </button>
@@ -403,7 +565,7 @@
         <section style="display: none" id="customerProfile">
             <div class="customer-pro-container">
                 <p class="fs-2 fw-bold text-black border-5 border-dark">Update Profile</p>
-                <div class="customer-pro-sub-container">
+                <div class="customer-pro-sub-container border-radius-shadow">
                     <div class="customer-pro-detail-container-one">
                         <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn mt-5">
                             Information

@@ -2,7 +2,7 @@
 .custom-container-one {
     display: flex;
     flex-wrap: wrap;
-    height: 80vh;
+    height: 600px;
     justify-content: center;
 }
 
@@ -15,6 +15,41 @@
     height: 100%;
     background: #B22D2B;
 }
+.container-side-one{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 700px;
+    justify-content: center;
+    align-items: center;
+    border-bottom:3px solid gray;
+}
+.home-car-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95%;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.landing-custom-card {
+    width: 350px;
+    height: 90%;
+    margin-right: 2%;
+    margin-left: 2%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px #9E9E9E;;
+}
+.landing-custom-card-img {
+    height: 45%;
+    width: 300px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 3%
+}
+
 
 .container-two {
     display: flex;
@@ -62,24 +97,30 @@
     width: 600px;
     height: 100%;
     position: relative;
+    margin-bottom: 70px;
 }
 
 .sub-container-two {
     display: flex;
+    flex-direction: row;
     align-items: end;
     width: 700px;
     height: 100%;
+    margin-left: 80px;
 }
 
 .header-title {
     color: #FFFFFF;
     font-size: 50px;
     font-weight: bolder;
+    margin-bottom: 50px;
 }
 
 
 .background-image {
     height: 400px;
+    margin-bottom: 50px;
+
 }
 
 .paragraph {
@@ -105,8 +146,8 @@ h2 {
     color: white;
     background: #1E1E1E;
     border-radius: 10px;
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 50px;
     font-weight: bolder;
-    width: 80%
+    width: 60%
 }

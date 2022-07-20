@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assets/style/customerPage.css">
     <link rel="stylesheet" href="assets/style/customerReservation.css">
     <link rel="stylesheet" href="assets/style/customerAccount.css">
+    <link rel="stylesheet" href="assets/style/adminDashboard.css">
 
 </head>
 <body>
@@ -60,13 +61,53 @@
                     </li>
                 </ul>
                 <span class="navbar-text me-5">
-
                     <button type="button" class="btn btn-outline-danger fw-bold btn-radius">Log Out</button>
                        </span>
             </div>
 
         </div>
     </nav>
+<!--
+    <nav style="display: block;width: 100%;height: 10% " id="AdminNavbar" class="navbar navbar-expand-lg bg-custom-black position-absolute">
+        <div style="height: 110%" class="container-fluid ">
+            <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
+            <a class="navbar-brand fw-bolder fs-1 text-light me-5">ECR .</a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <button id="dashboardBtn" class="bg-transparent fw-bold border-0">
+                            <a class="nav-link text-secondary fs-5 me-3 ">Dashboard</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="orderBtn" class="bg-transparent fw-bold border-0">
+                            <a class="nav-link text-secondary fs-5 me-3 ">Reservations</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="itemBtn" class="bg-transparent fw-bold border-0">
+                            <a class="nav-link text-secondary fs-5 me-3">Cars</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="itemBtn" class="bg-transparent fw-bold border-0">
+                            <a class="nav-link text-secondary fs-5 me-3">Drivers</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="itemBtn" class="bg-transparent fw-bold border-0">
+                            <a class="nav-link text-secondary fs-5 me-3">Customers</a>
+                        </button>
+                    </li>
+                </ul>
+                <span class="navbar-text me-5">
+                    <button type="button" class="btn btn-outline-danger fw-bold btn-radius">Log Out</button>
+                       </span>
+            </div>
+
+        </div>
+    </nav>-->
 
     <nav style="display: none" id="driverNavBar" class="navbar navbar-expand-lg bg-custom-black">
         <div class="container-fluid">
@@ -525,7 +566,8 @@
                                     <div class="modal-body">
 
                                         <!-----------------------------Image Slider----------------------->
-                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                        <div id="carouselExampleControls" class="carousel slide"
+                                             data-bs-ride="carousel">
                                             <div class="carousel-inner">
                                                 <div class="carousel-item active">
                                                     <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
@@ -540,11 +582,13 @@
                                                     <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                                 </div>
                                             </div>
-                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                            <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Previous</span>
                                             </button>
-                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                            <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Next</span>
                                             </button>
@@ -552,7 +596,7 @@
                                         <br>
                                         <!-----------------------------Model Body----------------------->
                                         <form id="customerForm">
-                                        <p class="text-center fs-3 fw-bold">Vehicle Details</p>
+                                            <p class="text-center fs-3 fw-bold">Vehicle Details</p>
                                             <hr style=" height: 2px; border: 1px solid black;">
 
                                             <div class="d-flex flex-wrap justify-content-around">
@@ -594,7 +638,8 @@
                                                     </div>
 
                                                     <div>
-                                                        <label class="col-form-label fw-bold">Price For Extra Km:</label>
+                                                        <label class="col-form-label fw-bold">Price For Extra
+                                                            Km:</label>
                                                         <p class="fs-5">RS:120</p>
                                                     </div>
 
@@ -626,7 +671,7 @@
                                                     </div>
                                                     <div>
                                                         <label class="col-form-label fw-bold">Free km For Day:</label>
-                                                        <p  class="fs-5">240km</p>
+                                                        <p class="fs-5">240km</p>
                                                     </div>
                                                     <div>
                                                         <label for="txtCusName"
@@ -636,7 +681,8 @@
                                                 </div>
                                                 <div style="width: 40%;">
                                                     <!-------------------Customer Details------------------->
-                                                    <p style="margin-left: 75%;width: 80%;margin-top: 5%" class="text-center fs-3 fw-bold">Reservation Details</p>
+                                                    <p style="margin-left: 75%;width: 80%;margin-top: 5%"
+                                                       class="text-center fs-3 fw-bold">Reservation Details</p>
                                                     <hr style=" height: 2px; border: 1px solid black;">
                                                     <br>
 
@@ -666,8 +712,11 @@
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
                                                     <div class="form-check form-switch mt-4">
-                                                        <input style="width: 40px;height: 20px" class="form-check-input me-3" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                                        <label  class="form-check-label fs-6 fw-bold mt-1" for="flexSwitchCheckDefault">Driver Status</label>
+                                                        <input style="width: 40px;height: 20px"
+                                                               class="form-check-input me-3" type="checkbox"
+                                                               role="switch" id="flexSwitchCheckDefault">
+                                                        <label class="form-check-label fs-6 fw-bold mt-1"
+                                                               for="flexSwitchCheckDefault">Driver Status</label>
                                                     </div>
                                                     <br>
 
@@ -697,7 +746,8 @@
                                                                placeholder="2020-05-12" disabled>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusSalary" class="col-form-label fw-bold ">No Of Days:</label>
+                                                        <label for="txtCusSalary" class="col-form-label fw-bold ">No Of
+                                                            Days:</label>
                                                         <input class="form-control mb-3" type="number" value="01"
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
@@ -920,7 +970,122 @@
         </div>
     </section>
 
-    <section id="admin"></section>
+    <section style="display: block" id="admin">
+        <section id="adminDashboard">
+            <div class="admin-dashboard-container position-fixed">
+                <div  class="admin-dashboard-menu-container">
+                    <h2 style="width: 90%;height: 8%;text-align: center;padding-top: 5%" class="d-flex justify-content-center align-content-center text-light bg-custom-black rounded-3 fw-bold mt-4 mb-4"><i class="fa-solid text-light fs-3 fa-car me-2 "></i> ECR .</h2>
+                    <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                        <i class="fa-solid fs-4 fa-gauge mt-1 me-3"></i>Dashboard</button>
+                    <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                        <i class="fa-solid fa-print mt-1 fs-4 me-3"></i>Reservation</button>
+                    <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                        <i class="fa-solid fa-car-side mt-1 fs-4 me-3"></i>Cars</button>
+                    <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                        <i class="fa-solid fa-users fs-4 mt-1 me-3"></i>Customers</button>
+                    <button class="btn btn-outline-dark border-0 fw-bold mb-5 w-75 d-flex justify-content-start  fs-5">
+                        <i class="fa-solid fa-id-card fs-4 me-3 mt-1"></i>Drivers</button>
+                    <button class="btn btn-outline-danger border-0 fw-bold mb-5 mt-5 w-75 d-flex justify-content-start  fs-5">
+                        <i class="fa-solid fa-power-off fs-4 me-3 mt-1"></i>Logout</button>
+                </div>
+
+                <div style="display: none" class="admin-dashboard-sub-container">
+                    <div class="row-1">
+                        <div  class="card text-primary mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
+                            <div style="font-size: 1vw" class="card-header fw-bold text-center">WEEKLY INCOME</div>
+                            <div class="card-body">
+                                <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
+                                <h6 style="font-size:2vw" class="card-text text-center ">100,000</h6>
+                            </div>
+                        </div>
+                        <div  class="card text-success mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
+                            <div style="font-size: 1vw" class="card-header fw-bold text-center">MONTHLY INCOME</div>
+                            <div class="card-body">
+                                <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
+                                <h6 style="font-size:2vw" class="card-text text-center ">100,000,000</h6>
+                            </div>
+                        </div>
+                        <div class="card text-warning mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
+                            <div style="font-size: 1vw" class="card-header fw-bold text-center">ANUALLY INCOME</div>
+                            <div class="card-body">
+                                <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
+                                <h6 style="font-size:2vw" class="card-text text-center ">100,000,000,000</h6>
+                            </div>
+                        </div>
+                        <div class="card  text-danger mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
+                            <div style="font-size: 1vw;" class="card-header fw-bold text-center">ANUALLY INCOME</div>
+                            <div class="card-body">
+                                <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
+                                <h6 style="font-size:2vw" class="card-text text-center ">100,000,000,000</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-2">
+                        <div  class="card  text-black mb-3 mt-3 border-radius-shadow" style="width: 20%;height: 70%">
+                            <div style="font-size: 1.1vw" class="card-header fw-bold text-center ">Available Cars</div>
+                            <div class="card-body">
+                                <h6 style="font-size: 2vw" class="card-title text-center text-success">50</h6>
+                            </div>
+                        </div> <div  class="card  text-black mb-3 mt-3 border-radius-shadow" style="width: 20%;height: 70%">
+                            <div style="font-size: 1.1vw" class="card-header fw-bold text-center ">Rental Cars</div>
+                            <div class="card-body">
+                                <h6 style="font-size: 2vw" class="card-title text-center text-danger">00</h6>
+                            </div>
+                        </div>
+                        <div  class="card  text-black mb-3 mt-3 border-radius-shadow" style="width: 20%;height: 70%; ">
+                            <div style="font-size: 1.1vw" class="card-header fw-bold text-center">Available Drivers</div>
+                            <div class="card-body">
+                                <h6 style="font-size: 2vw" class="card-title text-center text-success">40</h6>
+                            </div>
+                        </div>  <div  class="card  text-black mb-3 mt-3 border-radius-shadow" style="width: 20%;height: 70%; ">
+                            <div style="font-size: 1.1vw" class="card-header fw-bold text-center">Occupied Drivers</div>
+                            <div class="card-body">
+                                <h6 style="font-size: 2vw" class="card-title text-center text-danger">00</h6>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div  class="row-3 ">
+                        <div style="width: 45%;" class=" h-100 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
+                            <h5 class="text-center mt-1">Today Reservation</h5>
+
+                            <table class="table table-hover table-borderless table-dark ">
+                                <thead class="table-dark text-center">
+                                <tr>
+                                    <th scope="col">Reservation ID</th>
+                                    <th scope="col">Registration No</th>
+                                    <th scope="col">Customer ID</th>
+                                </tr>
+                                </thead>
+                                <tbody id="allOrderTable">
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="width: 45%;" class=" h-100 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
+                            <h5 class="text-center mt-1">Last Payments</h5>
+                            <table class="table table-hover table-borderless table-dark ">
+                                <thead class="table-dark text-center">
+                                <tr>
+                                    <th scope="col">Bill ID</th>
+                                    <th scope="col">ReserveI D</th>
+                                    <th scope="col">Pay Date</th>
+                                    <th scope="col">Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody id="allOrderTable">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="admin-dashboard-sub-container"></div>
+            </div>
+        </section>
+    </section>
 </main>
 
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>

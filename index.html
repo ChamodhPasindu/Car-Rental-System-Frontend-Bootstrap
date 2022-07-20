@@ -68,7 +68,7 @@
         </div>
     </nav>
 
-    <nav style="display: block" id="driverNavBar" class="navbar navbar-expand-lg bg-custom-black">
+    <nav style="display: none" id="driverNavBar" class="navbar navbar-expand-lg bg-custom-black">
         <div class="container-fluid">
             <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
             <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
@@ -348,7 +348,7 @@
 
     </section>
 
-    <section style="display:block;" id="customer">
+    <section style="display:none;" id="customer">
 
         <section style="display: block" id="customerHome">
             <div class="customer-home-container">
@@ -525,113 +525,124 @@
                                     <div class="modal-body">
 
                                         <!-----------------------------Image Slider----------------------->
-                                        <!--<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                                            <div class="carousel-indicators">
-                                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                            </div>
+                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                                             <div class="carousel-inner">
                                                 <div class="carousel-item active">
-                                                    <img src="assets/img/black-car.png" class="d-block w-50" alt="...">
+                                                    <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <img src="assets/img/bmw%20i8%20red%201.png" class="d-block w-50" alt="...">
+                                                    <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <img src="assets/img/black-car.png" class="d-block w-50" alt="...">
+                                                    <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                                 </div>
                                             </div>
-                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Previous</span>
                                             </button>
-                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="visually-hidden">Next</span>
                                             </button>
-                                        </div>-->
-
+                                        </div>
+                                        <br>
                                         <!-----------------------------Model Body----------------------->
                                         <form id="customerForm">
+                                        <p class="text-center fs-3 fw-bold">Vehicle Details</p>
+                                            <hr style=" height: 2px; border: 1px solid black;">
 
                                             <div class="d-flex flex-wrap justify-content-around">
-                                                <div style="width: 40%">
+                                                <div style="width: 30%;margin-left: 40px">
                                                     <div>
                                                         <label class="col-form-label fw-bold">Register No:</label>
-                                                        <p>CD-0909</p>
+                                                        <p class="fs-5">CD-0909</p>
                                                     </div>
                                                     <div>
                                                         <label for="txtCusName"
                                                                class="col-form-label fw-bold">Brand:</label>
-                                                        <p>Honda</p>
+                                                        <p class="fs-5">Honda</p>
                                                     </div>
                                                     <div>
                                                         <label class="col-form-label fw-bold">Type:</label>
-                                                        <p>General</p>
+                                                        <p class="fs-5">General</p>
                                                     </div>
                                                     <div>
                                                         <label class="col-form-label fw-bold">Register No:</label>
-                                                        <p>CD-0909</p>
+                                                        <p class="fs-5">CD-0909</p>
                                                     </div>
                                                     <div>
                                                         <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Brand:</label>
-                                                        <p>Honda</p>
+                                                               class="col-form-label fw-bold">Color:</label>
+                                                        <p class="fs-5">Black</p>
                                                     </div>
+
+                                                </div>
+                                                <div style="width: 30%;">
                                                     <div>
                                                         <label for="txtCusName"
                                                                class="col-form-label fw-bold">Fuel Type:</label>
-                                                        <p>Petrol</p>
+                                                        <p class="fs-5">Petrol</p>
                                                     </div>
                                                     <div>
                                                         <label for="txtCusName"
                                                                class="col-form-label fw-bold">Transmission:</label>
-                                                        <p>Auto</p>
-                                                    </div>
-                                                </div>
-                                                <div style="width: 40%;">
-                                                    <div>
-                                                        <label class="col-form-label fw-bold">Daily Rate:</label>
-                                                        <p>RS:782</p>
-                                                    </div>
-                                                    <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Monthly Rate:</label>
-                                                        <p>RS:12000</p>
-                                                    </div>
-                                                    <div>
-                                                        <label class="col-form-label fw-bold">Price For Extra Km:</label>
-                                                        <p>RS:120</p>
+                                                        <p class="fs-5">Auto</p>
                                                     </div>
 
                                                     <div>
-                                                        <label class="col-form-label fw-bold">Free km For Day:</label>
-                                                        <p>240km</p>
+                                                        <label class="col-form-label fw-bold">Price For Extra Km:</label>
+                                                        <p class="fs-5">RS:120</p>
                                                     </div>
-                                                    <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Free km For Month:</label>
-                                                        <p>1200km</p>
-                                                    </div>
+
+
                                                     <div>
                                                         <label for="txtCusName"
                                                                class="col-form-label fw-bold">Waiver Payment:</label>
-                                                        <p>RS:12450</p>
+                                                        <p class="fs-5"> RS:12450</p>
                                                     </div>
                                                     <div>
                                                         <label for="txtCusName"
                                                                class="col-form-label fw-bold">No Of Passengers:</label>
-                                                        <p>5</p>
+                                                        <p class="fs-5">5</p>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 30%">
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Mileage:</label>
+                                                        <p class="fs-5">12000km</p>
+                                                    </div>
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Daily Rate:</label>
+                                                        <p class="fs-5">RS:782</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Monthly Rate:</label>
+                                                        <p class="fs-5">RS:12000</p>
+                                                    </div>
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Free km For Day:</label>
+                                                        <p  class="fs-5">240km</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Free km For Month:</label>
+                                                        <p class="fs-5">1200km</p>
                                                     </div>
                                                 </div>
                                                 <div style="width: 40%;">
                                                     <!-------------------Customer Details------------------->
+                                                    <p style="margin-left: 75%;width: 80%;margin-top: 5%" class="text-center fs-3 fw-bold">Reservation Details</p>
+                                                    <hr style=" height: 2px; border: 1px solid black;">
                                                     <br>
 
                                                     <div>
                                                         <label class="col-form-label fw-bold">Reserve ID:</label>
-                                                        <input class="form-control mb-3" type="text" value="RID-001"
+                                                        <input class="form-control mb-3 " type="text" value="RID-001"
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
                                                     <div>
@@ -654,13 +665,18 @@
                                                         <input class="form-control mb-3" type="text" value="Panadura"
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
+                                                    <div class="form-check form-switch mt-4">
+                                                        <input style="width: 40px;height: 20px" class="form-check-input me-3" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                                        <label  class="form-check-label fs-6 fw-bold mt-1" for="flexSwitchCheckDefault">Driver Status</label>
+                                                    </div>
                                                     <br>
 
                                                 </div>
                                                 <div style="width: 40%;">
                                                     <!-------------------Customer Details------------------->
                                                     <br>
-
+                                                    <hr style=" height: 2px; border: 1px solid black;margin-top: 16%">
+                                                    <br>
                                                     <div>
                                                         <label for="register-form-date"
                                                                class=" col-form-label fw-bold ">PickUp Time</label>
@@ -681,14 +697,14 @@
                                                                placeholder="2020-05-12" disabled>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusSalary" class="col-form-label fw-bold ">Band
-                                                            Slip Image:</label>
+                                                        <label for="txtCusSalary" class="col-form-label fw-bold ">No Of Days:</label>
                                                         <input class="form-control mb-3" type="number" value="01"
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
                                                     <div>
                                                         <label for="register-form-NIC-image "
-                                                               class="form-label fw-bold">NIC Image</label>
+                                                               class="form-label fw-bold">Band
+                                                            Slip Image</label>
                                                         <input class="form-control " type="file"
                                                                id="register-form-NIC-image">
                                                     </div>

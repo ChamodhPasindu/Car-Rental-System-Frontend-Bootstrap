@@ -28,14 +28,15 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 </ul>
                 <span class="navbar-text me-5">
-                   <button class="btn btn-dark fs-6 btn-radius fw-bold " type="submit">LOGIN</button>
+                     <button type="button" class="btn btn-outline-dark fw-bold btn-radius">LOGIN</button>
+                    <!--  <button class="btn btn-dark fs-6 btn-radius fw-bold " type="submit">LOGIN</button>-->
                        </span>
             </div>
 
         </div>
     </nav>
 
-    <nav style="display: block" id="customerNavbar" class="navbar navbar-expand-lg bg-custom-black ">
+    <nav style="display: none" id="customerNavbar" class="navbar navbar-expand-lg bg-custom-black ">
         <div class="container-fluid">
             <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
             <a class="navbar-brand fw-bolder fs-1 text-light me-5">ECR .</a>
@@ -66,6 +67,22 @@
 
         </div>
     </nav>
+
+    <nav style="display: block" id="driverNavBar" class="navbar navbar-expand-lg bg-custom-black">
+        <div class="container-fluid">
+            <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
+            <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                </ul>
+                <span class="navbar-text me-5">
+                    <button type="button" class="btn btn-outline-danger fw-bold btn-radius">Log Out</button>
+                       </span>
+            </div>
+
+        </div>
+    </nav>
+
 </header>
 
 <main>
@@ -77,8 +94,8 @@
                     <p class="header-title">
                         DRIVE A NEW <br/>
                         CAR EVERY MONTH. <br/>
-                    </p >
-                    <h2 style="color:white;" >
+                    </p>
+                    <h2 style="color:white;">
                         FIND THE BEST
                         CAR FOR YOU
                     </h2>
@@ -89,7 +106,8 @@
                 </div>
             </div>
             <div class="container-side-one ">
-                <div style=" height: 5%;margin-bottom: 1%">  <p class="fs-2 fw-bold mt-3 text-black">Today Available Cars</p></div>
+                <div style=" height: 5%;margin-bottom: 1%"><p class="fs-2 fw-bold mt-3 text-black">Today Available
+                    Cars</p></div>
                 <div class="home-car-detail">
                     <div class="card landing-custom-card ">
                         <img src="assets/img/bmw%20i8%20red%201.png" class="landing-custom-card-img" alt="...">
@@ -239,7 +257,7 @@
                                 <label for="register-form-email">Email </label>
                             </div>
                             <div class="form-floating w-100">
-                                <input type="number" class="form-control border-secondary" id="register-form-mobile"
+                                <input type="text" class="form-control border-secondary" id="register-form-mobile"
                                        placeholder="0771257878">
                                 <label for="register-form-mobile">Mobile</label>
                             </div>
@@ -384,7 +402,8 @@
                                 <h5 class="float-end me-2">
                                     <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto " data-bs-toggle="modal"
+                                   data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
                         <div class="card custom-card  ">
@@ -404,7 +423,8 @@
                                 <h5 class="float-end me-2">
                                     <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
+                                   data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
                         <div class="card custom-card  ">
@@ -424,7 +444,8 @@
                                 <h5 class="float-end me-2">
                                     <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
+                                   data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
                         <div class="card custom-card  ">
@@ -444,7 +465,8 @@
                                 <h5 class="float-end me-2">
                                     <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
+                                   data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
                         <div class="card custom-card ">
@@ -464,7 +486,8 @@
                                 <h5 class="float-end me-2">
                                     <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
+                                   data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
                         <div class="card custom-card ">
@@ -484,13 +507,207 @@
                                 <h5 class="float-end me-2">
                                     <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto ">Book Now</a>
+                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
+                                   data-bs-target="#bookNowModel">Book Now</a>
+                            </div>
+                        </div>
+
+                        <!-------------------------------Model-------------------------------------------->
+                        <div class="modal fade" id="bookNowModel" tabindex="-1" aria-labelledby="bookCarModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog-centered modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-dark text-light">
+                                        <h5 class="modal-title " id="customerBookCarModalLabel">Car Reservation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <!-----------------------------Image Slider----------------------->
+                                        <!--<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                                            <div class="carousel-indicators">
+                                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            </div>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img src="assets/img/black-car.png" class="d-block w-50" alt="...">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="assets/img/bmw%20i8%20red%201.png" class="d-block w-50" alt="...">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img src="assets/img/black-car.png" class="d-block w-50" alt="...">
+                                                </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>-->
+
+                                        <!-----------------------------Model Body----------------------->
+                                        <form id="customerForm">
+
+                                            <div class="d-flex flex-wrap justify-content-around">
+                                                <div style="width: 40%">
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Register No:</label>
+                                                        <p>CD-0909</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Brand:</label>
+                                                        <p>Honda</p>
+                                                    </div>
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Type:</label>
+                                                        <p>General</p>
+                                                    </div>
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Register No:</label>
+                                                        <p>CD-0909</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Brand:</label>
+                                                        <p>Honda</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Fuel Type:</label>
+                                                        <p>Petrol</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Transmission:</label>
+                                                        <p>Auto</p>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 40%;">
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Daily Rate:</label>
+                                                        <p>RS:782</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Monthly Rate:</label>
+                                                        <p>RS:12000</p>
+                                                    </div>
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Price For Extra Km:</label>
+                                                        <p>RS:120</p>
+                                                    </div>
+
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Free km For Day:</label>
+                                                        <p>240km</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Free km For Month:</label>
+                                                        <p>1200km</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">Waiver Payment:</label>
+                                                        <p>RS:12450</p>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName"
+                                                               class="col-form-label fw-bold">No Of Passengers:</label>
+                                                        <p>5</p>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 40%;">
+                                                    <!-------------------Customer Details------------------->
+                                                    <br>
+
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Reserve ID:</label>
+                                                        <input class="form-control mb-3" type="text" value="RID-001"
+                                                               aria-label="Disabled input example" disabled readonly>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusName" class="col-form-label fw-bold">Customer
+                                                            Name:</label>
+                                                        <input class="form-control mb-3" type="text"
+                                                               value="Chamodh Pasindu"
+                                                               aria-label="Disabled input example" disabled readonly>
+
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusAddress" class="col-form-label fw-bold">Vehicle
+                                                            No:</label>
+                                                        <input class="form-control mb-3" type="text" value="CDI-0101"
+                                                               aria-label="Disabled input example" disabled readonly>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusSalary" class="col-form-label fw-bold">PickUp
+                                                            Venue:</label>
+                                                        <input class="form-control mb-3" type="text" value="Panadura"
+                                                               aria-label="Disabled input example" disabled readonly>
+                                                    </div>
+                                                    <br>
+
+                                                </div>
+                                                <div style="width: 40%;">
+                                                    <!-------------------Customer Details------------------->
+                                                    <br>
+
+                                                    <div>
+                                                        <label for="register-form-date"
+                                                               class=" col-form-label fw-bold ">PickUp Time</label>
+                                                        <input type="time" class="form-control border-secondary mb-3"
+                                                               placeholder="2020-05-12">
+                                                    </div>
+
+                                                    <div>
+                                                        <label for="register-form-date"
+                                                               class=" col-form-label fw-bold ">PickUp Date</label>
+                                                        <input type="date" class="form-control border-secondary mb-3"
+                                                               placeholder="2020-05-12" disabled>
+                                                    </div>
+                                                    <div>
+                                                        <label for="register-form-date" class=" col-form-label fw-bold">Return
+                                                            Date</label>
+                                                        <input type="date" class="form-control border-secondary mb-3"
+                                                               placeholder="2020-05-12" disabled>
+                                                    </div>
+                                                    <div>
+                                                        <label for="txtCusSalary" class="col-form-label fw-bold ">Band
+                                                            Slip Image:</label>
+                                                        <input class="form-control mb-3" type="number" value="01"
+                                                               aria-label="Disabled input example" disabled readonly>
+                                                    </div>
+                                                    <div>
+                                                        <label for="register-form-NIC-image "
+                                                               class="form-label fw-bold">NIC Image</label>
+                                                        <input class="form-control " type="file"
+                                                               id="register-form-NIC-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" id="btnReservationSave" class="btn btn-dark">Save</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
 
                     </div>
-                    <div  class="customer-home-div-one">
+                    <div class="customer-home-div-one">
                         <button type="button" class="btn btn-light me-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
                         </button>
@@ -548,7 +765,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="">
+                    <div>
                         <button type="button" class="btn btn-light me-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
                         </button>
@@ -559,6 +776,7 @@
 
                 </div>
             </div>
+
 
         </section>
 
@@ -653,9 +871,40 @@
 
         </section>
     </section>
-    <!--
-<section id="driver"></section>
-<section id="admin"></section>-->
+
+    <section style="display: none" id="driver">
+        <div class="customer-res-container">
+            <div class="customer-res-sub__container">
+                <div>
+                    <button class="btn btn-outline-dark fs-5"> Weekly Schedule</button>
+                    <button style="display:none;margin-left: 20px" class="btn btn-outline-dark fs-5">Monthly Schedule
+                    </button>
+
+                </div>
+                <div class="customer-res-detail__container">
+                    <div class="w-100 h-100 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
+                        <table class="table table-hover table-borderless table-dark ">
+                            <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Reserve ID</th>
+                                <th scope="col">Start Time</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">End Date</th>
+                            </tr>
+                            </thead>
+                            <tbody id="allOrderTable">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="admin"></section>
 </main>
 
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>

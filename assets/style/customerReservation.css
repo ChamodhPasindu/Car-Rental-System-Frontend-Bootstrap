@@ -12,6 +12,7 @@
     align-items: center;
     width: 85%;
     height: 700px;
+
 }
 .customer-res-detail__container{
     display: flex;
@@ -20,8 +21,7 @@
     height:70%;
     width: 90%;
     margin-top:50px;
-    border-radius:10px;/*
-    border:1px solid #bcbcbc;
-*/
+    border-radius:10px;
+
 
 }

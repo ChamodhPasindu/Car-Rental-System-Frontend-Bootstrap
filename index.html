@@ -1722,7 +1722,7 @@
                         </div>
                         <div class="modal-body">
 
-                            <form id="">
+                            <form id="driverSaveForm">
                                 <p class="text-center fs-3 fw-bold">Driver Details</p>
                                 <hr style=" height: 2px; border: 1px solid black;">
 
@@ -1731,25 +1731,25 @@
                                         <!-------------------Driver Details------------------->
                                         <div>
                                             <label class="col-form-label fw-bold">Driver NIC:</label>
-                                            <input class="form-control mb-3 " type="text"
+                                            <input id="save-driver-nic" class="form-control mb-3 " type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Name:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label for="save-driver-name" class="col-form-label fw-bold">Name:</label>
+                                            <input id="save-driver-name" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
 
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">License
+                                            <label for="save-driver-license" class="col-form-label fw-bold">License
                                                 No:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="save-driver-license" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">Address
+                                            <label for="save-driver-address" class="col-form-label fw-bold">Address
                                                 No:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="save-driver-address" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
 
@@ -1758,24 +1758,24 @@
                                     <div style="width: 40%;">
                                         <!-------------------Driver Details------------------->
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Join
+                                            <label for="save-driver-date" class="col-form-label fw-bold">Join
                                                 Date:</label>
-                                            <input class="form-control mb-3" type="date"
+                                            <input id="save-driver-date" class="form-control mb-3" type="date"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Mobile:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label for="save-driver-mobile" class="col-form-label fw-bold">Mobile:</label>
+                                            <input id="save-driver-mobile" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">User Name:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label for="save-driver-user-name" class="col-form-label fw-bold">User Name:</label>
+                                            <input id="save-driver-user-name" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Password:</label>
-                                            <input class="form-control mb-3" type="password"
+                                            <label for="save-driver-password" class="col-form-label fw-bold">Password:</label>
+                                            <input id="save-driver-password" class="form-control mb-3" type="password"
                                                    aria-label="Disabled input example">
                                         </div>
 
@@ -1786,7 +1786,7 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-                            <button type="button" id="btnReservationSave" class="btn btn-dark">Save</button>
+                            <button type="button" id="btnDriverSave" class="btn btn-dark">Save</button>
 
                         </div>
                     </div>
@@ -2103,6 +2103,7 @@
 
 <script src="assets/js/indexController.js"></script>
 <script src="assets/js/customerController.js"></script>
+<script src="assets/js/driverController.js"></script>
 
 </body>
 </html>

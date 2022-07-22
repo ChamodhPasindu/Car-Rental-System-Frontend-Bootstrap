@@ -74,4 +74,5 @@ function openCustomerHome(data) {
     $("#customer-profile-email").val(data.email)
     $("#customer-profile-address").val(data.address)
     $("#customer-profile-mobile").val(data.mobile)
+
 }

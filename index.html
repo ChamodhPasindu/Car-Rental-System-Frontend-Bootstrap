@@ -307,8 +307,8 @@
                             </div>
                             <div class="form-floating w-100">
                                 <input type="date" class="form-control border-secondary" id="register-form-date"
-                                       placeholder="2020-05-12">
-                                <label for="register-form-date">Date</label>
+                                       disabled readonly>
+                                <label for="register-form-date">Register Date</label>
                             </div>
                         </div>
                         <div class="detail-container">
@@ -341,7 +341,7 @@
                         </div>
                     </div>
                     <div class="box-row-two">
-                        <button type="button" class="btn btn-dark register-form-btn">Register</button>
+                        <button id="registerNowBtn" type="button" class="btn btn-dark register-form-btn">Register</button>
 
 
                     </div>
@@ -402,13 +402,11 @@
                         <p class="fs-1 fw-bold text-light mb-5">Why Are You Waiting ? <br/> Plan Your Trip Now </p>
                         <div class="customer-home-detail-container">
                             <div class="form-floating w-75 mt-4 bg-red">
-                                <input type="date" class="form-control border-secondary " id="customer-home-pickup"
-                                       placeholder="2020-05-12">
+                                <input type="date" class="form-control border-secondary " id="customer-home-pickup">
                                 <label for="register-form-date">Date</label>
                             </div>
                             <div class="form-floating w-75 mt-3 ">
-                                <input type="date" class="form-control border-secondary" id="customer-home-return"
-                                       placeholder="2020-05-12">
+                                <input type="date" class="form-control border-secondary" id="customer-home-return">
                                 <label for="register-form-date">Date</label>
                                 <button type="button" style="width: 100% "
                                         class="btn bg-black text-light register-form-btn mt-4 ">Search Car
@@ -869,16 +867,17 @@
                             <div class="customer-pro-box-row-one">
                                 <div class="customer-pro-detail-container">
                                     <div class="form-floating w-100">
+                                        <input type="text" class="form-control border-secondary"
+                                               id="customer-profile-nic"
+                                               placeholder="212006300336" disabled readonly>
+                                        <label for="customer-profile-nic" >NIC No</label>
+                                    </div>
+                                    <div class="form-floating w-100">
                                         <input style="height: 10%;" type="text" class="form-control border-secondary"
                                                id="customer-profile-name" placeholder="kamal Perera">
                                         <label for="customer-profile-name">Full Name</label>
                                     </div>
-                                    <div class="form-floating w-100">
-                                        <input type="text" class="form-control border-secondary"
-                                               id="customer-profile-nic"
-                                               placeholder="212006300336">
-                                        <label for="customer-profile-nic">NIC No</label>
-                                    </div>
+
                                     <div class="form-floating w-100">
                                         <input type="email" class="form-control border-secondary"
                                                id="customer-profile-email"
@@ -923,15 +922,12 @@
                         <div id="customerProfileChangePassword" style="display:none;margin-right:200px ">
                             <h2 class="text-black mb-5">Change Password</h2>
                             <div style="width: 450px; margin-bottom: 20px;" class="form-floating ">
-                                <input type="text" class="form-control border-secondary" id="customer-profile-user-name"
-                                       placeholder="Kamal">
-                                <label for="customer-profile-user-name">User Name</label>
+                                <input type="password" class="form-control border-secondary" id="customer-profile-current-password">
+                                <label for="customer-profile-current-password">Current Password</label>
                             </div>
                             <div class="form-floating w-100">
-                                <input type="password" class="form-control border-secondary"
-                                       id="customer-profile-password"
-                                       placeholder="Password">
-                                <label for="customer-profile-password">Password</label>
+                                <input type="password" class="form-control border-secondary" id="customer-profile-new-password">
+                                <label for="customer-profile-new-password">New Password</label>
                             </div>
                             <button type="button" class="btn btn-dark register-form-btn mt-5 w-20">Change</button>
 
@@ -2106,6 +2102,7 @@
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 
 <script src="assets/js/indexController.js"></script>
+<script src="assets/js/customerController.js"></script>
 
 </body>
 </html>

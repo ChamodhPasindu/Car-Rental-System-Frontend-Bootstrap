@@ -67,6 +67,13 @@ function customerLogin(data) {
     $("#customer").css("display","block")
     $("#customerNavbar").css("display","block")
 
+    $("#customer-profile-nic").val(data.nic)
+    $("#customer-profile-name").val(data.user_name)
+    $("#customer-profile-email").val(data.email)
+    $("#customer-profile-address").val(data.address)
+    $("#customer-profile-mobile").val(data.mobile)
+
+
 }
 
 function driverLogin(data) {
@@ -91,7 +98,6 @@ $("#logOutBtn").click(function () {
     $("#driver").css("display","none")
 
     $("#admin").css("display","none")
-
 
     $("#landingPage").css("display","block")
     $("#landingNavbar").css("display","block")

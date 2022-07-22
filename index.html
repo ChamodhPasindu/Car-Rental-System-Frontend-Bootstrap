@@ -21,7 +21,7 @@
 <body>
 
 <header>
-    <nav style="display: none" id="landingNavbar" class="navbar navbar-expand-lg bg-red">
+    <nav style="display:block;" id="landingNavbar" class="navbar navbar-expand-lg bg-red">
         <div class="container-fluid">
             <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
             <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
@@ -29,15 +29,14 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 </ul>
                 <span class="navbar-text me-5">
-                     <button type="button" class="btn btn-outline-dark fw-bold btn-radius">LOGIN</button>
-                    <!--  <button class="btn btn-dark fs-6 btn-radius fw-bold " type="submit">LOGIN</button>-->
+                      <button id="loginFormBtn" class="btn btn-dark fs-6 btn-radius fw-bold " type="submit">LOGIN</button>
                        </span>
             </div>
 
         </div>
     </nav>
 
-    <nav style="display: none" id="customerNavbar" class="navbar navbar-expand-lg bg-custom-black ">
+    <nav style="display:none;" id="customerNavbar" class="navbar navbar-expand-lg bg-custom-black ">
         <div class="container-fluid">
             <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
             <a class="navbar-brand fw-bolder fs-1 text-light me-5">ECR .</a>
@@ -46,22 +45,23 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                     <li class="nav-item">
                         <button id="dashboardBtn" class="bg-transparent fw-bold border-0">
-                            <a class="nav-link text-secondary fs-5 me-3 ">Home</a>
+                            <a id="customerHomeBtn" class="nav-link text-secondary fs-5 me-3 ">Home</a>
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button id="orderBtn" class="bg-transparent fw-bold border-0">
+                        <button  id="customerReservationBtn" class="bg-transparent fw-bold border-0">
                             <a class="nav-link text-secondary fs-5 me-3 ">Reservation</a>
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button id="itemBtn" class="bg-transparent fw-bold border-0">
+                        <button id="customerAccountBtn" class="bg-transparent fw-bold border-0">
                             <a class="nav-link text-secondary fs-5 me-3">My Account</a>
                         </button>
                     </li>
                 </ul>
                 <span class="navbar-text me-5">
-                    <button type="button" class="btn btn-outline-danger fw-bold btn-radius">Log Out</button>
+                    <button type="button" class="btn btn-outline-danger fw-bold btn-radius " data-bs-toggle="modal"
+                            data-bs-target="#logoutModel">Log Out</button>
                        </span>
             </div>
 
@@ -109,7 +109,7 @@
             </div>
         </nav>-->
 
-    <nav style="display: none" id="driverNavBar" class="navbar navbar-expand-lg bg-custom-black">
+    <nav style="display:none;" id="driverNavBar" class="navbar navbar-expand-lg bg-custom-black">
         <div class="container-fluid">
             <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
             <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
@@ -117,7 +117,8 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 </ul>
                 <span class="navbar-text me-5">
-                    <button type="button" class="btn btn-outline-danger fw-bold btn-radius">Log Out</button>
+                    <button type="button" class="btn btn-outline-danger fw-bold btn-radius " data-bs-toggle="modal"
+                            data-bs-target="#logoutModel">Log Out</button>
                        </span>
             </div>
 
@@ -128,7 +129,7 @@
 
 <main>
 
-    <section style="display:none" id="landingPage">
+    <section style="display:block;"  id="landingPage">
         <div class="custom-container-one">
             <div class="container-one">
                 <div class="sub-container-one">
@@ -140,7 +141,7 @@
                         FIND THE BEST
                         CAR FOR YOU
                     </h2>
-                    <button type="button" class="btn btn-dark register-btn-landing">Get Started</button>
+                    <button type="button" class="btn btn-dark register-btn-landing getStartBtn">Get Started</button>
                 </div>
                 <div class="sub-container-two">
                     <img class="background-image" src="assets/img/bmw%20i8%20red%201.png" alt="bmw"/>
@@ -268,13 +269,15 @@
 
     </section>
 
-    <section style="display: none" id="registerForm">
+    <section style="display:none;" id="registerForm">
         <div class="custom-container-two">
             <div class="container-inside-two">
                 <img style="width: 100%; height: 65%" src="assets/img/rent-img.jpg" alt="image of car"/>
             </div>
             <div class="container-inside-one">
-                <div class="container-title">
+                <div class="container-title d-flex">
+                    <button  style="height:35px;margin-right: 25%" type="button" class="btn btn-outline-dark rounded-circle backToHomeBtn"><i class="fa-solid fa-arrow-left fs-5"></i></button>
+
                     <h3 class="fw-bold ">
                         REGISTRATION FORM
                     </h3>
@@ -349,10 +352,11 @@
 
     </section>
 
-    <section style="display: none" id="loginPage">
+    <section style="display:none;"  id="loginPage">
         <div class="login-container">
             <div class="login-inside-container-one">
-                <div class="login-container-title">
+                <div style="margin-right: 35%" class="login-container-title">
+                    <button style="margin-right:20%" type="button" class="btn btn-outline-dark rounded-circle mb-5 backToHomeBtn"><i class="fa-solid fa-arrow-left fs-6"></i></button>
                     <h3 style="font-weight: bold;">
                         Login
                     </h3>
@@ -371,13 +375,13 @@
                         </div>
                     </div>
                     <div class="login-box-row-two">
-                        <button style="width: 100%;" type="button" class="btn btn-dark">LOGIN</button>
+                        <button id="loginUserBtn" style="width: 100%;" type="button" class="btn btn-dark">LOGIN</button>
                     </div>
                     <div class="login-box-row-three">
                         <h8 class="login-box-row-three">OR</h8>
                     </div>
                     <div class="login-box-row-two">
-                        <button style="width: 100%;" type="button" class="btn btn-outline-dark">REGISTER</button>
+                        <button style="width: 100%;" type="button" class="btn btn-outline-dark getStartBtn">REGISTER</button>
 
                     </div>
                 </div>
@@ -852,16 +856,16 @@
                 <p class="fs-2 fw-bold text-black border-5 border-dark">Update Profile</p>
                 <div class="customer-pro-sub-container border-radius-shadow">
                     <div class="customer-pro-detail-container-one">
-                        <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn mt-5">
+                        <button id="customerInformationBtn" type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn mt-5">
                             Information
                         </button>
-                        <button type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn">Password
+                        <button  id="customerChangePasswordBtn" type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn">Password
                         </button>
 
                     </div>
 
                     <div class="customer-pro-detail-container-two">
-                        <div style="display: block" class="customer-pro-box">
+                        <div id="customerProfileUpdateDetail" style="display: block" class="customer-pro-box">
                             <div class="customer-pro-box-row-one">
                                 <div class="customer-pro-detail-container">
                                     <div class="form-floating w-100">
@@ -916,7 +920,7 @@
                             </div>
                         </div><!--Display block Information of customer-->
 
-                        <div style="display:none;margin-right:200px ">
+                        <div id="customerProfileChangePassword" style="display:none;margin-right:200px ">
                             <h2 class="text-black mb-5">Change Password</h2>
                             <div style="width: 450px; margin-bottom: 20px;" class="form-floating ">
                                 <input type="text" class="form-control border-secondary" id="customer-profile-user-name"
@@ -939,7 +943,7 @@
         </section>
     </section>
 
-    <section style="display: none" id="driver">
+    <section style="display:none;" id="driver">
         <div class="customer-res-container">
             <div class="customer-res-sub__container">
                 <div>
@@ -971,35 +975,37 @@
         </div>
     </section>
 
-    <section style="display: block" id="admin">
+    <section style="display:none;" id="admin">
         <section id="adminDashboard">
             <div class="admin-dashboard-container position-fixed">
+
                 <div id="adminMenu" class="admin-dashboard-menu-container">
                     <h2 style="width: 90%;height: 8%;text-align: center;padding-top: 5%"
                         class="d-flex justify-content-center align-content-center text-light bg-custom-black rounded-3 fw-bold mt-4 mb-4">
                         <i class="fa-solid text-light fs-3 fa-car me-2 "></i> ECR .</h2>
-                    <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminDashboardBtn" class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fs-4 fa-gauge mt-1 me-3"></i>Dashboard
                     </button>
-                    <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminReservationBtn" class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fa-print mt-1 fs-4 me-3"></i>Reservation
                     </button>
-                    <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminCarsBtn" class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fa-car-side mt-1 fs-4 me-3"></i>Cars
                     </button>
-                    <button class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminCustomerBtn" class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fa-users fs-4 mt-1 me-3"></i>Customers
                     </button>
-                    <button class="btn btn-outline-dark border-0 fw-bold mb-5 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminDriversBtn" class="btn btn-outline-dark border-0 fw-bold mb-5 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fa-id-card fs-4 me-3 mt-1"></i>Drivers
                     </button>
-                    <button class="btn btn-outline-danger border-0 fw-bold mb-5 mt-5 w-75 d-flex justify-content-start  fs-5">
-                        <i class="fa-solid fa-power-off fs-4 me-3 mt-1"></i>Logout
+                    <button class="btn btn-outline-danger border-0 fw-bold mb-5 mt-5 w-75 d-flex justify-content-start  fs-5 " data-bs-toggle="modal"
+                            data-bs-target="#logoutModel">
+                        <i class="fa-solid fa-power-off fs-4 me-3 mt-1 " ></i>Logout
                     </button>
 
                 </div>
 
-                <div style="display:block;margin-top:3%" id="adminDailySummary" class="admin-dashboard-sub-container">
+                <div  style="display:block;margin-top:3%" id="adminDailySummary" class="admin-dashboard-sub-container">
                     <div class="row-1">
                         <div class="card text-primary mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
                             <div style="font-size: 1vw" class="card-header fw-bold text-center">WEEKLY INCOME</div>
@@ -2072,16 +2078,34 @@
                 </div>
             </div>
 
-
-
-
         </section>
 
     </section>
+
+    <!--Log Out modal-->
+    <div class="modal fade" id="logoutModel" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Log Out Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    Do you sure you want to logout
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="logOutBtn" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+
+<script src="assets/js/indexController.js"></script>
 
 </body>
 </html>

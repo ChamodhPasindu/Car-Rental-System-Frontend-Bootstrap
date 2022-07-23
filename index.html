@@ -27,7 +27,9 @@
             <a class="navbar-brand fw-bolder fs-1 text-light  me-5">ECR .</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+
                 </ul>
+
                 <span class="navbar-text me-5">
                       <button id="loginFormBtn" class="btn btn-dark fs-6 btn-radius fw-bold " type="submit">LOGIN</button>
                        </span>
@@ -369,7 +371,7 @@
                             <label for="login-page-user-name">User Name</label>
                         </div>
                         <div class="form-floating w-100 mt-3">
-                            <input type="password" class="form-control border-secondary " id="login-page-password"
+                            <input type="text" class="form-control border-secondary " id="login-page-password"
                                    placeholder="Password">
                             <label for="login-page-password">Password</label>
                         </div>
@@ -1001,7 +1003,7 @@
 
                 </div>
 
-                <div  style="display:block;margin-top:3%" id="adminDailySummary" class="admin-dashboard-sub-container">
+                <div  style="display:inline-flex;margin-top:3%" id="adminDailySummary" class="admin-dashboard-sub-container">
                     <div class="row-1">
                         <div class="card text-primary mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
                             <div style="font-size: 1vw" class="card-header fw-bold text-center">WEEKLY INCOME</div>
@@ -1108,12 +1110,12 @@
                                 <span class="visually-hidden">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="#">Pending Reservation</a></li>
-                                <li><a class="dropdown-item" href="#">Today Pickups</a></li>
+                                <li><a class="dropdown-item" id="admin-pending-reservation">Pending Reservation</a></li>
+                                <li><a class="dropdown-item" id="admin-today-pickups">Today Pickups</a></li>
                             </ul>
                         </div>
-                        <h4 class="text-center mt-1 fw-bold">Pending Reservation</h4>
-                        <h4 style="display: none" class="text-center mt-1 fw-bold">Today Pickups</h4>
+                        <h4 id="admin-reservation-title" class="text-center mt-1 fw-bold">Pending Reservation</h4>
+                        <h4 id="admin-todayPickups-title" style="display: none" class="text-center mt-1 fw-bold">Today Pickups</h4>
                         <div style="width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
@@ -1126,16 +1128,16 @@
                                     <th scope="col">No Of Days</th>
                                 </tr>
                                 </thead>
-                                <tbody id="allOrderTable">
+                                <tbody id="admin-reservation-table">
 
                                 </tbody>
                             </table>
                         </div>
                         <div class="w-100 d-flex justify-content-end mt-4">
-                            <button style="display:none;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
+                            <button id="admin-update-reservation" style="display:none;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
                                     data-bs-target="#updateReservationModel">Update Reservation
                             </button>
-                            <button style="display:block;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
+                            <button id="admin-view-reservation" style="display:block;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
                                     data-bs-target="#viewReservationModel">View Reservation
                             </button>
                         </div>
@@ -1158,21 +1160,25 @@
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="#">Under Maintaining</a></li>
-                                    <li><a class="dropdown-item" href="#">Need Maintain</a></li>
-                                    <li><a class="dropdown-item" href="#">Available</a></li>
-                                    <li><a class="dropdown-item" href="#">Unavailable</a></li>
+                                    <li><a class="dropdown-item" id="admin-car-underMaintain">Under Maintaining</a></li>
+                                    <li><a class="dropdown-item" id="admin-car-needMaintain">Need Maintain</a></li>
+                                    <li><a class="dropdown-item" id="admin-car-available">Available</a></li>
+                                    <li><a class="dropdown-item" id="admin-car-unavailable">Unavailable</a></li>
                                 </ul>
                             </div>
 
                         </div>
-                        <h4 class="text-center mt-1 fw-bold">All Cars</h4>
+                        <h4 id="admin-all-cars-title"  class="text-center mt-1 fw-bold">All Cars</h4>
+                        <h4 id="admin-all-unavailableCars-title" style="display: none" class="text-center mt-1 fw-bold">Unavailable Cars</h4>
+                        <h4 id="admin-all-availableCars-title" style="display: none" class="text-center mt-1 fw-bold">Available Cars</h4>
+                        <h4 id="admin-all-underMaintains-title" style="display: none" class="text-center mt-1 fw-bold">Under Maintains Cars</h4>
+                        <h4 id="admin-all-needMaintains-title" style="display: none" class="text-center mt-1 fw-bold">Need Maintains Cars</h4>
                         <div style="width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
-                            <table class="table table-hover table-borderless table-dark ">
+                            <table  class="table table-hover table-borderless table-dark ">
                                 <thead class="table-dark text-center">
-                                <tr>
+                                <tr >
                                     <th scope="col">Vehicle Number</th>
                                     <th scope="col">Brand</th>
                                     <th scope="col">Type</th>
@@ -1180,29 +1186,28 @@
                                     <th scope="col">Fuel Type</th>
                                 </tr>
                                 </thead>
-                                <tbody id="allOrderTable">
+                                <tbody id="admin-cars-table">
 
                                 </tbody>
                             </table>
                         </div>
                         <div class="w-100 d-flex justify-content-end mt-3">
-                            <button style="display:block;" class=" btn btn-outline-primary fw-bold"
-                                    data-bs-toggle="modal"
+                            <button id="viewButton" style="display:block;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
                                     data-bs-target="#updateCarModel">View Details
                             </button>
-                            <button style="display:none;" class=" btn btn-outline-danger fw-bold">Mark As Unavailable
+                            <button id="unavailableBtn" style="display:none;"  class=" btn btn-outline-danger fw-bold">Mark As Unavailable
                             </button>
-                            <button style="display:none;" class=" btn btn-outline-success fw-bold">Mark As Available
+                            <button id="availableBtn" style="display:none;" class=" btn btn-outline-success fw-bold">Mark As Available
                             </button>
-                            <button style="display:none;" class=" btn btn-outline-secondary fw-bold">Mark As Maintain
+                            <button id="maintainBtn" style="display:none;" class=" btn btn-outline-secondary fw-bold">Mark As Maintain
                             </button>
-                            <button style="display:none;" class=" btn btn-outline-warning fw-bold">Mark As under
+                            <button id="underMaintainBtn" style="display:none;" class=" btn btn-outline-warning fw-bold">Mark As under
                                 maintenance
                             </button>
                         </div>
                     </div>
 
-                </div>
+                </div><!--pending-->
 
                 <div style="display: none;margin-top:5%" id="adminCustomer" class="admin-dashboard-sub-container">
                     <div class="sub-detail-container">
@@ -1220,7 +1225,7 @@
                                     <th scope="col">Register Date</th>
                                 </tr>
                                 </thead>
-                                <tbody id="allOrderTable">
+                                <tbody id="admin-customer-table">
 
                                 </tbody>
                             </table>
@@ -1233,17 +1238,17 @@
                     </div>
 
 
-                </div>
+                </div><!--pending-->
 
                 <div style="display:none;margin-top: 5%" id="adminDrivers" class="admin-dashboard-sub-container">
                     <div class="sub-detail-container">
                         <!--This -->
                         <div class="w-100 d-flex justify-content-between">
-                            <button style="display: block" class="btn btn-outline-dark h-50 w-25" data-bs-toggle="modal"
+                            <button id="enableSaveDriverBtn" style="display: block" class="btn btn-outline-dark h-50 w-25" data-bs-toggle="modal"
                                     data-bs-target="#saveDriverModel">Save
                             </button><!--Save Button-->
 
-                            <form style="visibility:hidden;" class="d-flex h-50 w-50" role="search">
+                            <form id="enableSearchDriverBtn" style="visibility:hidden;" class="d-flex h-50 w-50" role="search">
                                 <input class="form-control me-2  " type="search" placeholder="Driver ID"
                                        aria-label="Search">
                                 <button class="btn btn-outline-dark  " type="submit">Search</button>
@@ -1256,17 +1261,17 @@
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="#">All Drivers</a></li>
-                                    <li><a class="dropdown-item" href="#">Driver Schedule</a></li>
+                                    <li><a class="dropdown-item" id="admin-driverBtn">All Drivers</a></li>
+                                    <li><a class="dropdown-item" id="admin-scheduleBtn">Driver Schedule</a></li>
                                 </ul>
                             </div>
 
                         </div>                                                 <!--is-->
-                        <h4 style="display:block;" class="text-center mt-1 fw-bold">All Drivers</h4>
+                        <h4 id="admin-all-drivers-title" style="display:block;" class="text-center mt-1 fw-bold">All Drivers</h4>
                         <!--change view of driver table and button-->
-                        <h4 style="display:none;" class="text-center mt-1 fw-bold">Driver Schedule</h4>
+                        <h4  id="admin-all-driverSchedule-title" style="display:none;" class="text-center mt-1 fw-bold">Driver Schedule</h4>
                         <!--change view of driver table and button-->
-                        <div style="display:block;width: 100%;height: 80%;"
+                        <div id="admin-driver-table" style="display:block;width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
                             <table class="table table-hover table-borderless table-dark ">
@@ -1279,13 +1284,13 @@
                                     <th scope="col">Join Date</th>
                                 </tr>
                                 </thead>
-                                <tbody id="allOrderTable">
+                                <tbody id="admin-all-drivers-table">
 
                                 </tbody>
                             </table>
                         </div>
 
-                        <div style="display:none;width: 100%;height: 80%;"
+                        <div id="admin-driver-schedule-table" style="display:none;width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
                             <table class="table table-hover table-borderless table-dark ">
@@ -1298,7 +1303,7 @@
                                     <th scope="col">End Date</th>
                                 </tr>
                                 </thead>
-                                <tbody id="allOrderTable">
+                                <tbody id="admin-all-drivers-schedule-table">
 
                                 </tbody>
                             </table>
@@ -1311,7 +1316,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div><!--pending-->
             </div>
 
             <!-------------Save Car----------->
@@ -1320,12 +1325,12 @@
                 <div class="modal-dialog-centered modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-dark text-light">
-                            <h5 class="modal-title " id="savecarModalLabel">Add New Car</h5>
+                            <h5 class="modal-title " >Add New Car</h5>
                             <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="">
+                            <form id="saveCarForm">
                                 <p class="text-center fs-3 fw-bold">Vehicle Details</p>
                                 <hr style=" height: 2px; border: 1px solid black;">
 
@@ -1333,48 +1338,47 @@
                                     <div style="width: 40%;">
                                         <div>
                                             <label class="col-form-label fw-bold">Registration No:</label>
-                                            <input class="form-control mb-3 " type="text"
+                                            <input id="save-car-registration-no" class="form-control mb-3 " type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Brand:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label  class="col-form-label fw-bold">Brand:</label>
+                                            <input id="save-car-brand" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Color:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label class="col-form-label fw-bold">Color:</label>
+                                            <input id="save-car-color" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Mileage:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label class="col-form-label fw-bold">Mileage:</label>
+                                            <input id="save-car-mileage" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Type:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label class="col-form-label fw-bold">Type:</label>
+                                            <input id="save-car-type" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Transmission:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label class="col-form-label fw-bold">Transmission:</label>
+                                            <input id="save-car-transmission" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">No Of
-                                                Passengers:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <label class="col-form-label fw-bold">No Of Passengers:</label>
+                                            <input id="save-car-passengers" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Status:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label class="col-form-label fw-bold">Status:</label>
+                                            <input id="save-car-status" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Fuel Type:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label class="col-form-label fw-bold">Fuel Type:</label>
+                                            <input id="save-car-fuelType" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
 
@@ -1382,75 +1386,66 @@
                                     </div>
                                     <div style="width: 40%;">
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Daily Rate:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <label class="col-form-label fw-bold">Daily Rate:</label>
+                                            <input id="save-car-daily" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Monthly Rate:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <label class="col-form-label fw-bold">Monthly Rate:</label>
+                                            <input id="save-car-monthly" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Free km For
-                                                Day:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <label class="col-form-label fw-bold">Free km For Day:</label>
+                                            <input id="save-car-freeKm-day" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Free km For
-                                                Month:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <label class="col-form-label fw-bold">Free km For Month:</label>
+                                            <input id="save-car-freeKm-month" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Price For Extra
-                                                km:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <label class="col-form-label fw-bold">Price For Extra km:</label>
+                                            <input id="save-car-extraKm-price" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold mb-1">Waiver
-                                                Payment:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <label class="col-form-label fw-bold mb-1">Waiver Payment:</label>
+                                            <input id="save-car-waiver-payment" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="register-form-NIC-image "
-                                                   class="form-label fw-bold">Front View Of Car</label>
+                                            <label class="form-label fw-bold">Front View Of Car</label>
                                             <input class="form-control " type="file"
-                                                   id="register-form-NIC-image">
+                                                   id="save-car-frontView">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="register-form-NIC-image "
-                                                   class="form-label fw-bold">Back View Of Car</label>
+                                            <label class="form-label fw-bold">Back View Of Car</label>
                                             <input class="form-control " type="file"
-                                                   id="register-form-NIC-image">
+                                                   id="save-car-backView">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="register-form-NIC-image "
-                                                   class="form-label fw-bold">Side View Of Car</label>
+                                            <label class="form-label fw-bold">Side View Of Car</label>
                                             <input class="form-control " type="file"
-                                                   id="register-form-NIC-image">
+                                                   id="save-car-sideView">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="register-form-NIC-image "
-                                                   class="form-label fw-bold">Interior View Of Car</label>
+                                            <label class="form-label fw-bold">Interior View Of Car</label>
                                             <input class="form-control " type="file"
-                                                   id="register-form-NIC-image">
+                                                   id="save-car-interior">
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close
-                            </button>
-                            <button type="button" id="btnReservationSave" class="btn btn-dark">Save</button>
+                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="btnCarSave" class="btn btn-dark">Save</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><!--done-->
             <!-------------Update Car----------->
             <div class="modal fade" id="updateCarModel" tabindex="-1" aria-labelledby="bookCarModalLabel"
                  aria-hidden="true">
@@ -1611,7 +1606,7 @@
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close
                             </button>
-                            <button type="button" id="btnReservationSave" class="btn btn-dark">Update</button>
+                            <button type="button" id="btnUpdateCar" class="btn btn-dark">Update</button>
                         </div>
                     </div>
                 </div>
@@ -1791,7 +1786,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><!--done-->
             <!---------------Update Driver------------->
             <div class="modal fade" id="updateDriverModel" tabindex="-1" aria-labelledby="bookCarModalLabel"
                  aria-hidden="true">
@@ -1975,7 +1970,7 @@
                 </div>
             </div>
 
-            <!---------------Update Reservation------------->
+            <!---------------View Reservation------------->
             <div class="modal fade" id="viewReservationModel" tabindex="-1" aria-labelledby="bookCarModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog-centered modal-dialog modal-lg">
@@ -2065,11 +2060,6 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-                            <button type="button" id="btnReservationSave" class="btn btn-dark">Save</button>
-
-                        </div>
                     </div>
                 </div>
             </div>
@@ -2104,6 +2094,8 @@
 <script src="assets/js/indexController.js"></script>
 <script src="assets/js/customerController.js"></script>
 <script src="assets/js/driverController.js"></script>
+<script src="assets/js/carController.js"></script>
+<script src="assets/js/reservationController.js"></script>
 
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 $("#btnDriverSave").click(function (){
 
     var driverDTO={
@@ -28,6 +27,50 @@ $("#btnDriverSave").click(function (){
             console.log(ob.responseJSON.message);
         }
     })
-
-
 })
+
+$("#admin-driverBtn").click(function (){
+    $("#admin-all-drivers-title").css("display","block")
+    $("#admin-all-driverSchedule-title").css("display","none")
+
+    $("#admin-driver-table").css("display","block")
+    $("#admin-driver-schedule-table").css("display","none")
+
+    $("#enableSaveDriverBtn").css("display","block");
+    $("#enableSearchDriverBtn").css("visibility","hidden");
+})
+
+
+
+$("#admin-scheduleBtn").click(function (){
+    $("#admin-all-drivers-title").css("display","none")
+    $("#admin-all-driverSchedule-title").css("display","block")
+
+    $("#admin-driver-table").css("display","none")
+    $("#admin-driver-schedule-table").css("display","block")
+
+    $("#enableSaveDriverBtn").css("display","none");
+    $("#enableSearchDriverBtn").css("visibility","visible");
+
+    loadDriverSchedule()
+})
+
+function loadAllDrivers() {
+    $("#admin-all-drivers-table").empty();
+
+    $.ajax({
+        url: baseUrl + "controller/driver/allDriverDetail",
+        method: "GET",
+        success: function (resp) {
+            for (const driver of resp.data) {
+                let row = `<tr><td>${driver.nic}</td><td>${driver.driver_name}</td><td>${driver.address}</td><td>${driver.mobile}</td><td>${driver.join_date}</td></tr>`;
+                $("#admin-all-drivers-table").append(row);
+            }
+        }
+    });
+}
+function loadDriverSchedule() {
+
+}
+
+

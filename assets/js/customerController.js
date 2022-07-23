@@ -74,5 +74,21 @@ function openCustomerHome(data) {
     $("#customer-profile-email").val(data.email)
     $("#customer-profile-address").val(data.address)
     $("#customer-profile-mobile").val(data.mobile)
+}
 
+
+function loadAllCustomer() {
+    $("#admin-customer-table").empty();
+
+    $.ajax({
+        url: baseUrl + "controller/customer/allCustomerDetail",
+        method: "GET",
+        success: function (resp) {
+            for (const customer of resp.data) {
+                let row = `<tr><td>${customer.nic}</td><td>${customer.user_name}</td><td>${customer.address}</td><td>${customer.mobile}</td>
+                <td>${customer.register_date}</td></tr>`;
+                $("#admin-customer-table").append(row);
+            }
+        }
+    });
 }

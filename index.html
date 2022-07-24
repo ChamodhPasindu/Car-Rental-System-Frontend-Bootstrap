@@ -31,7 +31,8 @@
                 </ul>
 
                 <span class="navbar-text me-5">
-                      <button id="loginFormBtn" class="btn btn-dark fs-6 btn-radius fw-bold " type="submit">LOGIN</button>
+                      <button id="loginFormBtn" class="btn btn-dark fs-6 btn-radius fw-bold "
+                              type="submit">LOGIN</button>
                        </span>
             </div>
 
@@ -51,7 +52,7 @@
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button  id="customerReservationBtn" class="bg-transparent fw-bold border-0">
+                        <button id="customerReservationBtn" class="bg-transparent fw-bold border-0">
                             <a class="nav-link text-secondary fs-5 me-3 ">Reservation</a>
                         </button>
                     </li>
@@ -69,47 +70,6 @@
 
         </div>
     </nav>
-    <!--
-        <nav style="display: block;width: 100%;height: 10% " id="AdminNavbar" class="navbar navbar-expand-lg bg-custom-black position-absolute">
-            <div style="height: 110%" class="container-fluid ">
-                <i class="fa-solid text-light fs-2 fa-car me-2 ms-5"></i>
-                <a class="navbar-brand fw-bolder fs-1 text-light me-5">ECR .</a>
-
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                        <li class="nav-item">
-                            <button id="dashboardBtn" class="bg-transparent fw-bold border-0">
-                                <a class="nav-link text-secondary fs-5 me-3 ">Dashboard</a>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button id="orderBtn" class="bg-transparent fw-bold border-0">
-                                <a class="nav-link text-secondary fs-5 me-3 ">Reservations</a>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button id="itemBtn" class="bg-transparent fw-bold border-0">
-                                <a class="nav-link text-secondary fs-5 me-3">Cars</a>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button id="itemBtn" class="bg-transparent fw-bold border-0">
-                                <a class="nav-link text-secondary fs-5 me-3">Drivers</a>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button id="itemBtn" class="bg-transparent fw-bold border-0">
-                                <a class="nav-link text-secondary fs-5 me-3">Customers</a>
-                            </button>
-                        </li>
-                    </ul>
-                    <span class="navbar-text me-5">
-                        <button type="button" class="btn btn-outline-danger fw-bold btn-radius">Log Out</button>
-                           </span>
-                </div>
-
-            </div>
-        </nav>-->
 
     <nav style="display:none;" id="driverNavBar" class="navbar navbar-expand-lg bg-custom-black">
         <div class="container-fluid">
@@ -131,7 +91,7 @@
 
 <main>
 
-    <section style="display:block;"  id="landingPage">
+    <section style="display:block;" id="landingPage">
         <div class="custom-container-one">
             <div class="container-one">
                 <div class="sub-container-one">
@@ -153,69 +113,79 @@
                 <div style=" height: 5%;margin-bottom: 1%"><p class="fs-2 fw-bold mt-3 text-black">Today Available
                     Cars</p></div>
                 <div class="home-car-detail">
-                    <div class="card landing-custom-card ">
-                        <img src="assets/img/bmw%20i8%20red%201.png" class="landing-custom-card-img" alt="...">
+                    <h1 style="display: block" id="tag" class="text-danger">No Available Cars Today</h1>
+                    <div style="display:none;" id="div-one" class="card landing-custom-card ">
+                        <img id="today-one-car-img" src="assets/img/bmw%20i8%20red%201.png"
+                             class="landing-custom-card-img" alt="...">
                         <div class="card-body">
-                            <h8>Luxury</h8>
-                            <h3 class="card-title">Mercedes Benz</h3><br>
-                            <h5 class="custom-card-daily">Daily</h5>
-                            <h5 class="custom-card-price">RS:5200</h5>
+                            <h8 id="today-one-car-type"></h8>
+                            <h3 id="today-one-car-brand" class="card-title">Mercedes Benz</h3><br>
+                            <h5 class="custom-card-daily">Daily(LKR)</h5>
+                            <h5 id="today-one-car-daily" class="custom-card-price">RS:5200</h5>
                             <br style="clear:both;">
-                            <h5 class="custom-card-daily">Monthly</h5>
-                            <h5 class="custom-card-price">RS:5200</h5>
+                            <h5 class="custom-card-daily">Monthly(LKR)</h5>
+                            <h5 id="today-one-car-monthly" class="custom-card-price">RS:5200</h5>
 
                             <hr style="clear:both;"/>
                             <h5 class=" float-start ms-2">
-                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> <span
+                                    id="today-one-car-fuel">Diesel</span></h5>
                             <h5 class="float-end me-2">
-                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i><span
+                                    id="today-one-car-transmission"></span></h5>
                             <br style="clear:both;">
                         </div>
                     </div>
-                    <div class="card landing-custom-card ">
-                        <img src="assets/img/bmw%20i8%20red%201.png" class="landing-custom-card-img" alt="...">
+                    <div style="display:none;" id="div-two" class="card landing-custom-card ">
+                        <img id="today-two-car-img" src="assets/img/bmw%20i8%20red%201.png"
+                             class="landing-custom-card-img" alt="...">
                         <div class="card-body">
-                            <h8>Luxury</h8>
-                            <h3 class="card-title">Mercedes Benz</h3><br>
+                            <h8 id="today-two-car-type"></h8>
+                            <h3 id="today-two-car-brand" class="card-title">Mercedes Benz</h3><br>
                             <h5 class="custom-card-daily">Daily</h5>
-                            <h5 class="custom-card-price">RS:5200</h5>
+                            <h5 id="today-two-car-daily" class="custom-card-price">RS:5200</h5>
                             <br style="clear:both;">
                             <h5 class="custom-card-daily">Monthly</h5>
-                            <h5 class="custom-card-price">RS:5200</h5>
+                            <h5 id="today-two-car-monthly" class="custom-card-price">RS:5200</h5>
 
                             <hr style="clear:both;"/>
                             <h5 class=" float-start ms-2">
-                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> <span
+                                    id="today-two-car-fuel">Diesel</span></h5>
                             <h5 class="float-end me-2">
-                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i><span
+                                    id="today-two-car-transmission">Auto</span></h5>
                             <br style="clear:both;">
                         </div>
                     </div>
-                    <div class="card landing-custom-card ">
-                        <img src="assets/img/bmw%20i8%20red%201.png" class="landing-custom-card-img" alt="...">
+                    <div style="display:none;" id="div-three" class="card landing-custom-card ">
+                        <img id="today-three-car-img" src="assets/img/bmw%20i8%20red%201.png"
+                             class="landing-custom-card-img" alt="...">
                         <div class="card-body">
-                            <h8>Luxury</h8>
-                            <h3 class="card-title">Mercedes Benz</h3><br>
+                            <h8 id="today-three-car-brand">Luxury</h8>
+                            <h3 id="today-three-car-type" class="card-title"></h3><br>
                             <h5 class="custom-card-daily">Daily</h5>
-                            <h5 class="custom-card-price">RS:5200</h5>
+                            <h5 id="today-three-car-daily" class="custom-card-price">RS:5200</h5>
                             <br style="clear:both;">
                             <h5 class="custom-card-daily">Monthly</h5>
-                            <h5 class="custom-card-price">RS:5200</h5>
+                            <h5 id="today-three-car-monthly" class="custom-card-price">RS:5200</h5>
 
                             <hr style="clear:both;"/>
                             <h5 class=" float-start ms-2">
-                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
+                                <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i><span
+                                    id="today-three-car-fuel"> Diesel</span></h5>
                             <h5 class="float-end me-2">
-                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i><span
+                                    id="today-three-car-transmission">Auto</span></h5>
                             <br style="clear:both;">
                         </div>
                     </div>
                 </div>
                 <div style="margin-bottom: 1%;margin-top: 1%;">
-                    <button type="button" class="btn btn-light me-1">
+                    <button id="home-PreviousBtn" type="button" class="btn btn-light me-1">
                         <i class="fa-solid fs-2 text-danger fa-circle-arrow-left"></i>
                     </button>
-                    <button type="button" class="btn btn-light ms-1">
+                    <button id="home-nextBtn" type="button" class="btn btn-light ms-1">
                         <i class="fa-solid fs-2 text-danger fa-circle-arrow-right"></i>
                     </button>
                 </div>
@@ -278,7 +248,9 @@
             </div>
             <div class="container-inside-one">
                 <div class="container-title d-flex">
-                    <button  style="height:35px;margin-right: 25%" type="button" class="btn btn-outline-dark rounded-circle backToHomeBtn"><i class="fa-solid fa-arrow-left fs-5"></i></button>
+                    <button style="height:35px;margin-right: 25%" type="button"
+                            class="btn btn-outline-dark rounded-circle backToHomeBtn"><i
+                            class="fa-solid fa-arrow-left fs-5"></i></button>
 
                     <h3 class="fw-bold ">
                         REGISTRATION FORM
@@ -343,7 +315,8 @@
                         </div>
                     </div>
                     <div class="box-row-two">
-                        <button id="registerNowBtn" type="button" class="btn btn-dark register-form-btn">Register</button>
+                        <button id="registerNowBtn" type="button" class="btn btn-dark register-form-btn">Register
+                        </button>
 
 
                     </div>
@@ -354,11 +327,13 @@
 
     </section>
 
-    <section style="display:none;"  id="loginPage">
+    <section style="display:none;" id="loginPage">
         <div class="login-container">
             <div class="login-inside-container-one">
                 <div style="margin-right: 35%" class="login-container-title">
-                    <button style="margin-right:20%" type="button" class="btn btn-outline-dark rounded-circle mb-5 backToHomeBtn"><i class="fa-solid fa-arrow-left fs-6"></i></button>
+                    <button style="margin-right:20%" type="button"
+                            class="btn btn-outline-dark rounded-circle mb-5 backToHomeBtn"><i
+                            class="fa-solid fa-arrow-left fs-6"></i></button>
                     <h3 style="font-weight: bold;">
                         Login
                     </h3>
@@ -383,7 +358,8 @@
                         <h8 class="login-box-row-three">OR</h8>
                     </div>
                     <div class="login-box-row-two">
-                        <button style="width: 100%;" type="button" class="btn btn-outline-dark getStartBtn">REGISTER</button>
+                        <button style="width: 100%;" type="button" class="btn btn-outline-dark getStartBtn">REGISTER
+                        </button>
 
                     </div>
                 </div>
@@ -856,10 +832,12 @@
                 <p class="fs-2 fw-bold text-black border-5 border-dark">Update Profile</p>
                 <div class="customer-pro-sub-container border-radius-shadow">
                     <div class="customer-pro-detail-container-one">
-                        <button id="customerInformationBtn" type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn mt-5">
+                        <button id="customerInformationBtn" type="button"
+                                class="btn btn-outline-dark w-75 fw-bold register-form-btn mt-5">
                             Information
                         </button>
-                        <button  id="customerChangePasswordBtn" type="button" class="btn btn-outline-dark w-75 fw-bold register-form-btn">Password
+                        <button id="customerChangePasswordBtn" type="button"
+                                class="btn btn-outline-dark w-75 fw-bold register-form-btn">Password
                         </button>
 
                     </div>
@@ -872,7 +850,7 @@
                                         <input type="text" class="form-control border-secondary"
                                                id="customer-profile-nic"
                                                placeholder="212006300336" disabled readonly>
-                                        <label for="customer-profile-nic" >NIC No</label>
+                                        <label for="customer-profile-nic">NIC No</label>
                                     </div>
                                     <div class="form-floating w-100">
                                         <input style="height: 10%;" type="text" class="form-control border-secondary"
@@ -924,11 +902,13 @@
                         <div id="customerProfileChangePassword" style="display:none;margin-right:200px ">
                             <h2 class="text-black mb-5">Change Password</h2>
                             <div style="width: 450px; margin-bottom: 20px;" class="form-floating ">
-                                <input type="password" class="form-control border-secondary" id="customer-profile-current-password">
+                                <input type="password" class="form-control border-secondary"
+                                       id="customer-profile-current-password">
                                 <label for="customer-profile-current-password">Current Password</label>
                             </div>
                             <div class="form-floating w-100">
-                                <input type="password" class="form-control border-secondary" id="customer-profile-new-password">
+                                <input type="password" class="form-control border-secondary"
+                                       id="customer-profile-new-password">
                                 <label for="customer-profile-new-password">New Password</label>
                             </div>
                             <button type="button" class="btn btn-dark register-form-btn mt-5 w-20">Change</button>
@@ -961,7 +941,7 @@
                                 <th scope="col">End Date</th>
                             </tr>
                             </thead>
-                            <tbody id="allOrderTable">
+                            <tbody id="driver-schedule">
 
                             </tbody>
                         </table>
@@ -981,56 +961,66 @@
                     <h2 style="width: 90%;height: 8%;text-align: center;padding-top: 5%"
                         class="d-flex justify-content-center align-content-center text-light bg-custom-black rounded-3 fw-bold mt-4 mb-4">
                         <i class="fa-solid text-light fs-3 fa-car me-2 "></i> ECR .</h2>
-                    <button id="adminDashboardBtn" class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminDashboardBtn"
+                            class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fs-4 fa-gauge mt-1 me-3"></i>Dashboard
                     </button>
-                    <button id="adminReservationBtn" class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminReservationBtn"
+                            class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fa-print mt-1 fs-4 me-3"></i>Reservation
                     </button>
-                    <button id="adminCarsBtn" class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminCarsBtn"
+                            class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fa-car-side mt-1 fs-4 me-3"></i>Cars
                     </button>
-                    <button id="adminCustomerBtn" class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminCustomerBtn"
+                            class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fa-users fs-4 mt-1 me-3"></i>Customers
                     </button>
-                    <button id="adminDriversBtn" class="btn btn-outline-dark border-0 fw-bold mb-5 w-75 d-flex justify-content-start  fs-5">
+                    <button id="adminDriversBtn"
+                            class="btn btn-outline-dark border-0 fw-bold mb-2 w-75 d-flex justify-content-start  fs-5">
                         <i class="fa-solid fa-id-card fs-4 me-3 mt-1"></i>Drivers
                     </button>
-                    <button class="btn btn-outline-danger border-0 fw-bold mb-5 mt-5 w-75 d-flex justify-content-start  fs-5 " data-bs-toggle="modal"
+                    <button id="adminPaymentBtn"
+                            class="btn btn-outline-dark border-0 fw-bold w-75 d-flex justify-content-start  fs-5">
+                        <i class="fa-solid fa-money-bill-1 mt-1 fs-4 me-3"></i>Payments
+                    </button>
+                    <button class="btn btn-outline-danger border-0 fw-bold mb-5 mt-5 w-75 d-flex justify-content-start mt-5 fs-5 "
+                            data-bs-toggle="modal"
                             data-bs-target="#logoutModel">
-                        <i class="fa-solid fa-power-off fs-4 me-3 mt-1 " ></i>Logout
+                        <i class="fa-solid fa-power-off fs-4 me-3 mt-1 "></i>Logout
                     </button>
 
                 </div>
 
-                <div  style="display:inline-flex;margin-top:3%" id="adminDailySummary" class="admin-dashboard-sub-container">
+                <div style="display:block;margin-top:3%" id="adminDailySummary" class="admin-dashboard-sub-container">
                     <div class="row-1">
                         <div class="card text-primary mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
                             <div style="font-size: 1vw" class="card-header fw-bold text-center">WEEKLY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
-                                <h6 style="font-size:2vw" class="card-text text-center ">100,000</h6>
+                                <h6 id="admin-daily-income" style="font-size:2vw" class="card-text text-center ">100,000</h6>
                             </div>
                         </div>
                         <div class="card text-success mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
-                            <div style="font-size: 1vw" class="card-header fw-bold text-center">MONTHLY INCOME</div>
+                            <div style="font-size: 1vw" class="card-header fw-bold text-center">WEEKLY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
-                                <h6 style="font-size:2vw" class="card-text text-center ">100,000,000</h6>
+                                <h6 id="admin-weekly-income" style="font-size:2vw" class="card-text text-center ">100,000,000</h6>
                             </div>
                         </div>
                         <div class="card text-warning mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
-                            <div style="font-size: 1vw" class="card-header fw-bold text-center">ANUALLY INCOME</div>
+                            <div style="font-size: 1vw" class="card-header fw-bold text-center">MONTHLY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
-                                <h6 style="font-size:2vw" class="card-text text-center ">100,000,000,000</h6>
+                                <h6 id="admin-Monthly-income" style="font-size:2vw" class="card-text text-center ">100,000,000,000</h6>
                             </div>
                         </div>
                         <div class="card  text-danger mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
-                            <div style="font-size: 1vw;" class="card-header fw-bold text-center">ANUALLY INCOME</div>
+                            <div style="font-size: 1vw;" class="card-header fw-bold text-center">ANNUALLY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
-                                <h6 style="font-size:2vw" class="card-text text-center ">100,000,000,000</h6>
+                                <h6 id="admin-Yearly-income" style="font-size:2vw" class="card-text text-center ">100,000,000,000</h6>
                             </div>
                         </div>
                     </div>
@@ -1115,7 +1105,8 @@
                             </ul>
                         </div>
                         <h4 id="admin-reservation-title" class="text-center mt-1 fw-bold">Pending Reservation</h4>
-                        <h4 id="admin-todayPickups-title" style="display: none" class="text-center mt-1 fw-bold">Today Pickups</h4>
+                        <h4 id="admin-todayPickups-title" style="display: none" class="text-center mt-1 fw-bold">Today
+                            Pickups</h4>
                         <div style="width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
@@ -1134,10 +1125,12 @@
                             </table>
                         </div>
                         <div class="w-100 d-flex justify-content-end mt-4">
-                            <button id="admin-update-reservation" style="display:none;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
+                            <button id="admin-update-reservation" style="display:none;"
+                                    class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
                                     data-bs-target="#updateReservationModel">Update Reservation
                             </button>
-                            <button id="admin-view-reservation" style="display:block;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
+                            <button id="admin-view-reservation" style="display:block;"
+                                    class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
                                     data-bs-target="#viewReservationModel">View Reservation
                             </button>
                         </div>
@@ -1168,17 +1161,21 @@
                             </div>
 
                         </div>
-                        <h4 id="admin-all-cars-title"  class="text-center mt-1 fw-bold">All Cars</h4>
-                        <h4 id="admin-all-unavailableCars-title" style="display: none" class="text-center mt-1 fw-bold">Unavailable Cars</h4>
-                        <h4 id="admin-all-availableCars-title" style="display: none" class="text-center mt-1 fw-bold">Available Cars</h4>
-                        <h4 id="admin-all-underMaintains-title" style="display: none" class="text-center mt-1 fw-bold">Under Maintains Cars</h4>
-                        <h4 id="admin-all-needMaintains-title" style="display: none" class="text-center mt-1 fw-bold">Need Maintains Cars</h4>
+                        <h4 id="admin-all-cars-title" class="text-center mt-1 fw-bold">All Cars</h4>
+                        <h4 id="admin-all-unavailableCars-title" style="display: none" class="text-center mt-1 fw-bold">
+                            Unavailable Cars</h4>
+                        <h4 id="admin-all-availableCars-title" style="display: none" class="text-center mt-1 fw-bold">
+                            Available Cars</h4>
+                        <h4 id="admin-all-underMaintains-title" style="display: none" class="text-center mt-1 fw-bold">
+                            Under Maintains Cars</h4>
+                        <h4 id="admin-all-needMaintains-title" style="display: none" class="text-center mt-1 fw-bold">
+                            Need Maintains Cars</h4>
                         <div style="width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
-                            <table  class="table table-hover table-borderless table-dark ">
+                            <table class="table table-hover table-borderless table-dark ">
                                 <thead class="table-dark text-center">
-                                <tr >
+                                <tr>
                                     <th scope="col">Vehicle Number</th>
                                     <th scope="col">Brand</th>
                                     <th scope="col">Type</th>
@@ -1192,16 +1189,21 @@
                             </table>
                         </div>
                         <div class="w-100 d-flex justify-content-end mt-3">
-                            <button id="viewButton" style="display:block;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
+                            <button id="viewButton" style="display:block;" class=" btn btn-outline-primary fw-bold"
+                                    data-bs-toggle="modal"
                                     data-bs-target="#updateCarModel">View Details
                             </button>
-                            <button id="unavailableBtn" style="display:none;"  class=" btn btn-outline-danger fw-bold">Mark As Unavailable
+                            <button id="unavailableBtn" style="display:none;" class=" btn btn-outline-danger fw-bold">
+                                Mark As Unavailable
                             </button>
-                            <button id="availableBtn" style="display:none;" class=" btn btn-outline-success fw-bold">Mark As Available
+                            <button id="availableBtn" style="display:none;" class=" btn btn-outline-success fw-bold">
+                                Mark As Available
                             </button>
-                            <button id="maintainBtn" style="display:none;" class=" btn btn-outline-secondary fw-bold">Mark As Maintain
+                            <button id="maintainBtn" style="display:none;" class=" btn btn-outline-secondary fw-bold">
+                                Mark As Maintain
                             </button>
-                            <button id="underMaintainBtn" style="display:none;" class=" btn btn-outline-warning fw-bold">Mark As under
+                            <button id="underMaintainBtn" style="display:none;"
+                                    class=" btn btn-outline-warning fw-bold">Mark As under
                                 maintenance
                             </button>
                         </div>
@@ -1244,11 +1246,13 @@
                     <div class="sub-detail-container">
                         <!--This -->
                         <div class="w-100 d-flex justify-content-between">
-                            <button id="enableSaveDriverBtn" style="display: block" class="btn btn-outline-dark h-50 w-25" data-bs-toggle="modal"
+                            <button id="enableSaveDriverBtn" style="display: block"
+                                    class="btn btn-outline-dark h-50 w-25" data-bs-toggle="modal"
                                     data-bs-target="#saveDriverModel">Save
                             </button><!--Save Button-->
 
-                            <form id="enableSearchDriverBtn" style="visibility:hidden;" class="d-flex h-50 w-50" role="search">
+                            <form id="enableSearchDriverBtn" style="visibility:hidden;" class="d-flex h-50 w-50"
+                                  role="search">
                                 <input class="form-control me-2  " type="search" placeholder="Driver ID"
                                        aria-label="Search">
                                 <button class="btn btn-outline-dark  " type="submit">Search</button>
@@ -1267,9 +1271,11 @@
                             </div>
 
                         </div>                                                 <!--is-->
-                        <h4 id="admin-all-drivers-title" style="display:block;" class="text-center mt-1 fw-bold">All Drivers</h4>
+                        <h4 id="admin-all-drivers-title" style="display:block;" class="text-center mt-1 fw-bold">All
+                            Drivers</h4>
                         <!--change view of driver table and button-->
-                        <h4  id="admin-all-driverSchedule-title" style="display:none;" class="text-center mt-1 fw-bold">Driver Schedule</h4>
+                        <h4 id="admin-all-driverSchedule-title" style="display:none;" class="text-center mt-1 fw-bold">
+                            Driver Schedule</h4>
                         <!--change view of driver table and button-->
                         <div id="admin-driver-table" style="display:block;width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
@@ -1317,6 +1323,146 @@
                     </div>
 
                 </div><!--pending-->
+
+                <div style="display:none;" id="adminPayments" class="admin-dashboard-sub-container">
+                    <div class="inside-payment-container">
+                        <div class="payment-column border-radius-shadow ">
+                            <h2 class="d-flex justify-content-center align-items-center w-100 text-dark mb-1">Reservation Details</h2>
+                            <form class="d-flex justify-content-between mt-3 text-fields-max-width mb-4" role="search">
+                                <input id="admin-payment-reservation-searchText" class="form-control me-2" type="search" placeholder="Search Reservation ID"
+                                       aria-label="Search">
+                                <button id="admin-payment-searchBtn" class="btn btn-outline-dark " type="button">Search</button>
+                            </form>
+                            <div class="text-fields-max-width">
+                                <label class="col-form-label fw-bold ">Customer Name:</label>
+                                <input id="admin-payment-customer-name" class="form-control mb-3 " type="text"
+                                       aria-label="Disabled input example" disabled readonly>
+                            </div>
+                            <div class="text-fields-max-width">
+                                <label class="col-form-label fw-bold ">Registration No:</label>
+                                <input id="admin-payment-registrationNo" class="form-control mb-3 " type="text"
+                                       aria-label="Disabled input example" disabled readonly>
+                            </div>
+                            <div class=" text-fields-max-width">
+                                <label class="col-form-label fw-bold">PickUp Date:</label>
+                                <input id="admin-payment-pickUp-date" class="form-control mb-3 " type="date"
+                                       aria-label="Disabled input example" disabled readonly>
+                            </div>
+                            <div class=" text-fields-max-width">
+                                <label class="col-form-label fw-bold">Return Date:</label>
+                                <input id="admin-payment-return-date" class="form-control mb-3 " type="date"
+                                       aria-label="Disabled input example" disabled readonly>
+                            </div>
+                            <div class=" text-fields-max-width">
+                                <label class="col-form-label fw-bold ">No Of Days:</label>
+                                <input id="admin-payment-noOf-date" class="form-control mb-3 " type="text"
+                                       aria-label="Disabled input example" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="payment-column border-radius-shadow">
+                            <h2  class=" mb-3 d-flex justify-content-center align-items-center w-100 text-dark rounded-top mt-3">Payment Details</h2>
+                            <div style="height: 25px"></div>
+                            <div class="text-fields-max-width">
+                                <label class="col-form-label fw-bold ">Pay Date:</label>
+                                <input id="admin-payment-pay-date" class="form-control mb-3 " type="date"
+                                       aria-label="Disabled input example" disabled readonly>
+                            </div>
+                            <div class="text-fields-max-width">
+                                <label class="col-form-label fw-bold ">Bill ID:</label>
+                                <input id="admin-payment-billId" class="form-control mb-3 " type="text"
+                                       aria-label="Disabled input example" disabled readonly>
+                            </div>
+                            <div class=" text-fields-max-width">
+                                <label class="col-form-label fw-bold">Driver Fee:</label>
+                                <input id="admin-payment-driver-fee" class="form-control mb-3 " type="text"
+                                       aria-label="Disabled input example" disabled readonly>
+                            </div>
+                            <div class=" text-fields-max-width">
+                                <label class="col-form-label fw-bold">Total Km:</label>
+                                <input id="admin-payment-totalKm" class="form-control mb-3 " type="text"
+                                       aria-label="Disabled input example" >
+                            </div>
+                            <div class=" text-fields-max-width">
+                                <label class="col-form-label fw-bold mb-2">Damage Cost:</label>
+                                <input id="admin-payment-damage-cost" class="form-control" type="text"
+                                       aria-label="Disabled input example" >
+                            </div>
+                            <div class="mt-5 d-grid col-6 mt-xl-2 mx-auto text-fields-max-width mb-4">
+                                <button id="admin-payment-done-calculate" type="button" class="btn btn-outline-dark mt-4 fw-bold">DONE
+                                </button>
+                            </div>
+                        </div>
+                        <div class="payment-column border-radius-shadow">
+                            <div style="margin-top: 28px" class=" text-fields-max-width mb-1">
+                                <div class="col-5">
+                                    <div class="mb-1">
+                                        <label class="form-label fs-6 fw-bold">Refund(RS)</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="mb-2">
+                                        <input type="text" readonly class="form-control p-1 fs-6 fw-bolder mb-2"
+                                               id="admin-payment-refund" placeholder="00000.00">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" text-fields-max-width mb-1">
+                                <div class="col-5">
+                                    <div class="mb-1">
+                                        <label class="form-label fs-6 fw-bold">Total(RS)</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="mb-2">
+                                        <input type="text" readonly class="form-control p-1 fs-6 fw-bolder mb-2"
+                                               id="admin-payment-total" placeholder="00000.00">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" text-fields-max-width">
+                                <div class="col-5">
+                                    <div class="mb-1">
+                                        <label  class="form-label fs-6 fw-bold">Sub Total(RS)</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="mb-2">
+                                        <input type="text" readonly class="form-control p-1 fs-6 fw-bolder "
+                                               id="admin-payment-subTotal" placeholder="00000.00">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div  class=" text-fields-max-width">
+
+                                <div class="col">
+                                    <div class="mb-2 ">
+                                        <label class="form-label fw-bold">Discount</label>
+                                        <input id="admin-payment-discount" type="number" class="form-control" placeholder="10"
+                                               >
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class=" mt-2 mb-2">
+                                        <label class="form-label fw-bold">Cash</label>
+                                        <input id="admin-payment-cash" type="number" class="form-control"  placeholder="0000.00">
+                                    </div>
+                                </div>
+                            </div>
+                            <div  class=" text-fields-max-width">
+                                <div class="mb-3">
+                                    <label  class="form-label fw-bold">Balance</label>
+                                    <input  type="number" class="form-control" id="admin-payment-balance" placeholder="0000.00"
+                                           disabled>
+                                </div>
+                                <div class="mb-4 mt-5 d-grid col-6 mt-xl-2 mx-auto w-100">
+                                    <button id="admin-payment-paidBtn" type="button" class="btn btn-outline-dark mt-4 fw-bold w-100">PAID
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-------------Save Car----------->
@@ -1325,7 +1471,7 @@
                 <div class="modal-dialog-centered modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-dark text-light">
-                            <h5 class="modal-title " >Add New Car</h5>
+                            <h5 class="modal-title ">Add New Car</h5>
                             <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
@@ -1342,7 +1488,7 @@
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label  class="col-form-label fw-bold">Brand:</label>
+                                            <label class="col-form-label fw-bold">Brand:</label>
                                             <input id="save-car-brand" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
@@ -1759,17 +1905,20 @@
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="save-driver-mobile" class="col-form-label fw-bold">Mobile:</label>
+                                            <label for="save-driver-mobile"
+                                                   class="col-form-label fw-bold">Mobile:</label>
                                             <input id="save-driver-mobile" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="save-driver-user-name" class="col-form-label fw-bold">User Name:</label>
+                                            <label for="save-driver-user-name" class="col-form-label fw-bold">User
+                                                Name:</label>
                                             <input id="save-driver-user-name" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="save-driver-password" class="col-form-label fw-bold">Password:</label>
+                                            <label for="save-driver-password"
+                                                   class="col-form-label fw-bold">Password:</label>
                                             <input id="save-driver-password" class="form-control mb-3" type="password"
                                                    aria-label="Disabled input example">
                                         </div>
@@ -1882,9 +2031,10 @@
                                     aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            
+
                             <div>
-                                <img style="width: 50%;display:block;margin-left: auto;margin-right: auto" src="assets/img/car-rent.jpg" alt="">
+                                <img style="width: 50%;display:block;margin-left: auto;margin-right: auto"
+                                     src="assets/img/car-rent.jpg" alt="">
                                 <br>
                             </div>
 
@@ -1902,17 +2052,20 @@
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Customer Name:</label>
+                                            <label for="txtCusName" class="col-form-label fw-bold">Customer
+                                                Name:</label>
                                             <input class="form-control mb-3" type="text" value="Chamodh Pasindu"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">Vehicle No:</label>
+                                            <label for="txtCusAddress" class="col-form-label fw-bold">Vehicle
+                                                No:</label>
                                             <input class="form-control mb-3" type="text" value="CDI-0101"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">PickUp Venue:</label>
+                                            <label for="txtCusSalary" class="col-form-label fw-bold">PickUp
+                                                Venue:</label>
                                             <input class="form-control mb-3" type="text" value="Panadura"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
@@ -1962,7 +2115,7 @@
                             </form>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-outline-dark" >Deny</button>
+                            <button type="button" class="btn btn-outline-dark">Deny</button>
                             <button type="button" id="btnReservationSave" class="btn btn-dark">Save</button>
 
                         </div>
@@ -1983,7 +2136,8 @@
                         <div class="modal-body">
 
                             <div>
-                                <img style="width: 50%;display:block;margin-left: auto;margin-right: auto" src="assets/img/car-rent.jpg" alt="">
+                                <img style="width: 50%;display:block;margin-left: auto;margin-right: auto"
+                                     src="assets/img/car-rent.jpg" alt="">
                                 <br>
                             </div>
 
@@ -2001,17 +2155,20 @@
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Customer Name:</label>
+                                            <label for="txtCusName" class="col-form-label fw-bold">Customer
+                                                Name:</label>
                                             <input class="form-control mb-3" type="text" value="Chamodh Pasindu"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">Vehicle No:</label>
+                                            <label for="txtCusAddress" class="col-form-label fw-bold">Vehicle
+                                                No:</label>
                                             <input class="form-control mb-3" type="text" value="CDI-0101"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">PickUp Venue:</label>
+                                            <label for="txtCusSalary" class="col-form-label fw-bold">PickUp
+                                                Venue:</label>
                                             <input class="form-control mb-3" type="text" value="Panadura"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
@@ -2081,7 +2238,8 @@
                 </div>
                 <div class="modal-footer text-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="logOutBtn" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Logout</button>
+                    <button id="logOutBtn" type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Logout
+                    </button>
                 </div>
             </div>
         </div>
@@ -2096,6 +2254,7 @@
 <script src="assets/js/driverController.js"></script>
 <script src="assets/js/carController.js"></script>
 <script src="assets/js/reservationController.js"></script>
+<script src="assets/js/paymentController.js"></script>
 
 </body>
 </html>

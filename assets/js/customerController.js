@@ -1,10 +1,4 @@
-var baseUrl = "http://localhost:8080/Easy_Car_Rental/"
 
-//Set current date
-var now = new Date();
-var day = ("0" + now.getDate()).slice(-2);
-var month = ("0" + (now.getMonth() + 1)).slice(-2);
-var today = now.getFullYear() + "-" + (month) + "-" + (day);
 $('#register-form-date').val(today);
 $('#customer-home-pickup').val(today);
 $('#customer-home-return').val(today);

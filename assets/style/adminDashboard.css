@@ -53,3 +53,24 @@
     justify-content: space-evenly;
     flex-direction: column;
 }
+
+.payment-column{
+    height: 90%;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inside-payment-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.text-fields-max-width{
+    width: 85%;
+}

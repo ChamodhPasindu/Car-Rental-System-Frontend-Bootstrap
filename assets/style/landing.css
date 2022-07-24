@@ -22,7 +22,7 @@
     height: 700px;
     justify-content: center;
     align-items: center;
-    border-bottom:3px solid gray;
+    /*border-bottom:3px solid gray;*/
 }
 .home-car-detail{
     display: flex;
@@ -42,12 +42,13 @@
     box-shadow: 1px 1px 10px 1px #9E9E9E;;
 }
 .landing-custom-card-img {
-    height: 45%;
+    height: 220px;
     width: 300px;
     display: block;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 3%
+    margin-top: 3%;
+    border-radius: 10px;
 }
 
 

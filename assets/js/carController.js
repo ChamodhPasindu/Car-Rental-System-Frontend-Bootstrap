@@ -37,7 +37,7 @@ $("#admin-car-unavailable").click(function () {
     $("#admin-all-availableCars-title").css("display","none");
 
 
-    loadAllCars("unavailableOrAvailableCarsByStatus/Rental")
+    loadAllCars("unavailableOrAvailableCarsByStatus/Unavailable")
 
 })
 $("#admin-car-underMaintain").click(function () {

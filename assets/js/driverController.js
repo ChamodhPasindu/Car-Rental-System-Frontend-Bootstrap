@@ -69,8 +69,28 @@ function loadAllDrivers() {
         }
     });
 }
-function loadDriverSchedule() {
+function loadDriverSchedule(data) {
+    $("#driver-schedule").empty();
 
+
+    $.ajax({
+        url: baseUrl + "controller/driver/weeklyAndMonthlyScheduleByDriver?id="+data.nic+"&date=Weekly",
+        method: "GET",
+        success: function (resp) {
+            if (resp.message===200){
+                for (const schedule of resp.data) {
+                    let row = `<tr><td>${schedule.carReservation.reserve_id}</td><td>${schedule.start_time}</td><td>${schedule.start_date}</td>
+                <td>${schedule.end_date}</td></tr>`;
+                    $("#driver-schedule").append(row);
+                }
+            }else {
+                alert("You Have Not Any Schedule in this week")
+            }
+
+        } ,error: function (ob) {
+           alert("You Have Not Any Schedule in this week")
+        }
+    });
 }
 
 

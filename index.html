@@ -469,69 +469,6 @@
                                    data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
-                        <div class="card custom-card  ">
-                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
-                            <div class="card-body ">
-                                <h8>Luxury</h8>
-                                <h3 class="card-title">Mercedes Benz</h3><br>
-                                <h5 class="custom-card-daily">Daily</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
-                                <br style="clear:both;">
-                                <h5 class="custom-card-daily">Monthly</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
-
-                                <hr style="clear:both;"/>
-                                <h5 class=" float-start ms-2">
-                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
-                                <h5 class="float-end me-2">
-                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
-                                <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
-                                   data-bs-target="#bookNowModel">Book Now</a>
-                            </div>
-                        </div>
-                        <div class="card custom-card ">
-                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
-                            <div class="card-body ">
-                                <h8>Luxury</h8>
-                                <h3 class="card-title">Mercedes Benz</h3><br>
-                                <h5 class="custom-card-daily">Daily</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
-                                <br style="clear:both;">
-                                <h5 class="custom-card-daily">Monthly</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
-
-                                <hr style="clear:both;"/>
-                                <h5 class=" float-start ms-2">
-                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
-                                <h5 class="float-end me-2">
-                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
-                                <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
-                                   data-bs-target="#bookNowModel">Book Now</a>
-                            </div>
-                        </div>
-                        <div class="card custom-card ">
-                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
-                            <div class="card-body ">
-                                <h8>Luxury</h8>
-                                <h3 class="card-title">Mercedes Benz</h3><br>
-                                <h5 class="custom-card-daily">Daily</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
-                                <br style="clear:both;">
-                                <h5 class="custom-card-daily">Monthly</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
-
-                                <hr style="clear:both;"/>
-                                <h5 class=" float-start ms-2">
-                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
-                                <h5 class="float-end me-2">
-                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
-                                <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
-                                   data-bs-target="#bookNowModel">Book Now</a>
-                            </div>
-                        </div>
 
                         <!-------------------------------Model-------------------------------------------->
                         <div class="modal fade" id="bookNowModel" tabindex="-1" aria-labelledby="bookCarModalLabel"
@@ -800,7 +737,7 @@
                         <div class="card text-bg-light border-radius-shadow w-25" style="margin-right: 5%;height: 80%">
                             <div class="card-header fw-bold">Driver Status <span
                                     class="ms-3 text-success fw-bold">YES</span></div>
-                            <div class="card-body">
+                            <div class="card-body text-center">
                                 <h5 class="card-title text-center fw-bolder">Driver ID : <span>200006300336</span></h5>
                                 <br>
                                 <p class="card-title fs-5 fw-bold">Name : <span>Tharindu Lakruwan</span></p>
@@ -872,29 +809,17 @@
                                     </div>
                                 </div>
                                 <div class="customer-pro-detail-container mt-2 ">
-                                    <div class="form-floating w-100">
+                                    <div class="form-floating w-100 ">
                                         <input type="text" class="form-control border-secondary"
                                                id="customer-profile-address"
                                                placeholder="Panadura">
                                         <label for="customer-profile-address">Address</label>
                                     </div>
 
-                                    <div class="w-100 mb-3 mt-3">
-                                        <label for="register-form-NIC-image" class="form-label ">NIC Image</label>
-                                        <input class="form-control border-secondary" type="file"
-                                               id="customer-profile-NIC-image">
-                                    </div>
-                                    <div class="w-100 mb-5">
-                                        <label for="register-form-License-image" class="form-label">License
-                                            Image</label>
-                                        <input class="form-control border-secondary" type="file"
-                                               id="customer-profile-License-image">
-                                    </div>
-
                                 </div>
                             </div>
                             <div class="customer-pro-box-row-two">
-                                <button type="button" class="btn btn-dark register-form-btn mt-5 w-25">Save</button>
+                                <button id="customer-updateBtn" type="button" class="btn btn-dark register-form-btn mt-5 w-25">Save</button>
 
                             </div>
                         </div><!--Display block Information of customer-->
@@ -911,7 +836,7 @@
                                        id="customer-profile-new-password">
                                 <label for="customer-profile-new-password">New Password</label>
                             </div>
-                            <button type="button" class="btn btn-dark register-form-btn mt-5 w-20">Change</button>
+                            <button id="btnChangePassword" type="button" class="btn btn-dark register-form-btn mt-5 w-20">Change</button>
 
                         </div><!--Display block change Password of customer-->
                     </div>
@@ -1028,26 +953,26 @@
                         <div class="card  text-black mb-3 mt-3 border-radius-shadow" style="width: 20%;height: 70%">
                             <div style="font-size: 1.1vw" class="card-header fw-bold text-center ">Available Cars</div>
                             <div class="card-body">
-                                <h6 style="font-size: 2vw" class="card-title text-center text-success">50</h6>
+                                <h6 id="admin-daily-available-cars" style="font-size: 2vw" class="card-title text-center text-success">50</h6>
                             </div>
                         </div>
                         <div class="card  text-black mb-3 mt-3 border-radius-shadow" style="width: 20%;height: 70%">
                             <div style="font-size: 1.1vw" class="card-header fw-bold text-center ">Rental Cars</div>
                             <div class="card-body">
-                                <h6 style="font-size: 2vw" class="card-title text-center text-danger">00</h6>
+                                <h6 id="admin-daily-rental-cars" style="font-size: 2vw" class="card-title text-center text-danger">00</h6>
                             </div>
                         </div>
                         <div class="card  text-black mb-3 mt-3 border-radius-shadow" style="width: 20%;height: 70%; ">
                             <div style="font-size: 1.1vw" class="card-header fw-bold text-center">Available Drivers
                             </div>
                             <div class="card-body">
-                                <h6 style="font-size: 2vw" class="card-title text-center text-success">40</h6>
+                                <h6 id="admin-daily-available-drivers" style="font-size: 2vw" class="card-title text-center text-success">40</h6>
                             </div>
                         </div>
                         <div class="card  text-black mb-3 mt-3 border-radius-shadow" style="width: 20%;height: 70%; ">
                             <div style="font-size: 1.1vw" class="card-header fw-bold text-center">Occupied Drivers</div>
                             <div class="card-body">
-                                <h6 style="font-size: 2vw" class="card-title text-center text-danger">00</h6>
+                                <h6 id="admin-daily-occupied-cars" style="font-size: 2vw" class="card-title text-center text-danger">00</h6>
                             </div>
                         </div>
 
@@ -1065,7 +990,7 @@
                                     <th scope="col">Customer ID</th>
                                 </tr>
                                 </thead>
-                                <tbody id="allOrderTable">
+                                <tbody id="admin-daily-reservation-table">
 
                                 </tbody>
                             </table>
@@ -1077,19 +1002,19 @@
                                 <thead class="table-dark text-center">
                                 <tr>
                                     <th scope="col">Bill ID</th>
-                                    <th scope="col">ReserveI D</th>
+                                    <th scope="col">Reserve ID</th>
                                     <th scope="col">Pay Date</th>
                                     <th scope="col">Amount</th>
                                 </tr>
                                 </thead>
-                                <tbody id="allOrderTable">
+                                <tbody id="admin-daily-payment-table">
 
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                </div>
+                </div>  <!--done-->
 
                 <div style="display:none;margin-top: 3%" id="adminReservation" class="admin-dashboard-sub-container ">
                     <div class="sub-detail-container">
@@ -1253,9 +1178,9 @@
 
                             <form id="enableSearchDriverBtn" style="visibility:hidden;" class="d-flex h-50 w-50"
                                   role="search">
-                                <input class="form-control me-2  " type="search" placeholder="Driver ID"
-                                       aria-label="Search">
-                                <button class="btn btn-outline-dark  " type="submit">Search</button>
+                                <input id="admin-driver-start-date" class="form-control me-2  " type="date" aria-label="Search">
+                                <input id="admin-driver-end-date" class="form-control me-2  " type="date" aria-label="Search">
+                                <button id="admin-driver-schedule-searchBtn" class="btn btn-outline-dark  " type="button">Search</button>
                             </form> <!--search Driver-->
 
                             <div class="btn-group d-flex ms-auto mb-5 w-25">

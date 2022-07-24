@@ -67,7 +67,7 @@
     width: 50%;
     margin: 1%;
     padding: 2%;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     flex-wrap: wrap;
 }

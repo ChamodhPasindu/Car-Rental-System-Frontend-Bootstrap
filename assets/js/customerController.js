@@ -1,7 +1,7 @@
-
 $('#register-form-date').val(today);
 $('#customer-home-pickup').val(today);
 $('#customer-home-return').val(today);
+var customer;
 
 
 $("#registerNowBtn").click(function () {
@@ -86,3 +86,94 @@ function loadAllCustomer() {
         }
     });
 }
+
+
+$("#btnChangePassword").click(function () {
+
+
+    var newPassword = $("#customer-profile-new-password").val()
+
+    let userDTO = {
+        user_name: customer.user_name,
+        password:   $("#customer-profile-current-password").val(),
+    }
+
+    $.ajax({
+        url: baseUrl+"controller/login",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(userDTO),
+        success: function (res) {
+            if (res.status === 200) {
+                if (res.message === ("Customer")) {
+                    changePassword(customer.nic, customer.user_name, newPassword);
+                } else {
+                    alert("Current Password Didnt match")
+                }
+            }
+        },
+        error: function (ob) {
+            console.log(ob.responseJSON.message);
+        }
+    });
+})
+
+function changePassword(nic, user_name, newPassword) {
+    user = {
+        customer_id: nic,
+        user_name: user_name,
+        password: newPassword
+    }
+    console.log(user)
+
+    $.ajax({
+        url: baseUrl+"controller/customer/accountSecurity",
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify(user),
+        success: function (res) {
+            if (res.status === 200) {
+                alert(res.message)
+            } else {
+                alert("Cant update your password in this moment")
+            }
+        },
+        error: function (ob) {
+            console.log(ob.responseJSON.message);
+        }
+    });
+}
+
+$("#customer-updateBtn").click(function (){
+
+    var newDetails={
+        nic:$("#customer-profile-nic").val(),
+        user_name:customer.user_name,
+        password:customer.password,
+        customer_name:$("#customer-profile-name").val(),
+        license_img:customer.license_img,
+        nic_img:customer.nic,
+        address:$("#customer-profile-address").val(),
+        mobile:$("#customer-profile-mobile").val(),
+        email:$("#customer-profile-email").val(),
+        register_date:customer.register_date
+    }
+    console.log(newDetails)
+
+    $.ajax({
+        url: baseUrl+"controller/customer/update",
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify(newDetails),
+        success: function (res) {
+            if (res.status === 200) {
+                alert(res.message)
+            } else {
+                alert("Cant update your password in this moment")
+            }
+        },
+        error: function (ob) {
+            console.log(ob.responseJSON.message);
+        }
+    });
+})

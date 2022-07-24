@@ -164,3 +164,74 @@ function loadAllCars(path) {
         }
     });
 }
+
+
+function loadUpcomingReservation() {
+    $.ajax({
+        url: baseUrl + "controller/customer/customerReservationByStatus/?id="+customer.nic+"&status=Accept",
+        method: "GET",
+        success: function (resp) {
+           if (resp.status===200){
+               if (!(resp.data.length === 0)){
+                   setReservationData(resp.data);
+                   loadDriverInfo()
+
+               }
+           }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+
+function loadDriverInfo() {
+    $.ajax({
+        url: baseUrl + "controller/customer/sendDriverInfoForAcceptReservations/"+customer.nic,
+        method: "GET",
+        success: function (resp) {
+            if (resp.status===200){
+                if (!(resp.data.length === 0)){
+                    setDriverData(resp.data);
+                }
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+function setReservationData(data) {
+    $("#customer-reservationStatus").text("ACTIVE")
+    $("#customer-reservationStatus").css("color","green")
+
+    $("#customer-reservation-id").text(data[0].reserve_id)
+    $("#customer-reservation-name").text(data[0].customer.customer_name)
+    $("#customer-reservation-vehicle").text(data[0].car.registration_no)
+    $("#customer-reservation-venue").text(data[0].pick_up_and_return_venue)
+    $("#customer-reservation-pickUp-time").text(data[0].pick_up_time)
+    $("#customer-reservation-pickUp-date").text(data[0].pick_up_date)
+    $("#customer-reservation-return-date").text(data[0].return_date)
+    $("#customer-reservation-days").text(data[0].no_of_days)
+
+}
+function setDriverData(data) {
+
+    let reserveId = $("#customer-reservation-id").text();
+    let id = data[0].carReservation.reserve_id;
+
+    if (id===reserveId){
+
+        $("#driverStatus").text("YES")
+        $("#customer-reservationStatus").css("color","green")
+
+        $("#customer-reservation-driver-id").text(data[0].driver.nic)
+        $("#customer-reservation-driver-name").text(data[0].driver.driver_name)
+        $("#customer-reservation-driver-license").text(data[0].driver.license_no)
+        $("#customer-reservation-driver-mobile").text(data[0].driver.mobile)
+        $("#customer-reservation-driver-joinDate").text(data[0].driver.join_date)
+    }
+
+}
+

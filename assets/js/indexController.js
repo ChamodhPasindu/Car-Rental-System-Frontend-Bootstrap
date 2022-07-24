@@ -77,7 +77,7 @@ function customerLogin(data) {
     $("#customerNavbar").css("display", "block")
 
     $("#customer-profile-nic").val(data.nic)
-    $("#customer-profile-name").val(data.user_name)
+    $("#customer-profile-name").val(data.customer_name)
     $("#customer-profile-email").val(data.email)
     $("#customer-profile-address").val(data.address)
     $("#customer-profile-mobile").val(data.mobile)
@@ -131,6 +131,8 @@ $("#customerReservationBtn").click(function () {
     $("#customerProfile").css("display", "none")
     $("#customerHome").css("display", "none")
     $("#customerReservation").css("display", "block")
+
+    loadUpcomingReservation();
 
 })
 $("#customerAccountBtn").click(function () {

@@ -325,7 +325,7 @@
 
         </div>
 
-    </section>
+    </section><!--done-->
 
     <section style="display:none;" id="loginPage">
         <div class="login-container">
@@ -369,7 +369,7 @@
             </div>
         </div>
 
-    </section>
+    </section><!--done-->
 
     <section style="display:none;" id="customer">
 
@@ -670,11 +670,9 @@
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
                                                     <div>
-                                                        <label for="register-form-NIC-image "
-                                                               class="form-label fw-bold">Band
-                                                            Slip Image</label>
+                                                        <label class="form-label fw-bold">Band Slip Image</label>
                                                         <input class="form-control " type="file"
-                                                               id="register-form-NIC-image">
+                                                               id="slip-image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -718,32 +716,30 @@
                     </div>
                     <div class="customer-res-detail__container">
                         <div class="card text-bg-light border-radius-shadow w-50" style="height: 80%;">
-                            <div class="card-header border-2 fw-bold">Reservation Status<span
-                                    class=" ms-3 text-success fw-bold">ACTIVE</span></div>
+                            <div class="card-header border-2 fw-bold">Reservation Status
+                                <span  id="customer-reservationStatus" class=" ms-3 fw-bold ">No Reservation</span></div>
                             <div class="card-body text-center">
-                                <h5 class="card-title text-center fw-bolder">Reservation ID : <span>RID-00001</span>
-                                </h5>
+                                <h5  class="card-title text-center fw-bolder"><span id="customer-reservation-id"> Reservation ID</span> :</h5>
                                 <br>
-                                <p class="card-title fs-5 fw-bold">Name : <span>Chamodh Pasindu</span></p>
-                                <p class="card-title fs-5 fw-bold">Vehicle No : <span>CDB-2112</span></p>
-                                <p class="card-title fs-5 fw-bold">Pickup venue : <span>Panadura</span></p>
-                                <p class="card-title fs-5 fw-bold">pickup Time : <span>14:30PM</span></p>
-                                <p class="card-title fs-5 fw-bold">Pickup Date : <span>2022-01-01</span></p>
-                                <p class="card-title fs-5 fw-bold">Return Date : <span>2022-01-05</span></p>
-                                <p class="card-title fs-5 fw-bold">No Of Days : <span>5</span></p>
+                                <p class="card-title fs-5 fw-bold">Name : <span id="customer-reservation-name"></span></p>
+                                <p class="card-title fs-5 fw-bold">Vehicle No : <span id="customer-reservation-vehicle"></span></p>
+                                <p class="card-title fs-5 fw-bold">Pickup venue : <span id="customer-reservation-venue"></span></p>
+                                <p class="card-title fs-5 fw-bold">pickup Time : <span id="customer-reservation-pickUp-time"></span></p>
+                                <p class="card-title fs-5 fw-bold">Pickup Date : <span id="customer-reservation-pickUp-date"></span></p>
+                                <p class="card-title fs-5 fw-bold">Return Date : <span id="customer-reservation-return-date"></span></p>
+                                <p class="card-title fs-5 fw-bold">No Of Days : <span id="customer-reservation-days"></span></p>
 
                             </div>
                         </div>
                         <div class="card text-bg-light border-radius-shadow w-25" style="margin-right: 5%;height: 80%">
-                            <div class="card-header fw-bold">Driver Status <span
-                                    class="ms-3 text-success fw-bold">YES</span></div>
+                            <div class="card-header fw-bold">Driver Status <span id="driverStatus" class="ms-3 text-success fw-bold">Not Required</span></div>
                             <div class="card-body text-center">
-                                <h5 class="card-title text-center fw-bolder">Driver ID : <span>200006300336</span></h5>
+                                <h5 class="card-title text-center fw-bolder">Driver ID : <span id="customer-reservation-driver-id"> </span></h5>
                                 <br>
-                                <p class="card-title fs-5 fw-bold">Name : <span>Tharindu Lakruwan</span></p>
-                                <p class="card-title fs-5 fw-bold">License No : <span>15789752</span></p>
-                                <p class="card-title fs-5 fw-bold">Join Date : <span>2018-08-08</span></p>
-                                <p class="card-title fs-5 fw-bold">Mobile : <span>0788706233</span></p>
+                                <p class="card-title fs-5 fw-bold">Name : <span id="customer-reservation-driver-name">   </span></p>
+                                <p class="card-title fs-5 fw-bold">License No : <span id="customer-reservation-driver-license"> </span></p>
+                                <p class="card-title fs-5 fw-bold">Join Date : <span id="customer-reservation-driver-joinDate"> </span></p>
+                                <p class="card-title fs-5 fw-bold">Mobile : <span id="customer-reservation-driver-mobile"> </span></p>
 
 
                             </div>
@@ -762,7 +758,7 @@
             </div>
 
 
-        </section>
+        </section><!--done 2nd-->
 
         <section style="display: none" id="customerProfile">
             <div class="customer-pro-container">
@@ -843,7 +839,7 @@
                 </div>
             </div>
 
-        </section>
+        </section> <!--done-->
     </section>
 
     <section style="display:none;" id="driver">
@@ -857,7 +853,7 @@
                 </div>
                 <div class="customer-res-detail__container">
                     <div class="w-100 h-100 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
-                        <table class="table table-hover table-borderless table-dark ">
+                        <table class="table table-hover table-borderless  ">
                             <thead class="table-dark text-center">
                             <tr>
                                 <th scope="col">Reserve ID</th>
@@ -876,7 +872,7 @@
 
             </div>
         </div>
-    </section>
+    </section><!--done-->
 
     <section style="display:none;" id="admin">
         <section id="adminDashboard">
@@ -982,7 +978,7 @@
                              class=" h-100 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
                             <h5 class="text-center mt-1">Today Reservation</h5>
 
-                            <table class="table table-hover table-borderless table-dark ">
+                            <table class="table table-hover table-borderless  ">
                                 <thead class="table-dark text-center">
                                 <tr>
                                     <th scope="col">Reservation ID</th>
@@ -998,7 +994,7 @@
                         <div style="width: 45%;"
                              class=" h-100 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
                             <h5 class="text-center mt-1">Last Payments</h5>
-                            <table class="table table-hover table-borderless table-dark ">
+                            <table class="table table-hover table-borderless ">
                                 <thead class="table-dark text-center">
                                 <tr>
                                     <th scope="col">Bill ID</th>
@@ -1035,7 +1031,7 @@
                         <div style="width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
-                            <table class="table table-hover table-borderless table-dark ">
+                            <table class="table table-hover table-borderless ">
                                 <thead class="table-dark text-center">
                                 <tr>
                                     <th scope="col">Reservation ID</th>
@@ -1098,7 +1094,7 @@
                         <div style="width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
-                            <table class="table table-hover table-borderless table-dark ">
+                            <table class="table table-hover table-borderless ">
                                 <thead class="table-dark text-center">
                                 <tr>
                                     <th scope="col">Vehicle Number</th>
@@ -1142,7 +1138,7 @@
                         <div style="width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
-                            <table class="table table-hover table-borderless table-dark ">
+                            <table class="table table-hover table-borderless">
                                 <thead class="table-dark text-center">
                                 <tr>
                                     <th scope="col">NIC</th>
@@ -1205,7 +1201,7 @@
                         <div id="admin-driver-table" style="display:block;width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
-                            <table class="table table-hover table-borderless table-dark ">
+                            <table class="table table-hover table-borderless  ">
                                 <thead class="table-dark text-center">
                                 <tr>
                                     <th scope="col">Driver NIC</th>
@@ -1224,7 +1220,7 @@
                         <div id="admin-driver-schedule-table" style="display:none;width: 100%;height: 80%;"
                              class=" h-90 table-wrapper-scroll-y my-custom-scrollbar  border-radius-shadow ">
 
-                            <table class="table table-hover table-borderless table-dark ">
+                            <table class="table table-hover table-borderless  ">
                                 <thead class="table-dark text-center">
                                 <tr>
                                     <th scope="col">Schedule ID</th>
@@ -1556,7 +1552,7 @@
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
-                            <form id="">
+                            <form >
                                 <p class="text-center fs-3 fw-bold">Vehicle Details</p>
                                 <hr style=" height: 2px; border: 1px solid black;">
 
@@ -1568,43 +1564,43 @@
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Brand:</label>
+                                            <label class="col-form-label fw-bold">Brand:</label>
                                             <input class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Color:</label>
+                                            <label class="col-form-label fw-bold">Color:</label>
                                             <input class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Mileage:</label>
+                                            <label class="col-form-label fw-bold">Mileage:</label>
                                             <input class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Type:</label>
+                                            <label class="col-form-label fw-bold">Type:</label>
                                             <input class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Transmission:</label>
+                                            <label class="col-form-label fw-bold">Transmission:</label>
                                             <input class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">No Of
+                                            <label class="col-form-label fw-bold">No Of
                                                 Passengers:</label>
                                             <input class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Status:</label>
+                                            <label class="col-form-label fw-bold">Status:</label>
                                             <input class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Fuel Type:</label>
+                                            <label  class="col-form-label fw-bold">Fuel Type:</label>
                                             <input class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
@@ -1613,62 +1609,61 @@
                                     </div>
                                     <div style="width: 40%;">
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Daily Rate:</label>
+                                            <label  class="col-form-label fw-bold">Daily Rate:</label>
                                             <input class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Monthly Rate:</label>
+                                            <label class="col-form-label fw-bold">Monthly Rate:</label>
                                             <input class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Free km For
+                                            <label  class="col-form-label fw-bold">Free km For
                                                 Day:</label>
                                             <input class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Free km For
+                                            <label  class="col-form-label fw-bold">Free km For
                                                 Month:</label>
                                             <input class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Price For Extra
+                                            <label class="col-form-label fw-bold">Price For Extra
                                                 km:</label>
                                             <input class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold mb-1">Waiver
+                                            <label  class="col-form-label fw-bold mb-1">Waiver
                                                 Payment:</label>
                                             <input class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="register-form-NIC-image "
+                                            <label
                                                    class="form-label fw-bold">Front View Of Car</label>
                                             <input class="form-control " type="file"
-                                                   id="register-form-NIC-image">
+                                                   >
                                         </div>
                                         <div class="mb-3">
-                                            <label for="register-form-NIC-image "
-                                                   class="form-label fw-bold">Back View Of Car</label>
+                                            <label class="form-label fw-bold">Back View Of Car</label>
                                             <input class="form-control " type="file"
-                                                   id="register-form-NIC-image">
+                                                   >
                                         </div>
                                         <div class="mb-3">
-                                            <label for="register-form-NIC-image "
+                                            <label
                                                    class="form-label fw-bold">Side View Of Car</label>
                                             <input class="form-control " type="file"
-                                                   id="register-form-NIC-image">
+                                                  >
                                         </div>
                                         <div class="mb-3">
-                                            <label for="register-form-NIC-image "
+                                            <label
                                                    class="form-label fw-bold">Interior View Of Car</label>
                                             <input class="form-control " type="file"
-                                                   id="register-form-NIC-image">
+                                               >
                                         </div>
                                     </div>
                                 </div>

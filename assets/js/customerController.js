@@ -2,6 +2,7 @@ $('#register-form-date').val(today);
 $('#customer-home-pickup').val(today);
 $('#customer-home-return').val(today);
 var customer;
+var customer_nic;
 
 
 $("#registerNowBtn").click(function () {
@@ -82,11 +83,47 @@ function loadAllCustomer() {
                 let row = `<tr><td>${customer.nic}</td><td>${customer.user_name}</td><td>${customer.address}</td><td>${customer.mobile}</td>
                 <td>${customer.register_date}</td></tr>`;
                 $("#admin-customer-table").append(row);
+
+                $("#admin-customer-table>tr").off("click");
+                $("#admin-customer-table>tr").click(function () {
+                    customer_nic = $(this).children(":eq(0)").text();
+                    $("#admin-customer-viewBtn").prop('disabled', false);
+
+                });
             }
         }
     });
 }
 
+function setDataToViewCustomerModal(data) {
+    $("#admin-view-customer-nic").val(data.nic)
+    $("#admin-view-customer-address").val(data.address)
+    $("#admin-view-customer-email").val(data.email)
+    $("#admin-view-customer-mobile").val(data.mobile)
+    $("#admin-view-customer-name").val(data.customer_name)
+    $("#admin-view-customer-registerDate").val(data.register_date)
+    $("#admin-view-customer-imgOne").attr("src", baseUrl + "uploads/"+data.nic_img)
+    $("#admin-view-customer-imgTwo").attr("src", baseUrl +"uploads/"+data.license_img)
+}
+
+$("#admin-customer-viewBtn").click(function () {
+    if (customer_nic==null){
+        return
+    }
+    $.ajax({
+        url: baseUrl + "controller/customer/customerDetail/"+customer_nic,
+        method: "GET",
+        success: function (resp) {
+            if (resp.status===200){
+                console.log(resp.data)
+                setDataToViewCustomerModal(resp.data);
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+})
 
 $("#btnChangePassword").click(function () {
 
@@ -177,3 +214,4 @@ $("#customer-updateBtn").click(function (){
         }
     });
 })
+

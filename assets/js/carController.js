@@ -1,4 +1,4 @@
-
+var vehicle_no;
 $("#btnCarSave").click(function () {
     saveCar()
 })
@@ -74,7 +74,7 @@ $("#admin-car-needMaintain").click(function () {
     $("#admin-all-availableCars-title").css("display","none");
 
 
-    loadAllCars("carsUnderMaintain")
+    loadAllCars("carsNeedMaintain")
 })
 
 function saveCar() {
@@ -160,11 +160,139 @@ function loadAllCars(path) {
             for (const car of resp.data) {
                 let row = `<tr><td>${car.registration_no}</td><td>${car.brand}</td><td>${car.type}</td><td>${car.transmission}</td><td>${car.fuel_type}</td></tr>`;
                 $("#admin-cars-table").append(row);
+
+                $("#admin-cars-table>tr").off("click");
+                $("#admin-cars-table>tr").click(function () {
+                    vehicle_no = $(this).children(":eq(0)").text();
+                    $("#viewButton").prop('disabled', false);
+
+                });
+
             }
         }
     });
 }
 
+$("#viewButton").click(function (){
+    if (vehicle_no==null){
+        return
+    }
+    $.ajax({
+        url: baseUrl + "controller/car/carDetail/"+vehicle_no,
+        method: "GET",
+        success: function (resp) {
+            if (resp.status===200){
+                setDataToUpdateModel(resp.data);
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+})
+
+
+function setDataToUpdateModel(data) {
+    $("#admin-update-registration-no").val(data.registration_no)
+    $("#admin-update-brand").val(data.brand)
+     $("#admin-update-type").val(data.type)
+     $("#admin-update-transmission").val(data.transmission)
+     $("#admin-update-color").val(data.color)
+      $("#admin-update-passengers").val(data.no_of_passengers)
+     $("#admin-update-mileage").val(data.mileage)
+     $("#admin-update-fuel").val(data.fuel_type)
+    $("#admin-update-daily").val(data.daily_rate)
+    $("#admin-update-monthly").val(data.monthly_rate)
+     $("#admin-update-freeKm-day").val(data.free_km_for_day)
+     $("#admin-update-freeKn-month").val(data.free_km_for_month)
+     $("#admin-update-extraKm").val(data.price_for_extra_km)
+    $("#admin-update-waiverPayment").val(data.waiver_payment)
+     $("#admin-update-status").val(data.status)
+    $("#update-car-modal-front").attr("src", baseUrl + data.carImgDetail.image_1)
+    $("#update-car-modal-back").attr("src", baseUrl + data.carImgDetail.image_2)
+    $("#update-car-modal-side").attr("src", baseUrl + data.carImgDetail.image_3)
+    $("#update-car-modal-interior").attr("src", baseUrl + data.carImgDetail.image_4)
+}
+$("#btnUpdateCar").click(function () {
+    if($("#admin-update-front")[0].files.length == 0 || $("#admin-update-side")[0].files.length == 0 || $("#admin-update-back")[0].files.length == 0
+    || $("#admin-update-interior")[0].files.length == 0){
+        alert("If You Update This Details,Select New Pictures");
+    }else {
+        updateCar();
+    }
+
+})
+
+function updateCar() {
+    var data = new FormData();
+
+    let front = $("#admin-update-front")[0].files[0];
+    let frontFileName = front.name;
+
+    let back = $("#admin-update-back")[0].files[0];
+    let backFileName = back.name;
+
+    let side = $("#admin-update-side")[0].files[0];
+    let sideFileName = side.name;
+
+    let interior = $("#admin-update-interior")[0].files[0];
+    let interiorFileName = interior.name;
+
+    data.append("file", front);
+    data.append("file", back);
+    data.append("file", side);
+    data.append("file", interior);
+
+
+    var carImgDetailDTO = {
+        image_1: frontFileName,
+        image_2: backFileName,
+        image_3: sideFileName,
+        image_4: interiorFileName,
+    }
+
+    var carDTO = {
+        registration_no:$("#admin-update-registration-no").val() ,
+        brand:$("#admin-update-brand").val() ,
+        type: $("#admin-update-type").val(),
+        transmission: $("#admin-update-transmission").val(),
+        color: $("#admin-update-color").val(),
+        no_of_passengers:  $("#admin-update-passengers").val(),
+        mileage: $("#admin-update-mileage").val(),
+        fuel_type: $("#admin-update-fuel").val(),
+        daily_rate:$("#admin-update-daily").val(),
+        monthly_rate:$("#admin-update-monthly").val() ,
+        free_km_for_day: $("#admin-update-freeKm-day").val(),
+        free_km_for_month: $("#admin-update-freeKn-month").val() ,
+        price_for_extra_km: $("#admin-update-extraKm").val(),
+        waiver_payment:$("#admin-update-waiverPayment").val() ,
+        status: $("#admin-update-status").val(),
+        carImgDetail:carImgDetailDTO ,
+    }
+
+    console.log(carDTO)
+
+    data.append("car", new Blob([JSON.stringify(carDTO)], {type: "application/json"}));
+
+    $.ajax({
+        url: baseUrl + "controller/car/updateCarDetail",
+        method: 'PUT',
+        async: true,
+        contentType: false,
+        processData: false,
+        data: data,
+        success: function (resp) {
+            if (resp.status === 200) {
+                alert(resp.message);
+                loadAllCars("allCarDetail");
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+
+}
 
 function loadUpcomingReservation() {
     $.ajax({
@@ -233,5 +361,48 @@ function setDriverData(data) {
         $("#customer-reservation-driver-joinDate").text(data[0].driver.join_date)
     }
 
+}
+$("#unavailableBtn").click(function (){
+    var status="Unavailable";
+    setCarStatus(vehicle_no,status)
+    loadAllCars("unavailableOrAvailableCarsByStatus/Available")
+})
+
+
+$("#availableBtn").click(function (){
+    var status="Available";
+    setCarStatus(vehicle_no,status)
+
+    loadAllCars("unavailableOrAvailableCarsByStatus/Unavailable")
+})
+$("#maintainBtn").click(function (){
+    var status="UnderMaintain";
+    setCarStatus(vehicle_no,status)
+    loadAllCars("carsNeedMaintain")
+})
+$("#underMaintainBtn").click(function (){
+    var status="Available";
+    setCarStatus(vehicle_no,status)
+    loadAllCars("carsUnderMaintain")
+})
+
+
+
+function  setCarStatus(id,status){
+
+    $.ajax({
+        url: baseUrl+"controller/car?id="+id+"&status="+status,
+        method: "PUT",
+        success: function (res) {
+            if (res.status === 200) {
+                alert(res.message)
+            }
+        },
+        error: function (ob) {
+            console.log(ob);
+            alert("Sorry Cant Update This Car Status Right Now..Try Again Latter")
+
+        }
+    });
 }
 

@@ -732,7 +732,7 @@
                             </div>
                         </div>
                         <div class="card text-bg-light border-radius-shadow w-25" style="margin-right: 5%;height: 80%">
-                            <div class="card-header fw-bold">Driver Status <span id="driverStatus" class="ms-3 text-success fw-bold">Not Required</span></div>
+                            <div class="card-header fw-bold">Driver Status <span id="driverStatus" class="ms-3 fw-bold">Not Required</span></div>
                             <div class="card-body text-center">
                                 <h5 class="card-title text-center fw-bolder">Driver ID : <span id="customer-reservation-driver-id"> </span></h5>
                                 <br>
@@ -920,28 +920,28 @@
                             <div style="font-size: 1vw" class="card-header fw-bold text-center">WEEKLY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
-                                <h6 id="admin-daily-income" style="font-size:2vw" class="card-text text-center ">100,000</h6>
+                                <h6 id="admin-daily-income" style="font-size:2vw" class="card-text text-center ">000</h6>
                             </div>
                         </div>
                         <div class="card text-success mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
                             <div style="font-size: 1vw" class="card-header fw-bold text-center">WEEKLY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
-                                <h6 id="admin-weekly-income" style="font-size:2vw" class="card-text text-center ">100,000,000</h6>
+                                <h6 id="admin-weekly-income" style="font-size:2vw" class="card-text text-center ">000</h6>
                             </div>
                         </div>
                         <div class="card text-warning mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
                             <div style="font-size: 1vw" class="card-header fw-bold text-center">MONTHLY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
-                                <h6 id="admin-Monthly-income" style="font-size:2vw" class="card-text text-center ">100,000,000,000</h6>
+                                <h6 id="admin-Monthly-income" style="font-size:2vw" class="card-text text-center ">000</h6>
                             </div>
                         </div>
                         <div class="card  text-danger mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
                             <div style="font-size: 1vw;" class="card-header fw-bold text-center">ANNUALLY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
-                                <h6 id="admin-Yearly-income" style="font-size:2vw" class="card-text text-center ">100,000,000,000</h6>
+                                <h6 id="admin-Yearly-income" style="font-size:2vw" class="card-text text-center ">000</h6>
                             </div>
                         </div>
                     </div>
@@ -1048,11 +1048,10 @@
                         <div class="w-100 d-flex justify-content-end mt-4">
                             <button id="admin-update-reservation" style="display:none;"
                                     class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
-                                    data-bs-target="#updateReservationModel">Update Reservation
+                                    data-bs-target="#updateReservationModel" disabled>Update Reservation
                             </button>
-                            <button id="admin-view-reservation" style="display:block;"
-                                    class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
-                                    data-bs-target="#viewReservationModel">View Reservation
+                            <button id="admin-view-reservation" style="display:block;" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#viewReservationModel" disabled>View Reservation
                             </button>
                         </div>
                     </div>
@@ -1112,7 +1111,7 @@
                         <div class="w-100 d-flex justify-content-end mt-3">
                             <button id="viewButton" style="display:block;" class=" btn btn-outline-primary fw-bold"
                                     data-bs-toggle="modal"
-                                    data-bs-target="#updateCarModel">View Details
+                                    data-bs-target="#updateCarModel" disabled>View Details
                             </button>
                             <button id="unavailableBtn" style="display:none;" class=" btn btn-outline-danger fw-bold">
                                 Mark As Unavailable
@@ -1124,8 +1123,7 @@
                                 Mark As Maintain
                             </button>
                             <button id="underMaintainBtn" style="display:none;"
-                                    class=" btn btn-outline-warning fw-bold">Mark As under
-                                maintenance
+                                    class=" btn btn-outline-warning fw-bold">Mark As under maintenance
                             </button>
                         </div>
                     </div>
@@ -1154,8 +1152,8 @@
                             </table>
                         </div>
                         <div class="w-100 d-flex justify-content-end mt-3">
-                            <button class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
-                                    data-bs-target="#viewCustomerModel">View Details
+                            <button id="admin-customer-viewBtn" class=" btn btn-outline-primary fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#viewCustomerModel" disabled>View Details
                             </button>
                         </div>
                     </div>
@@ -1236,9 +1234,9 @@
                             </table>
                         </div>
                         <div class="w-100 d-flex justify-content-end mt-3">
-                            <button style="display:block;" class=" btn btn-outline-primary fw-bold"
+                            <button id="admin-driver-viewDetailsBtn" style="display:block;" class=" btn btn-outline-primary fw-bold"
                                     data-bs-toggle="modal"
-                                    data-bs-target="#updateDriverModel">View Details
+                                    data-bs-target="#updateDriverModel" disabled>View Details
                             </button>
                         </div>
                     </div>
@@ -1519,26 +1517,26 @@
                 <div class="modal-dialog-centered modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-dark text-light">
-                            <h5 class="modal-title " id="saveCarModalLabel">Update Car</h5>
+                            <h5 class="modal-title " id="updateCarModalLabel">Update Car</h5>
                             <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <!---------------car slider---------------->
-                            <div id="carouselExampleControlss" class="carousel slide"
+                            <div  class="carousel slide"
                                  data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
+                                        <img id="update-car-modal-front" src="assets/img/black-car.png" class="d-block h-25 w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="assets/img/bmw%20i8%20red%201.png" class="d-block w-100" alt="...">
+                                        <img id="update-car-modal-back" src="assets/img/bmw%20i8%20red%201.png" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
+                                        <img id="update-car-modal-side" src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
+                                        <img id="update-car-modal-interior" src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button"
@@ -1560,48 +1558,48 @@
                                     <div style="width: 40%;">
                                         <div>
                                             <label class="col-form-label fw-bold">Registration No:</label>
-                                            <input class="form-control mb-3 " type="text"
+                                            <input id="admin-update-registration-no" class="form-control mb-3 " type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">Brand:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-brand" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">Color:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-color" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">Mileage:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-mileage" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">Type:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-type" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">Transmission:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-transmission" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">No Of
                                                 Passengers:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <input id="admin-update-passengers" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">Status:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-status" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label  class="col-form-label fw-bold">Fuel Type:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-fuel" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
 
@@ -1610,59 +1608,59 @@
                                     <div style="width: 40%;">
                                         <div>
                                             <label  class="col-form-label fw-bold">Daily Rate:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <input id="admin-update-daily" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">Monthly Rate:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <input id="admin-update-monthly" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label  class="col-form-label fw-bold">Free km For
                                                 Day:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <input id="admin-update-freeKm-day" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label  class="col-form-label fw-bold">Free km For
                                                 Month:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <input id="admin-update-freeKn-month" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label class="col-form-label fw-bold">Price For Extra
                                                 km:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <input id="admin-update-extraKm" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
                                             <label  class="col-form-label fw-bold mb-1">Waiver
                                                 Payment:</label>
-                                            <input class="form-control mb-3" type="number"
+                                            <input id="admin-update-waiverPayment" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div class="mb-3">
                                             <label
                                                    class="form-label fw-bold">Front View Of Car</label>
-                                            <input class="form-control " type="file"
+                                            <input id="admin-update-front" class="form-control " type="file"
                                                    >
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label fw-bold">Back View Of Car</label>
-                                            <input class="form-control " type="file"
+                                            <input  id="admin-update-back" class="form-control " type="file"
                                                    >
                                         </div>
                                         <div class="mb-3">
                                             <label
                                                    class="form-label fw-bold">Side View Of Car</label>
-                                            <input class="form-control " type="file"
+                                            <input id="admin-update-side" class="form-control " type="file"
                                                   >
                                         </div>
                                         <div class="mb-3">
                                             <label
                                                    class="form-label fw-bold">Interior View Of Car</label>
-                                            <input class="form-control " type="file"
+                                            <input id="admin-update-interior" class="form-control " type="file"
                                                >
                                         </div>
                                     </div>
@@ -1672,7 +1670,7 @@
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close
                             </button>
-                            <button type="button" id="btnUpdateCar" class="btn btn-dark">Update</button>
+                            <button type="button" id="btnUpdateCar" class="btn btn-dark" >Update</button>
                         </div>
                     </div>
                 </div>
@@ -1690,15 +1688,15 @@
                         </div>
                         <div class="modal-body">
                             <!---------------car slider---------------->
-                            <div id="carouselExampleControlss" class="carousel slide"
+                            <div class="carousel slide"
                                  data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="assets/img/login-img.jpg" class="d-block me-auto ms-auto w-50 h-100"
+                                        <img id="admin-view-customer-imgOne" src="assets/img/login-img.jpg" class="d-block me-auto ms-auto w-50 h-100"
                                              alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="assets/img/bmw%20i8%20red%201.png"
+                                        <img id="admin-view-customer-imgTwo" src="assets/img/bmw%20i8%20red%201.png"
                                              class="d-block me-auto ms-auto w-50 h-00" alt="...">
                                     </div>
                                 </div>
@@ -1713,7 +1711,7 @@
                                     <span class="visually-hidden">Next</span>
                                 </button>
                             </div>
-                            <form id="">
+                            <form >
                                 <p class="text-center fs-3 fw-bold">Customer Details</p>
                                 <hr style=" height: 2px; border: 1px solid black;">
 
@@ -1722,20 +1720,18 @@
                                         <!-------------------Customer Details------------------->
                                         <div>
                                             <label class="col-form-label fw-bold">Customer NIC:</label>
-                                            <input class="form-control mb-3 " type="text" value="20006300336"
+                                            <input id="admin-view-customer-nic" class="form-control mb-3 " type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Name:</label>
-                                            <input class="form-control mb-3" type="text"
-                                                   value="Chamodh Pasindu"
+                                            <label  class="col-form-label fw-bold">Name:</label>
+                                            <input id="admin-view-customer-name" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
 
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">Email:</label>
-                                            <input class="form-control mb-3" type="text"
-                                                   value="chamodhpasindu@gmail.com"
+                                            <label  class="col-form-label fw-bold">Email:</label>
+                                            <input id="admin-view-customer-email" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
 
@@ -1744,19 +1740,19 @@
                                     <div style="width: 40%;">
                                         <!-------------------Customer Details------------------->
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Mobile:</label>
-                                            <input class="form-control mb-3" type="text" value="Panadura"
+                                            <label class="col-form-label fw-bold">Mobile:</label>
+                                            <input id="admin-view-customer-mobile" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Address:</label>
-                                            <input class="form-control mb-3" type="text" value="Panadura"
+                                            <label  class="col-form-label fw-bold">Address:</label>
+                                            <input id="admin-view-customer-address" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Register
+                                            <label   class="col-form-label fw-bold">Register
                                                 Date:</label>
-                                            <input class="form-control mb-3" type="date" value="2020-01-01"
+                                            <input id="admin-view-customer-registerDate" class="form-control mb-3" type="date"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
@@ -1862,13 +1858,13 @@
                 <div class="modal-dialog-centered modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-dark text-light">
-                            <h5 class="modal-title " id="updateDriverLabel">Update Driver Details</h5>
+                            <h5 class="modal-title " >Update Driver Details</h5>
                             <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
 
-                            <form id="">
+                            <form >
                                 <p class="text-center fs-3 fw-bold">Driver Details</p>
                                 <hr style=" height: 2px; border: 1px solid black;">
 
@@ -1877,25 +1873,25 @@
                                         <!-------------------Driver Details------------------->
                                         <div>
                                             <label class="col-form-label fw-bold">Driver NIC:</label>
-                                            <input class="form-control mb-3 " type="text"
+                                            <input id="admin-update-driver-nic" class="form-control mb-3 " type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Name:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label  class="col-form-label fw-bold">Name:</label>
+                                            <input id="admin-update-driver-name" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
 
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">License
+                                            <label  class="col-form-label fw-bold">License
                                                 No:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-driver-license" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">Address
+                                            <label  class="col-form-label fw-bold">Address
                                                 No:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <input id="admin-update-driver-address" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
 
@@ -1904,24 +1900,24 @@
                                     <div style="width: 40%;">
                                         <!-------------------Driver Details------------------->
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Join
+                                            <label  class="col-form-label fw-bold">Join
                                                 Date:</label>
-                                            <input class="form-control mb-3" type="date"
+                                            <input id="admin-update-driver-joinDate" class="form-control mb-3" type="date"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Mobile:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label  class="col-form-label fw-bold">Mobile:</label>
+                                            <input id="admin-update-driver-mobile" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">User Name:</label>
-                                            <input class="form-control mb-3" type="text"
+                                            <label class="col-form-label fw-bold">User Name:</label>
+                                            <input id="admin-update-driver-userName" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example">
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">Password:</label>
-                                            <input class="form-control mb-3" type="password"
+                                            <label  class="col-form-label fw-bold">Password:</label>
+                                            <input id="admin-update-driver-password" class="form-control mb-3" type="password"
                                                    aria-label="Disabled input example">
                                         </div>
 
@@ -1932,12 +1928,12 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-                            <button type="button" id="btnReservationSave" class="btn btn-dark">Save</button>
+                            <button type="button" id="btnUpdateDriver" class="btn btn-dark">Update</button>
 
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><!--done-->
 
 
             <!---------------Update Reservation------------->
@@ -1953,12 +1949,12 @@
                         <div class="modal-body">
 
                             <div>
-                                <img style="width: 50%;display:block;margin-left: auto;margin-right: auto"
+                                <img id="admin-update-reservation-img" style="width: 50%;display:block;margin-left: auto;margin-right: auto"
                                      src="assets/img/car-rent.jpg" alt="">
                                 <br>
                             </div>
 
-                            <form id="">
+                            <form >
                                 <p class="text-center fs-3 fw-bold">Reservation Details</p>
                                 <hr style=" height: 2px; border: 1px solid black;">
 
@@ -1968,32 +1964,27 @@
 
                                         <div>
                                             <label class="col-form-label fw-bold">Reserve ID:</label>
-                                            <input class="form-control mb-3 " type="text" value="RID-001"
+                                            <input id="admin-update-reservation-id" class="form-control mb-3 " type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Customer
-                                                Name:</label>
-                                            <input class="form-control mb-3" type="text" value="Chamodh Pasindu"
+                                            <label  class="col-form-label fw-bold">Customer Name:</label>
+                                            <input id="admin-update-reservation-customer" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">Vehicle
-                                                No:</label>
-                                            <input class="form-control mb-3" type="text" value="CDI-0101"
+                                            <label  class="col-form-label fw-bold">Vehicle No:</label>
+                                            <input id="admin-update-reservation-vehicle" class="form-control mb-3" type="text" value="CDI-0101"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">PickUp
-                                                Venue:</label>
-                                            <input class="form-control mb-3" type="text" value="Panadura"
+                                            <label class="col-form-label fw-bold">PickUp Venue:</label>
+                                            <input id="admin-update-reservation-venue" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="register-form-date"
-                                                   class=" col-form-label fw-bold ">Reserve Date</label>
-                                            <input type="date" class="form-control border-secondary mb-3"
-                                                   placeholder="2020-05-12" disabled>
+                                            <label for="register-form-date" class=" col-form-label fw-bold ">Reserve Date</label>
+                                            <input id="admin-update-reservation-reserveDate" type="date" class="form-control  mb-3" disabled>
                                         </div>
 
 
@@ -2001,32 +1992,27 @@
                                     <div style="width: 40%;">
                                         <!-------------------Driver Details------------------->
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Driver ID:</label>
-                                            <input class="form-control mb-3" type="text" value="011454"
+                                            <label class="col-form-label fw-bold">Driver ID:</label>
+                                            <input id="admin-update-reservation-driver" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
                                             <label for="register-form-date"
                                                    class=" col-form-label fw-bold ">PickUp Time</label>
-                                            <input type="time" class="form-control border-secondary mb-3"
-                                                   placeholder="12:00 PM" disabled readonly>
+                                            <input id="admin-update-reservation-pickUpTime" type="time" class="form-control  mb-3"  disabled readonly>
                                         </div>
                                         <div>
                                             <label for="register-form-date"
                                                    class=" col-form-label fw-bold ">PickUp Date</label>
-                                            <input type="date" class="form-control border-secondary mb-3"
-                                                   placeholder="2020-05-12" disabled>
+                                            <input id="admin-update-reservation-pickUpDate" type="date" class="form-control  mb-3" disabled>
                                         </div>
                                         <div>
-                                            <label for="register-form-date" class=" col-form-label fw-bold">Return
-                                                Date</label>
-                                            <input type="date" class="form-control border-secondary mb-3"
-                                                   placeholder="2020-05-12" disabled>
+                                            <label for="register-form-date" class=" col-form-label fw-bold">Return Date</label>
+                                            <input id="admin-update-reservation-returnDate" type="date" class="form-control  mb-3" disabled>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold ">No Of
-                                                Days:</label>
-                                            <input class="form-control mb-3" type="number" value="01"
+                                            <label class="col-form-label fw-bold ">No Of Days:</label>
+                                            <input id="admin-update-reservation-days" class="form-control mb-3" type="number" value="01"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>
@@ -2035,8 +2021,8 @@
                             </form>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-outline-dark">Deny</button>
-                            <button type="button" id="btnReservationSave" class="btn btn-dark">Save</button>
+                            <button type="button" id="btnDenyReservation" class="btn btn-outline-dark">Deny</button>
+                            <button type="button" id="btnAcceptReservation" class="btn btn-dark">Accept</button>
 
                         </div>
                     </div>
@@ -2049,14 +2035,14 @@
                 <div class="modal-dialog-centered modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-dark text-light">
-                            <h5 class="modal-title " id="updateDriverLabel">View Reservation</h5>
+                            <h5 class="modal-title " >View Reservation</h5>
                             <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
 
                             <div>
-                                <img style="width: 50%;display:block;margin-left: auto;margin-right: auto"
+                                <img id="admin-view-reservation-img" style="width: 50%;display:block;margin-left: auto;margin-right: auto"
                                      src="assets/img/car-rent.jpg" alt="">
                                 <br>
                             </div>
@@ -2071,32 +2057,28 @@
 
                                         <div>
                                             <label class="col-form-label fw-bold">Reserve ID:</label>
-                                            <input class="form-control mb-3 " type="text" value="RID-001"
+                                            <input id="admin-view-reservation-id" class="form-control mb-3 " type="text" value="RID-001"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Customer
-                                                Name:</label>
-                                            <input class="form-control mb-3" type="text" value="Chamodh Pasindu"
+                                            <label class="col-form-label fw-bold">Customer Name:</label>
+                                            <input id="admin-view-reservation-name" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusAddress" class="col-form-label fw-bold">Vehicle
-                                                No:</label>
-                                            <input class="form-control mb-3" type="text" value="CDI-0101"
+                                            <label  class="col-form-label fw-bold">Vehicle No:</label>
+                                            <input id="admin-view-reservation-vehicle" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold">PickUp
-                                                Venue:</label>
-                                            <input class="form-control mb-3" type="text" value="Panadura"
+                                            <label class="col-form-label fw-bold">PickUp Venue:</label>
+                                            <input id="admin-view-reservation-venue" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="register-form-date"
-                                                   class=" col-form-label fw-bold ">Reserve Date</label>
-                                            <input type="date" class="form-control border-secondary mb-3"
-                                                   placeholder="2020-05-12" disabled>
+                                            <label for="register-form-date" class=" col-form-label fw-bold ">Reserve Date</label>
+                                            <input id="admin-view-reservation-reserveDate" type="date" class="form-control mb-3"
+                                                    disabled>
                                         </div>
 
 
@@ -2104,32 +2086,26 @@
                                     <div style="width: 40%;">
                                         <!-------------------Driver Details------------------->
                                         <div>
-                                            <label for="txtCusName" class="col-form-label fw-bold">Driver ID:</label>
-                                            <input class="form-control mb-3" type="text" value="011454"
+                                            <label  class="col-form-label fw-bold">Driver ID:</label>
+                                            <input id="admin-view-reservation-driverNic" class="form-control mb-3" type="text"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="register-form-date"
-                                                   class=" col-form-label fw-bold ">PickUp Time</label>
-                                            <input type="time" class="form-control border-secondary mb-3"
-                                                   placeholder="12:00 PM" disabled readonly>
+                                            <label for="register-form-date" class=" col-form-label fw-bold ">PickUp Time</label>
+                                            <input id="admin-view-reservation-pickUpTime" type="time" class="form-control mb-3"
+                                                    disabled readonly>
                                         </div>
                                         <div>
-                                            <label for="register-form-date"
-                                                   class=" col-form-label fw-bold ">PickUp Date</label>
-                                            <input type="date" class="form-control border-secondary mb-3"
-                                                   placeholder="2020-05-12" disabled>
+                                            <label for="register-form-date" class=" col-form-label fw-bold ">PickUp Date</label>
+                                            <input id="admin-view-reservation-pickUpDate" type="date" class="form-control  mb-3" disabled>
                                         </div>
                                         <div>
-                                            <label for="register-form-date" class=" col-form-label fw-bold">Return
-                                                Date</label>
-                                            <input type="date" class="form-control border-secondary mb-3"
-                                                   placeholder="2020-05-12" disabled>
+                                            <label for="register-form-date" class=" col-form-label fw-bold">Return Date</label>
+                                            <input id="admin-view-reservation-returnDate" type="date" class="form-control  mb-3" disabled>
                                         </div>
                                         <div>
-                                            <label for="txtCusSalary" class="col-form-label fw-bold ">No Of
-                                                Days:</label>
-                                            <input class="form-control mb-3" type="number" value="01"
+                                            <label class="col-form-label fw-bold ">No Of Days:</label>
+                                            <input id="admin-view-reservation-days" class="form-control mb-3" type="number"
                                                    aria-label="Disabled input example" disabled readonly>
                                         </div>
                                     </div>

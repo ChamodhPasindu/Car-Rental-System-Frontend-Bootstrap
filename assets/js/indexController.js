@@ -63,6 +63,8 @@ $("#loginUserBtn").click(function () {
                     alert(res.message)
                 }
             }
+            $("#login-page-user-name").val("")
+            $("#login-page-password").val("")
         },
         error: function (ob) {
             console.log(ob.responseJSON.message);
@@ -70,8 +72,9 @@ $("#loginUserBtn").click(function () {
     });
 })
 
+//---------Customer Login
 function customerLogin(data) {
-    customer=data
+    customer = data
     $("#loginPage").css("display", "none")
     $("#customer").css("display", "block")
     $("#customerNavbar").css("display", "block")
@@ -82,9 +85,11 @@ function customerLogin(data) {
     $("#customer-profile-address").val(data.address)
     $("#customer-profile-mobile").val(data.mobile)
 
+    getAvailableCar();
 
 }
 
+//---------Driver Login
 function driverLogin(data) {
     $("#loginPage").css("display", "none")
     $("#driverNavBar").css("display", "block")
@@ -94,6 +99,7 @@ function driverLogin(data) {
 
 }
 
+//---------admin Login
 function adminLogin(data) {
     $("#loginPage").css("display", "none")
     $("#admin").css("display", "block")
@@ -120,6 +126,7 @@ $("#logOutBtn").click(function () {
 
 
 //----------------customer navigation
+//---Home
 $("#customerHomeBtn").click(function () {
     $("#customerReservation").css("display", "none")
     $("#customerProfile").css("display", "none")
@@ -127,6 +134,7 @@ $("#customerHomeBtn").click(function () {
     $("#customerHome").css("display", "block")
 })
 
+//---Reservations
 $("#customerReservationBtn").click(function () {
     $("#customerProfile").css("display", "none")
     $("#customerHome").css("display", "none")
@@ -135,6 +143,7 @@ $("#customerReservationBtn").click(function () {
     loadUpcomingReservation();
 
 })
+//---Account
 $("#customerAccountBtn").click(function () {
     $("#customerHome").css("display", "none")
     $("#customerReservation").css("display", "none")
@@ -157,6 +166,7 @@ $("#customerChangePasswordBtn").click(function () {
 })
 
 //---------------admin profile navigations
+//--Dashboard
 $("#adminDashboardBtn").click(function () {
 
     $("#adminDailySummary").css("display", "inline-flex")
@@ -166,9 +176,11 @@ $("#adminDashboardBtn").click(function () {
     $("#adminDrivers").css("display", "none")
     $("#adminCustomer").css("display", "none")
     $("#adminPayments").css("display", "none")
+
+    loadDailySummary();
 })
 
-
+//--Reservation
 $("#adminReservationBtn").click(function () {
     $("#adminReservation").css("display", "inline-flex")
 
@@ -178,8 +190,6 @@ $("#adminReservationBtn").click(function () {
     $("#adminCustomer").css("display", "none")
     $("#adminPayments").css("display", "none")
 
-
-
     $("#admin-reservation-title").css("display", "block")
     $("#admin-todayPickups-title").css("display", "none")
 
@@ -187,11 +197,9 @@ $("#adminReservationBtn").click(function () {
     $("#admin-view-reservation").css("display", "none")
 
     loadPendingReservations();
-
-
 })
 
-
+//--Cars
 $("#adminCarsBtn").click(function () {
     $("#adminCars").css("display", "inline-flex")
 
@@ -201,9 +209,13 @@ $("#adminCarsBtn").click(function () {
     $("#adminCustomer").css("display", "none")
     $("#adminPayments").css("display", "none")
 
-
-
     loadAllCars("allCarDetail");
+    $("#availableBtn").css("display", "none");
+    $("#unavailableBtn").css("display", "none");
+    $("#maintainBtn").css("display", "none");
+    $("#underMaintainBtn").css("display", "none");
+    $("#viewButton").css("display", "block");
+
 
     $("#admin-all-cars-title").css("display", "block")
     $("#admin-all-unavailableCars-title").css("display", "none");
@@ -213,6 +225,7 @@ $("#adminCarsBtn").click(function () {
 
 })
 
+//--Customer
 $("#adminCustomerBtn").click(function () {
     $("#adminCustomer").css("display", "inline-flex")
 
@@ -222,11 +235,10 @@ $("#adminCustomerBtn").click(function () {
     $("#adminDrivers").css("display", "none")
     $("#adminPayments").css("display", "none")
 
-
-
     loadAllCustomer()
 })
 
+//--Drivers
 $("#adminDriversBtn").click(function () {
     $("#adminDrivers").css("display", "inline-flex")
 
@@ -236,11 +248,12 @@ $("#adminDriversBtn").click(function () {
     $("#adminDailySummary").css("display", "none")
     $("#adminPayments").css("display", "none")
 
+    $("#admin-driver-schedule-table").css("display", "none")
+    $("#admin-driver-table").css("display", "block")
 
 
     $("#admin-all-drivers-title").css("display", "block")
     $("#admin-all-driverSchedule-title").css("display", "none")
-
 
     $("#enableSaveDriverBtn").css("display", "block");
     $("#enableSearchDriverBtn").css("visibility", "hidden");
@@ -248,6 +261,7 @@ $("#adminDriversBtn").click(function () {
     loadAllDrivers()
 })
 
+//--Payment
 $("#adminPaymentBtn").click(function () {
     $("#adminPayments").css("display", "inline-flex")
 
@@ -266,8 +280,6 @@ $("#adminPaymentBtn").click(function () {
 
     loadAllDrivers()
 })
-
-
 
 //--------------Today available cars------------
 
@@ -322,11 +334,11 @@ let divs = [{
 
 
 function loadDataToDiv(data) {
-    for (var i = 0; i <= data.length-1; i++) {
+    for (var i = 0; i <= data.length - 1; i++) {
 
         if (i >= 3) {
-        }else {
-            list_no=i;
+        } else {
+            list_no = i;
             setDataToDiv(divArray[i], data[i])
         }
 
@@ -351,7 +363,7 @@ function setDataToDiv(string, car) {
 }
 
 $("#home-nextBtn").click(function () {
-    console.log("next:"+"list-"+list_no," previous-"+previous)
+    console.log("next:" + "list-" + list_no, " previous-" + previous)
 
 
     if (data.length > list_no) {
@@ -360,7 +372,7 @@ $("#home-nextBtn").click(function () {
         $(divArray[1]).css("display", "none")
         $(divArray[2]).css("display", "none")
 
-        for (var i = list_no, x = 0; list_no <= data.length-1; list_no++, x++) { //i=2 //x=0
+        for (var i = list_no, x = 0; list_no <= data.length - 1; list_no++, x++) { //i=2 //x=0
             $(divArray[x]).css("display", "block")
 
             $(divs[x].type).text(data[list_no].type)
@@ -371,9 +383,9 @@ $("#home-nextBtn").click(function () {
             $(divs[x].transmission).text(data[list_no].transmission)
             $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_2)
 
-            previous=x;
+            previous = x;
             if (x >= 2) {
-                previous=x;
+                previous = x;
                 return
             }
         }
@@ -382,72 +394,72 @@ $("#home-nextBtn").click(function () {
 })
 
 $("#home-PreviousBtn").click(function () {
-    console.log("back:"+"list-"+list_no," previous"+previous)
+    console.log("back:" + "list-" + list_no, " previous" + previous)
 
-    if (list_no >3) {
+    if (list_no > 3) {
 
-           list_no--
-           $(divArray[0]).css("display", "none")
-           $(divArray[1]).css("display", "none")
-           $(divArray[2]).css("display", "none")
+        list_no--
+        $(divArray[0]).css("display", "none")
+        $(divArray[1]).css("display", "none")
+        $(divArray[2]).css("display", "none")
 
-           for (var i = list_no, x = 0; list_no >= 3; list_no--, x--) { //i=2 //x=0
-               $(divArray[x]).css("display", "block")
+        for (var i = list_no, x = 0; list_no >= 3; list_no--, x--) { //i=2 //x=0
+            $(divArray[x]).css("display", "block")
 
-               $(divs[x].type).text(data[list_no].type)
-               $(divs[x].brand).text(data[list_no].brand)
-               $(divs[x].daily).text(data[list_no].daily_rate)
-               $(divs[x].monthly).text(data[list_no].monthly_rate)
-               $(divs[x].fuel).text(data[list_no].fuel_type)
-               $(divs[x].transmission).text(data[list_no].transmission)
-               $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_2)
-               previous=x;
-               if (x <= 2) {
-                   previous=x;
-                   return
-               }
-           }
+            $(divs[x].type).text(data[list_no].type)
+            $(divs[x].brand).text(data[list_no].brand)
+            $(divs[x].daily).text(data[list_no].daily_rate)
+            $(divs[x].monthly).text(data[list_no].monthly_rate)
+            $(divs[x].fuel).text(data[list_no].fuel_type)
+            $(divs[x].transmission).text(data[list_no].transmission)
+            $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_2)
+            previous = x;
+            if (x <= 2) {
+                previous = x;
+                return
+            }
+        }
     }
-/*
+    /*
 
 
-    if (list_no>3) {
-        list_no-- //4
-         $(divArray[0]).css("display", "none")
-         $(divArray[1]).css("display", "none")
-         $(divArray[2]).css("display", "none")
+        if (list_no>3) {
+            list_no-- //4
+             $(divArray[0]).css("display", "none")
+             $(divArray[1]).css("display", "none")
+             $(divArray[2]).css("display", "none")
 
-        list_no=list_no-previous;//3
+            list_no=list_no-previous;//3
 
-         for (var x = 2; list_no >= 1; list_no--, x--) {
-             $(divArray[x]).css("display", "block")
+             for (var x = 2; list_no >= 1; list_no--, x--) {
+                 $(divArray[x]).css("display", "block")
 
-             $(divs[x].type).text(data[list_no-1].type)
-             $(divs[x].brand).text(data[list_no-1].brand)
-             $(divs[x].daily).text(data[list_no-1].daily_rate)
-             $(divs[x].monthly).text(data[list_no-1].monthly_rate)
-             $(divs[x].fuel).text(data[list_no-1].fuel_type)
-             $(divs[x].transmission).text(data[list_no-1].transmission)
-             $(divs[x].img).attr("src", baseUrl + data[list_no-1].carImgDetail.image_2)
+                 $(divs[x].type).text(data[list_no-1].type)
+                 $(divs[x].brand).text(data[list_no-1].brand)
+                 $(divs[x].daily).text(data[list_no-1].daily_rate)
+                 $(divs[x].monthly).text(data[list_no-1].monthly_rate)
+                 $(divs[x].fuel).text(data[list_no-1].fuel_type)
+                 $(divs[x].transmission).text(data[list_no-1].transmission)
+                 $(divs[x].img).attr("src", baseUrl + data[list_no-1].carImgDetail.image_2)
 
-             console.log(x)
+                 console.log(x)
 
-             if (x >= 0) {
-                 list_no=list_no+3
-                 previous=0;
-                 return
+                 if (x >= 0) {
+                     list_no=list_no+3
+                     previous=0;
+                     return
+                 }
              }
-         }
-    }*/
+        }*/
 })
 
-
+//--Admin Dashboard
 function loadIncome() {
     $.ajax({
         url: baseUrl + "/controller/payment/daily_weekly_Annually_Income?type=Daily&start_date=&end_date=",
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 $("#admin-daily-income").text(resp.data)
             }
         }
@@ -456,7 +468,7 @@ function loadIncome() {
         url: baseUrl + "/controller/payment/daily_weekly_Annually_Income?type=Monthly&start_date=&end_date=",
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 $("#admin-Monthly-income").text(resp.data)
             }
         }
@@ -465,7 +477,7 @@ function loadIncome() {
         url: baseUrl + "/controller/payment/daily_weekly_Annually_Income?type=Weekly&start_date=&end_date=",
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 $("#admin-weekly-income").text(resp.data)
             }
         }
@@ -474,7 +486,7 @@ function loadIncome() {
         url: baseUrl + "/controller/payment/daily_weekly_Annually_Income?type=Yearly&start_date=&end_date=",
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 $("#admin-Yearly-income").text(resp.data)
             }
         }
@@ -484,19 +496,19 @@ function loadIncome() {
 
 function loadAvailableAndRentalCar() {
     $.ajax({
-        url: baseUrl + "/controller/car/availableOrRentalCarsByDate?pick_up_date="+today+"&return_date=null&status=Available",
+        url: baseUrl + "/controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=null&status=Available",
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 $("#admin-daily-available-cars").text(resp.data.length)
             }
         }
     });
     $.ajax({
-        url: baseUrl + "/controller/car/availableOrRentalCarsByDate?pick_up_date="+today+"&return_date=null&status=Rental",
+        url: baseUrl + "/controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=null&status=Rental",
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 $("#admin-daily-rental-cars").text(resp.data.length)
             }
         }
@@ -508,7 +520,7 @@ function loadAvailableAndOccupiedDrivers() {
         url: baseUrl + "/controller/driver/todayAvailableAndOccupiedDrivers/Available",
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 $("#admin-daily-available-drivers").text(resp.data.length)
             }
         }
@@ -517,7 +529,7 @@ function loadAvailableAndOccupiedDrivers() {
         url: baseUrl + "/controller/driver/todayAvailableAndOccupiedDrivers/Occupied",
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 $("#admin-daily-occupied-cars").text(resp.data.length)
             }
         }

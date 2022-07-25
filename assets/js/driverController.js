@@ -63,12 +63,10 @@ $("#admin-scheduleBtn").click(function () {
     $("#admin-driver-end-date").val(today);
 
     loadDriverScheduleForAdmin();
-
-
 })
 
-$("#admin-driver-schedule-searchBtn").click(function (){
-        loadDriverScheduleForAdmin()
+$("#admin-driver-schedule-searchBtn").click(function () {
+    loadDriverScheduleForAdmin()
 })
 
 function loadAllDrivers() {
@@ -86,7 +84,6 @@ function loadAllDrivers() {
                 $("#admin-all-drivers-table>tr").click(function () {
                     driver_nic = $(this).children(":eq(0)").text();
                     $("#admin-driver-viewDetailsBtn").prop('disabled', false);
-
                 });
             }
         }
@@ -105,14 +102,14 @@ function setDataToVieDriverModal(data) {
 }
 
 $("#btnUpdateDriver").click(function () {
-    var driver={
-        nic:  $("#admin-update-driver-nic").val() ,
-        address:  $("#admin-update-driver-address").val() ,
-        driver_name:$("#admin-update-driver-name").val(),
-        join_date:$("#admin-update-driver-joinDate").val() ,
-        license_no:$("#admin-update-driver-license").val() ,
+    var driver = {
+        nic: $("#admin-update-driver-nic").val(),
+        address: $("#admin-update-driver-address").val(),
+        driver_name: $("#admin-update-driver-name").val(),
+        join_date: $("#admin-update-driver-joinDate").val(),
+        license_no: $("#admin-update-driver-license").val(),
         mobile: $("#admin-update-driver-mobile").val(),
-        password:$("#admin-update-driver-password").val() ,
+        password: $("#admin-update-driver-password").val(),
         user_name: $("#admin-update-driver-userName").val(),
     }
 
@@ -122,29 +119,27 @@ $("#btnUpdateDriver").click(function () {
         contentType: "application/json",
         data: JSON.stringify(driver),
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 alert(resp.message)
                 loadAllDrivers()
-
             }
         },
         error: function (err) {
             console.log(err);
         }
     });
-
 })
 
 $("#admin-driver-viewDetailsBtn").click(function () {
     console.log(driver_nic)
-    if (driver_nic==null){
+    if (driver_nic == null) {
         return
     }
     $.ajax({
-        url: baseUrl + "controller/driver/driverDetail/"+driver_nic,
+        url: baseUrl + "controller/driver/driverDetail/" + driver_nic,
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 console.log(resp.data)
                 setDataToVieDriverModal(resp.data);
             }
@@ -186,9 +181,8 @@ function loadDriverScheduleForAdmin() {
     var start = $("#admin-driver-start-date").val();
     var end = $("#admin-driver-end-date").val();
 
-
     $.ajax({
-        url: baseUrl + "controller/driver/driverScheduleByDate?start_date="+start+"&end_date="+end,
+        url: baseUrl + "controller/driver/driverScheduleByDate?start_date=" + start + "&end_date=" + end,
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -203,6 +197,7 @@ function loadDriverScheduleForAdmin() {
         }
     });
 }
+
 $("#admin-all-drivers-schedule-table>tr").click(function () {
 
     let one = $(this).children(":eq(0)").text();

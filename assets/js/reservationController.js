@@ -1,25 +1,24 @@
 var reservation_Id;
 var data;
 
-$("#admin-pending-reservation").click(function (){
-    $("#admin-reservation-title").css("display","block")
-    $("#admin-todayPickups-title").css("display","none")
+$("#admin-pending-reservation").click(function () {
+    $("#admin-reservation-title").css("display", "block")
+    $("#admin-todayPickups-title").css("display", "none")
 
-    $("#admin-update-reservation").css("display","block")
-    $("#admin-view-reservation").css("display","none")
+    $("#admin-update-reservation").css("display", "block")
+    $("#admin-view-reservation").css("display", "none")
 
     loadPendingReservations();
 })
 
-$("#admin-today-pickups").click(function (){
-    $("#admin-reservation-title").css("display","none")
-    $("#admin-todayPickups-title").css("display","block")
+$("#admin-today-pickups").click(function () {
+    $("#admin-reservation-title").css("display", "none")
+    $("#admin-todayPickups-title").css("display", "block")
 
-    $("#admin-update-reservation").css("display","none")
-    $("#admin-view-reservation").css("display","block")
+    $("#admin-update-reservation").css("display", "none")
+    $("#admin-view-reservation").css("display", "block")
 
     loadTodayPickUps()
-
 })
 
 function loadPendingReservations() {
@@ -59,23 +58,22 @@ function loadTodayPickUps() {
                     reservation_Id = $(this).children(":eq(0)").text();
                     $("#admin-view-reservation").prop('disabled', false);
                     $("#admin-update-reservation").prop('disabled', false);
-
                 });
             }
         }
     });
 }
 
-$("#admin-view-reservation").click(function (){
-    if (reservation_Id==null){
+$("#admin-view-reservation").click(function () {
+    if (reservation_Id == null) {
         return
     }
     $.ajax({
-        url: baseUrl + "controller/reservation/getReservation/"+reservation_Id,
+        url: baseUrl + "controller/reservation/getReservation/" + reservation_Id,
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
-                data=resp.data
+            if (resp.status === 200) {
+                data = resp.data
                 setDataToViewReservationModal()
             }
         },
@@ -98,27 +96,23 @@ function setDataToViewReservationModal() {
     $("#admin-view-reservation-vehicle").val(data.car.registration_no)
     $("#admin-view-reservation-img").attr("src", baseUrl + data.bank_slip_img)
 
-
-    if (data.driver_status==="YES"){
+    if (data.driver_status === "YES") {
         getReservationDriver(data.reserve_id)
-
-    }else {
+    } else {
         $("#admin-view-reservation-driverNic").val("Not Required");
-
     }
-
 }
 
-$("#admin-update-reservation").click(function (){
-    if (reservation_Id==null){
+$("#admin-update-reservation").click(function () {
+    if (reservation_Id == null) {
         return
     }
     $.ajax({
-        url: baseUrl + "controller/reservation/getReservation/"+reservation_Id,
+        url: baseUrl + "controller/reservation/getReservation/" + reservation_Id,
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
-                data=resp.data
+            if (resp.status === 200) {
+                data = resp.data
                 setDataToUpdateReservationModal(resp.data)
             }
         },
@@ -127,7 +121,6 @@ $("#admin-update-reservation").click(function (){
         }
     });
 })
-
 
 function setDataToUpdateReservationModal(data) {
     $("#admin-update-reservation-id").val(data.reserve_id)
@@ -140,23 +133,21 @@ function setDataToUpdateReservationModal(data) {
     $("#admin-update-reservation-vehicle").val(data.car.registration_no)
     $("#admin-update-reservation-img").attr("src", baseUrl + data.bank_slip_img)
 
-    if (data.driver_status==="YES"){
-        $("#admin-update-reservation-driver").prop('disabled', false);
+    if (data.driver_status === "YES") {
         getReservationDriver(data.reserve_id)
-
-    }else {
+    } else {
+        $("#admin-update-reservation-driver").prop('disabled', true);
         $("#admin-update-reservation-driver").val("Not Required");
-
     }
 }
 
 function updateOrDenyReservation(id, status, driver) {
-    console.log(id,status,driver)
+    console.log(id, status, driver)
     $.ajax({
-        url: baseUrl + "controller/reservation?reserve_id="+id+"&driver_id="+driver+"&status="+status,
+        url: baseUrl + "controller/reservation?reserve_id=" + id + "&driver_id=" + driver + "&status=" + status,
         method: "PUT",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 alert(resp.message)
                 loadPendingReservations();
             }
@@ -167,39 +158,35 @@ function updateOrDenyReservation(id, status, driver) {
     });
 }
 
-$("#btnAcceptReservation").click(function (){
-    if (data.driver_status==="YES"){
-        var id=data.reserve_id;
-        var status="Accept"
-        var driver= $("#admin-update-reservation-driver").val();
-        updateOrDenyReservation(id,status,driver);
-    }else {
-        var id=data.reserve_id;
-        var status="Accept"
-        var driver="";
-        updateOrDenyReservation(id,status,driver);
-
+$("#btnAcceptReservation").click(function () {
+    if (data.driver_status === "YES") {
+        var id = data.reserve_id;
+        var status = "Accept"
+        var driver = $("#admin-update-reservation-driver").val();
+        updateOrDenyReservation(id, status, driver);
+    } else {
+        var id = data.reserve_id;
+        var status = "Accept"
+        var driver = "";
+        updateOrDenyReservation(id, status, driver);
     }
 })
 
-$("#btnDenyReservation").click(function (){
-    var id=data.reserve_id;
-    var status="Deny"
-    var driver="";
-    updateOrDenyReservation(id,status,driver);
+$("#btnDenyReservation").click(function () {
+    var id = data.reserve_id;
+    var status = "Deny"
+    var driver = "";
+    updateOrDenyReservation(id, status, driver);
 })
-
 
 function getReservationDriver(reserve_id) {
     $.ajax({
-        url: baseUrl + "controller/driver/getSchedule/"+reserve_id,
+        url: baseUrl + "controller/driver/getSchedule/" + reserve_id,
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
-                alert(resp.message)
+            if (resp.status === 200) {
                 $("#admin-view-reservation-driverNic").val(resp.data);
                 $("#admin-update-reservation-driver").val(resp.data);
-
             }
         },
         error: function (err) {

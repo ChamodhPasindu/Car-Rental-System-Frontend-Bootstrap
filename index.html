@@ -239,7 +239,7 @@
             </div>
         </div>
 
-    </section>
+    </section><!--Change thisssss-->
 
     <section style="display:none;" id="registerForm">
         <div class="custom-container-two">
@@ -371,7 +371,7 @@
 
     </section><!--done-->
 
-    <section style="display:none;" id="customer">
+    <section style="display:none;" id="customer"><!--Change thisssss-->
 
         <section style="display: block" id="customerHome">
             <div class="customer-home-container">
@@ -379,14 +379,14 @@
                     <div class="customer-home-sub-container-one">
                         <p class="fs-1 fw-bold text-light mb-5">Why Are You Waiting ? <br/> Plan Your Trip Now </p>
                         <div class="customer-home-detail-container">
-                            <div class="form-floating w-75 mt-4 bg-red">
+                            <div class="form-floating w-75 mt-4 ">
                                 <input type="date" class="form-control border-secondary " id="customer-home-pickup">
                                 <label for="register-form-date">Date</label>
                             </div>
                             <div class="form-floating w-75 mt-3 ">
                                 <input type="date" class="form-control border-secondary" id="customer-home-return">
                                 <label for="register-form-date">Date</label>
-                                <button type="button" style="width: 100% "
+                                <button id="customer-searchCarBtn" type="button" style="width: 100% "
                                         class="btn bg-black text-light register-form-btn mt-4 ">Search Car
                                 </button>
                             </div>
@@ -406,66 +406,76 @@
                         <p class="fs-1 fw-bold mt-4 text-black">Available Cars</p>
                     </div>
                     <div class="customer-home-main-two">
-                        <div class="card custom-card ">
-                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
-                            <div class="card-body ">
-                                <h8>Luxury</h8>
-                                <h3 class="card-title">Mercedes Benz</h3><br>
-                                <h5 class="custom-card-daily">Daily</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
+                        <h1 id="homeUnavailableTag" class="text-danger">No Any Available Cars</h1>
+                        <div style="display: none" id="divOne" class="card custom-card ">
+                            <img id="card-one-img" src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                            <div id="divOneBody" class="card-body ">
+                                <h8 id="card-one-type" >Luxury</h8>
+                                <h3 id="card-one-brand" class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily(LKR)</h5>
+                                <h5 id="card-one-daily" class="custom-card-price"></h5>
                                 <br style="clear:both;">
-                                <h5 class="custom-card-daily">Monthly</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
+                                <h5  class="custom-card-daily">Monthly(LKR)</h5>
+                                <h5 id="card-one-monthly" class="custom-card-price"></h5>
 
                                 <hr style="clear:both;"/>
-                                <h5 class=" float-start ms-2">
-                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
-                                <h5 class="float-end me-2">
-                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <h5 id="card-one-fuel-main" class=" float-start ms-2">
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i>
+                                    <span id="card-one-fuel">Car </span>
+                                </h5>
+
+                                <h5 id="card-one-transmission-main" class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>
+                                    <span id="card-one-transmission"></span>
+                                </h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto " data-bs-toggle="modal"
+                                <p id="card-one-car-id" style="display: none">Car</p>
+
+                                <a id="card-one-bookBtn" class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto " data-bs-toggle="modal"
                                    data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
-                        <div class="card custom-card  ">
-                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
-                            <div class="card-body ">
-                                <h8>Luxury</h8>
-                                <h3 class="card-title">Mercedes Benz</h3><br>
-                                <h5 class="custom-card-daily">Daily</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
+                        <div style="display: none" id="divTwo" class="card custom-card  ">
+                            <img id="card-two-img" src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                            <div  class="card-body ">
+                                <h8 id="card-two-type">Luxury</h8>
+                                <h3 id="card-two-brand" class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily(LKR)</h5>
+                                <h5 id="card-two-daily" class="custom-card-price"></h5>
                                 <br style="clear:both;">
-                                <h5 class="custom-card-daily">Monthly</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
+                                <h5  class="custom-card-daily">Monthly(LKR)</h5>
+                                <h5 id="card-two-monthly" class="custom-card-price"></h5>
 
                                 <hr style="clear:both;"/>
-                                <h5 class=" float-start ms-2">
-                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
-                                <h5 class="float-end me-2">
-                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <h5 id="card-two-fuel-main"  class=" float-start ms-2">
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i><span id="card-two-fuel"> </span></h5>
+                                <h5 id="card-two-transmission-main" class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i><span id="card-two-transmission"></span></h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
+                                <p id="card-two-car-id" style="display: none">Car</p>
+                                <a id="card-two-bookBtn" class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto " data-bs-toggle="modal"
                                    data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
-                        <div class="card custom-card  ">
-                            <img src="assets/img/black-car.png" class="custom-card-img" alt="...">
+                        <div style="display: none" id="divThree" class="card custom-card  ">
+                            <img id="card-three-img" src="assets/img/black-car.png" class="custom-card-img" alt="...">
                             <div class="card-body ">
-                                <h8>Luxury</h8>
-                                <h3 class="card-title">Mercedes Benz</h3><br>
-                                <h5 class="custom-card-daily">Daily</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
+                                <h8 id="card-three-type">Luxury</h8>
+                                <h3 id="card-three-brand" class="card-title">Mercedes Benz</h3><br>
+                                <h5 class="custom-card-daily">Daily(LKR)</h5>
+                                <h5 id="card-three-daily" class="custom-card-price"></h5>
                                 <br style="clear:both;">
-                                <h5 class="custom-card-daily">Monthly</h5>
-                                <h5 class="custom-card-price">RS:5200</h5>
+                                <h5 class="custom-card-daily">Monthly(LKR)</h5>
+                                <h5 id="card-three-monthly" class="custom-card-price"></h5>
 
                                 <hr style="clear:both;"/>
-                                <h5 class=" float-start ms-2">
-                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> Diesel</h5>
-                                <h5 class="float-end me-2">
-                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i>Auto</h5>
+                                <h5 id="card-three-fuel-main"  class=" float-start ms-2">
+                                    <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i><span id="card-three-fuel"></span></h5>
+                                <h5 id="card-three-transmission-main"  class="float-end me-2">
+                                    <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i><span id="card-three-transmission"></span></h5>
                                 <br style="clear:both;">
-                                <a class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
+                                <p id="card-three-car-id" style="display: none">Car</p>
+                                <a id="card-three-bookBtn" class="btn btn-dark mt-5 d-block w-100 me-auto ms-auto" data-bs-toggle="modal"
                                    data-bs-target="#bookNowModel">Book Now</a>
                             </div>
                         </div>
@@ -487,16 +497,16 @@
                                              data-bs-ride="carousel">
                                             <div class="carousel-inner">
                                                 <div class="carousel-item active">
-                                                    <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
+                                                    <img id="customer-reservation-car-img1" src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
+                                                    <img id="customer-reservation-car-img2" src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
+                                                    <img id="customer-reservation-car-img3" src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <img src="assets/img/black-car.png" class="d-block w-100" alt="...">
+                                                    <img id="customer-reservation-car-img4" src="assets/img/black-car.png" class="d-block w-100" alt="...">
                                                 </div>
                                             </div>
                                             <button class="carousel-control-prev" type="button"
@@ -520,80 +530,69 @@
                                                 <div style="width: 30%;margin-left: 40px">
                                                     <div>
                                                         <label class="col-form-label fw-bold">Register No:</label>
-                                                        <p class="fs-5">CD-0909</p>
+                                                        <p id="customer-reservation-car-id" class="fs-5"></p>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Brand:</label>
-                                                        <p class="fs-5">Honda</p>
+                                                        <label class="col-form-label fw-bold">Brand:</label>
+                                                        <p id="customer-reservation-car-brand" class="fs-5"></p>
                                                     </div>
                                                     <div>
                                                         <label class="col-form-label fw-bold">Type:</label>
-                                                        <p class="fs-5">General</p>
+                                                        <p id="customer-reservation-car-type" class="fs-5"></p>
+                                                    </div>
+
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">Color:</label>
+                                                        <p id="customer-reservation-car-color"  class="fs-5"></p>
                                                     </div>
                                                     <div>
-                                                        <label class="col-form-label fw-bold">Register No:</label>
-                                                        <p class="fs-5">CD-0909</p>
-                                                    </div>
-                                                    <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Color:</label>
-                                                        <p class="fs-5">Black</p>
+                                                        <label class="col-form-label fw-bold">Fuel Type:</label>
+                                                        <p id="customer-reservation-car-fuel"  class="fs-5"></p>
                                                     </div>
 
                                                 </div>
                                                 <div style="width: 30%;">
                                                     <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Fuel Type:</label>
-                                                        <p class="fs-5">Petrol</p>
+                                                        <label class="col-form-label fw-bold">No Of Passengers:</label>
+                                                        <p id="customer-reservation-car-passengers"  class="fs-5"></p>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Transmission:</label>
-                                                        <p class="fs-5">Auto</p>
+                                                        <label class="col-form-label fw-bold">Transmission:</label>
+                                                        <p id="customer-reservation-car-transmission"  class="fs-5"></p>
                                                     </div>
 
                                                     <div>
-                                                        <label class="col-form-label fw-bold">Price For Extra
-                                                            Km:</label>
-                                                        <p class="fs-5">RS:120</p>
+                                                        <label class="col-form-label fw-bold">Price For Extra Km:</label>
+                                                        <p id="customer-reservation-car-extraKm"  class="fs-5"></p>
                                                     </div>
 
 
                                                     <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Waiver Payment:</label>
-                                                        <p class="fs-5"> RS:12450</p>
+                                                        <label class="col-form-label fw-bold">Waiver Payment:</label>
+                                                        <p id="customer-reservation-car-waiverPayment"  class="fs-5"></p>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">No Of Passengers:</label>
-                                                        <p class="fs-5">5</p>
+                                                        <label class="col-form-label fw-bold">Mileage:</label>
+                                                        <p id="customer-reservation-car-mileage"  class="fs-5"></p>
                                                     </div>
                                                 </div>
                                                 <div style="width: 30%">
-                                                    <div>
-                                                        <label class="col-form-label fw-bold">Mileage:</label>
-                                                        <p class="fs-5">12000km</p>
-                                                    </div>
+
                                                     <div>
                                                         <label class="col-form-label fw-bold">Daily Rate:</label>
-                                                        <p class="fs-5">RS:782</p>
+                                                        <p id="customer-reservation-car-daily" class="fs-5"></p>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Monthly Rate:</label>
-                                                        <p class="fs-5">RS:12000</p>
+                                                        <label class="col-form-label fw-bold">Monthly Rate:</label>
+                                                        <p id="customer-reservation-car-monthly"  class="fs-5"></p>
                                                     </div>
                                                     <div>
                                                         <label class="col-form-label fw-bold">Free km For Day:</label>
-                                                        <p class="fs-5">240km</p>
+                                                        <p id="customer-reservation-car-freeKmDay"  class="fs-5"></p>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusName"
-                                                               class="col-form-label fw-bold">Free km For Month:</label>
-                                                        <p class="fs-5">1200km</p>
+                                                        <label class="col-form-label fw-bold">Free km For Month:</label>
+                                                        <p id="customer-reservation-car-freeKmMonth"  class="fs-5"></p>
                                                     </div>
                                                 </div>
                                                 <div style="width: 40%;">
@@ -605,37 +604,30 @@
 
                                                     <div>
                                                         <label class="col-form-label fw-bold">Reserve ID:</label>
-                                                        <input class="form-control mb-3 " type="text" value="RID-001"
+                                                        <input id="customer-reservation-reserve-id"  class="form-control mb-3 " type="text"
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusName" class="col-form-label fw-bold">Customer
-                                                            Name:</label>
-                                                        <input class="form-control mb-3" type="text"
-                                                               value="Chamodh Pasindu"
+                                                        <label  class="col-form-label fw-bold">Customer Name:</label>
+                                                        <input id="customer-reservation-customer-name"  class="form-control mb-3" type="text"
                                                                aria-label="Disabled input example" disabled readonly>
 
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusAddress" class="col-form-label fw-bold">Vehicle
-                                                            No:</label>
-                                                        <input class="form-control mb-3" type="text" value="CDI-0101"
+                                                        <label  class="col-form-label fw-bold">Vehicle No:</label>
+                                                        <input id="customer-reservation-customer-vehicle-no" class="form-control mb-3" type="text"
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
                                                     <div>
-                                                        <label for="txtCusSalary" class="col-form-label fw-bold">PickUp
-                                                            Venue:</label>
-                                                        <input class="form-control mb-3" type="text" value="Panadura"
-                                                               aria-label="Disabled input example" disabled readonly>
+                                                        <label for="register-form-date"
+                                                               class=" col-form-label fw-bold ">PickUp Date</label>
+                                                        <input id="customer-reservation-customer-pickUpDate" type="date" class="form-control mb-3"disabled>
                                                     </div>
-                                                    <div class="form-check ms-2">
-                                                        <input class="form-check-input fs-5 mt-1" type="checkbox"
-                                                               value="" id="flexCheckDefault">
-                                                        <label class="form-check-label fs-6 fw-bold mt-1"
-                                                               for="flexCheckDefault">
-                                                            Driver Status
-                                                        </label>
+                                                    <div>
+                                                        <label for="register-form-date" class=" col-form-label fw-bold">Return Date</label>
+                                                        <input id="customer-reservation-customer-returnDate" type="date" class="form-control  mb-3" disabled>
                                                     </div>
+
                                                     <br>
 
                                                 </div>
@@ -644,35 +636,32 @@
                                                     <br>
                                                     <hr style=" height: 2px; border: 1px solid black;margin-top: 16%">
                                                     <br>
-                                                    <div>
-                                                        <label for="register-form-date"
-                                                               class=" col-form-label fw-bold ">PickUp Time</label>
-                                                        <input type="time" class="form-control border-secondary mb-3"
-                                                               placeholder="2020-05-12">
-                                                    </div>
 
                                                     <div>
-                                                        <label for="register-form-date"
-                                                               class=" col-form-label fw-bold ">PickUp Date</label>
-                                                        <input type="date" class="form-control border-secondary mb-3"
-                                                               placeholder="2020-05-12" disabled>
-                                                    </div>
-                                                    <div>
-                                                        <label for="register-form-date" class=" col-form-label fw-bold">Return
-                                                            Date</label>
-                                                        <input type="date" class="form-control border-secondary mb-3"
-                                                               placeholder="2020-05-12" disabled>
-                                                    </div>
-                                                    <div>
-                                                        <label for="txtCusSalary" class="col-form-label fw-bold ">No Of
-                                                            Days:</label>
-                                                        <input class="form-control mb-3" type="number" value="01"
+                                                        <label class="col-form-label fw-bold ">No Of Days:</label>
+                                                        <input id="customer-reservation-customer-days" class="form-control mb-4" type="number"
                                                                aria-label="Disabled input example" disabled readonly>
                                                     </div>
                                                     <div>
+                                                        <label for="register-form-date"
+                                                               class=" col-form-label fw-bold ">PickUp Time</label>
+                                                        <input id="customer-reservation-customer-pickUpTime"  value="00:00:00" type="time" step="1"class="form-control border-secondary mb-3">
+                                                    </div>
+                                                    <div>
+                                                        <label class="col-form-label fw-bold">PickUp Venue:</label>
+                                                        <input id="customer-reservation-customer-venue" class="form-control mb-3" type="text"
+                                                               aria-label="Disabled input example" >
+                                                    </div>
+                                                    <div>
                                                         <label class="form-label fw-bold">Band Slip Image</label>
-                                                        <input class="form-control " type="file"
+                                                        <input class="form-control mb-5 " type="file"
                                                                id="slip-image">
+                                                    </div>
+                                                    <div class="form-check ms-2">
+                                                        <input id="customer-reservation-customer-driverCheck" class="form-check-input fs-5 mt-1" type="checkbox">
+                                                        <label class="form-check-label fs-6 fw-bold mt-1">
+                                                            Driver Status
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -689,7 +678,7 @@
 
 
                     </div>
-                    <div class="customer-home-div-one">
+                    <div class="customer-home-div-two">
                         <button type="button" class="btn btn-light me-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
                         </button>
@@ -1993,8 +1982,7 @@
                                         <!-------------------Driver Details------------------->
                                         <div>
                                             <label class="col-form-label fw-bold">Driver ID:</label>
-                                            <input id="admin-update-reservation-driver" class="form-control mb-3" type="text"
-                                                   aria-label="Disabled input example" disabled readonly>
+                                            <input id="admin-update-reservation-driver" class="form-control mb-3" type="text">
                                         </div>
                                         <div>
                                             <label for="register-form-date"
@@ -2028,7 +2016,6 @@
                     </div>
                 </div>
             </div>
-
             <!---------------View Reservation------------->
             <div class="modal fade" id="viewReservationModel" tabindex="-1" aria-labelledby="bookCarModalLabel"
                  aria-hidden="true">

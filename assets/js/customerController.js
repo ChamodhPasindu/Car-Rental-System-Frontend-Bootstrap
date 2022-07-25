@@ -6,7 +6,6 @@ var customer_nic;
 
 
 $("#registerNowBtn").click(function () {
-
     registerCustomer()
 })
 
@@ -36,8 +35,6 @@ function registerCustomer() {
     }
     data.append("customer", new Blob([JSON.stringify(customerDTO)], {type: "application/json"}));
 
-    console.log($("#register-form-date").val())
-
     $.ajax({
         url: baseUrl + "controller/customer/register",
         method: 'post',
@@ -50,6 +47,7 @@ function registerCustomer() {
             alert(resp.message);
             if (!(resp.data == null)) {
                 openCustomerHome(resp.data)
+                getAvailableCar();
             }
         },
         error: function (err) {
@@ -71,7 +69,6 @@ function openCustomerHome(data) {
     $("#customer-profile-mobile").val(data.mobile)
 }
 
-
 function loadAllCustomer() {
     $("#admin-customer-table").empty();
 
@@ -88,7 +85,6 @@ function loadAllCustomer() {
                 $("#admin-customer-table>tr").click(function () {
                     customer_nic = $(this).children(":eq(0)").text();
                     $("#admin-customer-viewBtn").prop('disabled', false);
-
                 });
             }
         }
@@ -102,19 +98,19 @@ function setDataToViewCustomerModal(data) {
     $("#admin-view-customer-mobile").val(data.mobile)
     $("#admin-view-customer-name").val(data.customer_name)
     $("#admin-view-customer-registerDate").val(data.register_date)
-    $("#admin-view-customer-imgOne").attr("src", baseUrl + "uploads/"+data.nic_img)
-    $("#admin-view-customer-imgTwo").attr("src", baseUrl +"uploads/"+data.license_img)
+    $("#admin-view-customer-imgOne").attr("src", baseUrl + data.nic_img)
+    $("#admin-view-customer-imgTwo").attr("src", baseUrl + data.license_img)
 }
 
 $("#admin-customer-viewBtn").click(function () {
-    if (customer_nic==null){
+    if (customer_nic == null) {
         return
     }
     $.ajax({
-        url: baseUrl + "controller/customer/customerDetail/"+customer_nic,
+        url: baseUrl + "controller/customer/customerDetail/" + customer_nic,
         method: "GET",
         success: function (resp) {
-            if (resp.status===200){
+            if (resp.status === 200) {
                 console.log(resp.data)
                 setDataToViewCustomerModal(resp.data);
             }
@@ -127,16 +123,15 @@ $("#admin-customer-viewBtn").click(function () {
 
 $("#btnChangePassword").click(function () {
 
-
     var newPassword = $("#customer-profile-new-password").val()
 
     let userDTO = {
         user_name: customer.user_name,
-        password:   $("#customer-profile-current-password").val(),
+        password: $("#customer-profile-current-password").val(),
     }
 
     $.ajax({
-        url: baseUrl+"controller/login",
+        url: baseUrl + "controller/login",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(userDTO),
@@ -164,7 +159,7 @@ function changePassword(nic, user_name, newPassword) {
     console.log(user)
 
     $.ajax({
-        url: baseUrl+"controller/customer/accountSecurity",
+        url: baseUrl + "controller/customer/accountSecurity",
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(user),
@@ -181,24 +176,23 @@ function changePassword(nic, user_name, newPassword) {
     });
 }
 
-$("#customer-updateBtn").click(function (){
+$("#customer-updateBtn").click(function () {
 
-    var newDetails={
-        nic:$("#customer-profile-nic").val(),
-        user_name:customer.user_name,
-        password:customer.password,
-        customer_name:$("#customer-profile-name").val(),
-        license_img:customer.license_img,
-        nic_img:customer.nic,
-        address:$("#customer-profile-address").val(),
-        mobile:$("#customer-profile-mobile").val(),
-        email:$("#customer-profile-email").val(),
-        register_date:customer.register_date
+    var newDetails = {
+        nic: $("#customer-profile-nic").val(),
+        user_name: customer.user_name,
+        password: customer.password,
+        customer_name: $("#customer-profile-name").val(),
+        license_img: customer.license_img,
+        nic_img: customer.nic,
+        address: $("#customer-profile-address").val(),
+        mobile: $("#customer-profile-mobile").val(),
+        email: $("#customer-profile-email").val(),
+        register_date: customer.register_date
     }
-    console.log(newDetails)
 
     $.ajax({
-        url: baseUrl+"controller/customer/update",
+        url: baseUrl + "controller/customer/update",
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(newDetails),

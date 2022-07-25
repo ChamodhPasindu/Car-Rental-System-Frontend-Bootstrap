@@ -1,5 +1,3 @@
-//--admin search reservation id for payment
-
 var data;
 $("#admin-payment-searchBtn").click(function () {
     var reserve_id = $("#admin-payment-reservation-searchText").val()
@@ -19,7 +17,6 @@ $("#admin-payment-searchBtn").click(function () {
             console.log(err);
         }
     });
-
 })
 
 $("#admin-payment-done-calculate").click(function () {
@@ -51,13 +48,11 @@ $("#admin-payment-done-calculate").click(function () {
     refund = data.car.waiver_payment - damage_cost;
     $("#admin-payment-refund").val(refund);
 
-
     if (driver_fee === "Not Required") {
         $("#admin-payment-total").val(totalPrice);
     } else {
         $("#admin-payment-total").val(totalPrice + driver_fee);
     }
-
 })
 
 $("#admin-payment-discount").keyup(function (event) {
@@ -71,41 +66,41 @@ $("#admin-payment-discount").keyup(function (event) {
 $("#admin-payment-cash").keyup(function (event) {
     if (event.key === "Enter") {
         let cash = $("#admin-payment-cash").val();
-        let balance =  cash-$("#admin-payment-subTotal").val()
+        let balance = cash - $("#admin-payment-subTotal").val()
 
         $("#admin-payment-balance").val(balance);
     }
 });
 
-$("#admin-payment-paidBtn").click(function (){
+$("#admin-payment-paidBtn").click(function () {
 
-    var total=$("#admin-payment-subTotal").val()
+    var total = $("#admin-payment-subTotal").val()
     var driver_fee = $("#admin-payment-driver-fee").val();
     var rental_fee;
-    if (typeof (driver_fee)=="string"){
-        driver_fee=0;
-        rental_fee=total;
-    }else {
-        rental_fee=(+total)-(+driver_fee)
+    if (typeof (driver_fee) == "string") {
+        driver_fee = 0;
+        rental_fee = total;
+    } else {
+        rental_fee = (+total) - (+driver_fee)
     }
 
-    var reservation={
-        bill_id:$("#admin-payment-billId").val(),
-        pay_date:$("#admin-payment-pay-date").val(),
-        no_of_km:+$("#admin-payment-totalKm").val(),
-        rental_fee:+rental_fee,
-        driver_fee:driver_fee,
-        damage_cost:+$("#admin-payment-damage-cost").val(),
-        return_cost:+$("#admin-payment-refund").val(),
-        total_payment:+total,
-        carReservation:{
-            reserve_id:$("#admin-payment-reservation-searchText").val(),
+    var reservation = {
+        bill_id: $("#admin-payment-billId").val(),
+        pay_date: $("#admin-payment-pay-date").val(),
+        no_of_km: +$("#admin-payment-totalKm").val(),
+        rental_fee: +rental_fee,
+        driver_fee: driver_fee,
+        damage_cost: +$("#admin-payment-damage-cost").val(),
+        return_cost: +$("#admin-payment-refund").val(),
+        total_payment: +total,
+        carReservation: {
+            reserve_id: $("#admin-payment-reservation-searchText").val(),
         }
     }
     console.log(reservation)
 
     $.ajax({
-        url: baseUrl+"controller/payment",
+        url: baseUrl + "controller/payment",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(reservation),
@@ -119,9 +114,6 @@ $("#admin-payment-paidBtn").click(function (){
         }
     });
 })
-
-
-
 
 function generateBillId() {
     $.ajax({

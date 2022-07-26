@@ -456,7 +456,7 @@ $("#home-PreviousBtn").click(function () {
 //--Admin Dashboard
 function loadIncome() {
     $.ajax({
-        url: baseUrl + "/controller/payment/daily_weekly_Annually_Income?type=Daily&start_date=&end_date=",
+        url: baseUrl + "controller/payment/daily_weekly_Annually_Income?type=Daily&start_date=&end_date=",
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -465,7 +465,7 @@ function loadIncome() {
         }
     });
     $.ajax({
-        url: baseUrl + "/controller/payment/daily_weekly_Annually_Income?type=Monthly&start_date=&end_date=",
+        url: baseUrl + "controller/payment/daily_weekly_Annually_Income?type=Monthly&start_date=&end_date=",
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -474,7 +474,7 @@ function loadIncome() {
         }
     });
     $.ajax({
-        url: baseUrl + "/controller/payment/daily_weekly_Annually_Income?type=Weekly&start_date=&end_date=",
+        url: baseUrl + "controller/payment/daily_weekly_Annually_Income?type=Weekly&start_date=&end_date=",
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -483,7 +483,7 @@ function loadIncome() {
         }
     });
     $.ajax({
-        url: baseUrl + "/controller/payment/daily_weekly_Annually_Income?type=Yearly&start_date=&end_date=",
+        url: baseUrl + "controller/payment/daily_weekly_Annually_Income?type=Yearly&start_date=&end_date=",
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -496,7 +496,7 @@ function loadIncome() {
 
 function loadAvailableAndRentalCar() {
     $.ajax({
-        url: baseUrl + "/controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=null&status=Available",
+        url: baseUrl + "controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=&status=Available",
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -505,7 +505,7 @@ function loadAvailableAndRentalCar() {
         }
     });
     $.ajax({
-        url: baseUrl + "/controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=null&status=Rental",
+        url: baseUrl + "controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=&status=Rental",
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -517,7 +517,7 @@ function loadAvailableAndRentalCar() {
 
 function loadAvailableAndOccupiedDrivers() {
     $.ajax({
-        url: baseUrl + "/controller/driver/todayAvailableAndOccupiedDrivers/Available",
+        url: baseUrl + "controller/driver/todayAvailableAndOccupiedDrivers/Available",
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -526,7 +526,7 @@ function loadAvailableAndOccupiedDrivers() {
         }
     });
     $.ajax({
-        url: baseUrl + "/controller/driver/todayAvailableAndOccupiedDrivers/Occupied",
+        url: baseUrl + "controller/driver/todayAvailableAndOccupiedDrivers/Occupied",
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
@@ -540,7 +540,7 @@ function loadTodayReservations() {
     $("#admin-daily-reservation-table").empty();
 
     $.ajax({
-        url: baseUrl + "/controller/reservation/todayReservation",
+        url: baseUrl + "controller/reservation/todayReservation",
         method: "GET",
         success: function (resp) {
             for (const reservation of resp.data) {
@@ -556,7 +556,7 @@ function loadTodayPayments() {
     $("#admin-daily-payment-table").empty();
 
     $.ajax({
-        url: baseUrl + "/controller/payment/todayIncomeList",
+        url: baseUrl + "controller/payment/todayIncomeList",
         method: "GET",
         success: function (resp) {
             for (const payment of resp.data) {

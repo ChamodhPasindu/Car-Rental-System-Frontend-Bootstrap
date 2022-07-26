@@ -10,21 +10,21 @@ var regExDriverNic = /^[0-9]{12}\b|[0-9]{10}[V]$/;
 var regExDriverMobile = /^(07)([125678])(-?)[0-9]{7}$/;
 var regExLicense = /^[B][0-9]{7}$/
 
-var regExVehicleNo=/^[A-Z]{3}[-][0-9]{4}\b|[0-9]{3}[-][0-9]{4}$/
-var regExBrand=/^[A-z.\s]{3,10}$/
-var regExType=/^[A-z.\s]{3,10}$/
-var regExTransmission=/^[A-z.\s]{3,10}$/
-var regExColor=/^[A-z.\s]{3,10}$/
-var regExPassengers=/^[0-9]{1,2}$/
-var regExMileage=/^[0-9]{1,7}$/
-var regExFuel=/^[A-z.\s]{3,10}$/
-var regExDaily=/^[0-9]{1,6}$/
-var regExMonthly=/^[0-9]{1,6}$/
-var regExFreeKmDay=/^[0-9]{1,4}$/
-var regExFreeKmMonth=/^[0-9]{1,4}$/
-var regExExtraKmPrice=/^[0-9]{1,6}$/
-var regExWaiverPayment=/^[0-9]{1,6}$/
-var regExStatus=/^[A-z.\s]{3,10}$/
+var regExVehicleNo = /^[A-Z]{3}[-][0-9]{4}\b|[0-9]{3}[-][0-9]{4}$/
+var regExBrand = /^[A-z.\s]{3,10}$/
+var regExType = /^[A-z.\s]{3,10}$/
+var regExTransmission = /^[A-z.\s]{3,10}$/
+var regExColor = /^[A-z.\s]{3,10}$/
+var regExPassengers = /^[0-9]{1,2}$/
+var regExMileage = /^[0-9]{1,7}$/
+var regExFuel = /^[A-z.\s]{3,10}$/
+var regExDaily = /^[0-9]{1,6}$/
+var regExMonthly = /^[0-9]{1,6}$/
+var regExFreeKmDay = /^[0-9]{1,4}$/
+var regExFreeKmMonth = /^[0-9]{1,4}$/
+var regExExtraKmPrice = /^[0-9]{1,6}$/
+var regExWaiverPayment = /^[0-9]{1,6}$/
+var regExStatus = /^[A-z.\s]{3,10}$/
 
 function registerFormValidation() {
 
@@ -33,6 +33,10 @@ function registerFormValidation() {
     let email = $("#register-form-email").val();
     let address = $("#register-form-address").val();
     let mobile = $("#register-form-mobile").val();
+
+    let userName = $("#register-form-user-name").val();
+    let password = $("#register-form-password").val();
+
     let nicLength = $("#register-form-NIC-image")[0].files.length;
     let licenseLenght = $("#register-form-License-image")[0].files.length;
 
@@ -47,16 +51,26 @@ function registerFormValidation() {
                     $("#register-form-mobile").css('border', '2px solid blue');
                     if (regExCusAddress.test(address)) {
                         $("#register-form-address").css('border', '2px solid blue');
-                        if (nicLength !== 0) {
-                            $("#register-form-NIC-image").css('border', '2px solid blue');
-                            if (licenseLenght !== 0) {
-                                registerCustomer()
-                                $("#register-form-License-image").css('border', '2px solid blue');
+                        if (userName.length !== 0) {
+                            $("#register-form-user-name").css('border', '2px solid blue');
+                            if (password.length !== 0) {
+                                $("#register-form-password").css('border', '2px solid blue');
+                                if (nicLength !== 0) {
+                                    $("#register-form-NIC-image").css('border', '2px solid blue');
+                                    if (licenseLenght !== 0) {
+                                        $("#register-form-License-image").css('border', '2px solid blue');
+                                        registerCustomer()
+                                    } else {
+                                        $("#register-form-License-image").css('border', '2px solid red');
+                                    }
+                                } else {
+                                    $("#register-form-NIC-image").css('border', '2px solid red');
+                                }
                             } else {
-                                $("#register-form-License-image").css('border', '2px solid red');
+                                $("#register-form-password").css('border', '2px solid red');
                             }
                         } else {
-                            $("#register-form-NIC-image").css('border', '2px solid red');
+                            $("#register-form-user-name").css('border', '2px solid red');
                         }
                     } else {
                         $("#register-form-address").css('border', '2px solid red');
@@ -132,6 +146,7 @@ function driverSaveValidation() {
                                 if (password.length !== 0) {
                                     $("#save-driver-password").css('border', '2px solid blue');
                                     saveDriver()
+
                                 } else {
                                     $("#save-driver-password").css('border', '2px solid red');
                                 }
@@ -223,103 +238,103 @@ function saveCarValidation() {
     let interior = $("#save-car-interior")[0].files.length;
 
 
-    if (regExVehicleNo.test(registration_no)){
+    if (regExVehicleNo.test(registration_no)) {
         $("#save-car-registration-no").css('border', '2px solid blue');
-        if (regExBrand.test(brand)){
+        if (regExBrand.test(brand)) {
             $("#save-car-brand").css('border', '2px solid blue');
-            if (regExType.test(type)){
+            if (regExType.test(type)) {
                 $("#save-car-type").css('border', '2px solid blue');
-                if (regExTransmission.test(transmission)){
+                if (regExTransmission.test(transmission)) {
                     $("#save-car-transmission").css('border', '2px solid blue');
-                    if(regExColor.test(color)){
+                    if (regExColor.test(color)) {
                         $("#save-car-color").css('border', '2px solid blue');
-                        if (regExPassengers.test(passengers)){
+                        if (regExPassengers.test(passengers)) {
                             $("#save-car-passengers").css('border', '2px solid blue');
-                            if (regExMileage.test(mileage)){
+                            if (regExMileage.test(mileage)) {
                                 $("#save-car-mileage").css('border', '2px solid blue');
-                                if (regExFuel.test(fuel)){
+                                if (regExFuel.test(fuel)) {
                                     $("#save-car-fuelType").css('border', '2px solid blue');
-                                    if (regExDaily.test(daily)){
+                                    if (regExDaily.test(daily)) {
                                         $("#save-car-daily").css('border', '2px solid blue');
-                                        if (regExMonthly.test(monthly)){
+                                        if (regExMonthly.test(monthly)) {
                                             $("#save-car-monthly").css('border', '2px solid blue');
-                                            if (regExFreeKmDay.test(freeKmDay)){
+                                            if (regExFreeKmDay.test(freeKmDay)) {
                                                 $("#save-car-freeKm-day").css('border', '2px solid blue');
-                                                if (regExFreeKmMonth.test(freeKmMonth)){
+                                                if (regExFreeKmMonth.test(freeKmMonth)) {
                                                     $("#save-car-freeKm-month").css('border', '2px solid blue');
-                                                    if (regExExtraKmPrice.test(extraKmPrice)){
+                                                    if (regExExtraKmPrice.test(extraKmPrice)) {
                                                         $("#save-car-extraKm-price").css('border', '2px solid blue');
-                                                        if (regExWaiverPayment.test(waiverPayment)){
+                                                        if (regExWaiverPayment.test(waiverPayment)) {
                                                             $("#save-car-waiver-payment").css('border', '2px solid blue');
-                                                            if (regExStatus.test(status)){
+                                                            if (regExStatus.test(status)) {
                                                                 $("#save-car-status").css('border', '2px solid blue');
-                                                                if (frontView!==0){
+                                                                if (frontView !== 0) {
                                                                     $("#save-car-frontView").css('border', '2px solid blue');
-                                                                    if (backView!==0){
+                                                                    if (backView !== 0) {
                                                                         $("#save-car-backView").css('border', '2px solid blue');
-                                                                        if (sideView!==0){
+                                                                        if (sideView !== 0) {
                                                                             $("#save-car-sideView").css('border', '2px solid blue');
-                                                                            if (interior!==0){
+                                                                            if (interior !== 0) {
                                                                                 $("#save-car-interior").css('border', '2px solid blue');
                                                                                 saveCar()
-                                                                            }else {
+                                                                            } else {
                                                                                 $("#save-car-interior").css('border', '2px solid red');
                                                                             }
-                                                                        }else {
+                                                                        } else {
                                                                             $("#save-car-sideView").css('border', '2px solid red');
                                                                         }
-                                                                    }else {
+                                                                    } else {
                                                                         $("#save-car-backView").css('border', '2px solid red');
                                                                     }
-                                                                }else {
+                                                                } else {
                                                                     $("#save-car-frontView").css('border', '2px solid red');
                                                                 }
-                                                            }else{
+                                                            } else {
                                                                 $("#save-car-status").css('border', '2px solid red');
                                                             }
-                                                        }else {
+                                                        } else {
                                                             $("#save-car-waiver-payment").css('border', '2px solid red');
                                                         }
-                                                    }else {
+                                                    } else {
                                                         $("#save-car-extraKm-price").css('border', '2px solid red');
                                                     }
-                                                }else {
+                                                } else {
                                                     $("#save-car-freeKm-month").css('border', '2px solid red');
                                                 }
-                                            }else {
+                                            } else {
                                                 $("#save-car-freeKm-day").css('border', '2px solid red');
                                             }
-                                        }else {
+                                        } else {
                                             $("#save-car-monthly").css('border', '2px solid red');
                                         }
-                                    }else {
+                                    } else {
                                         $("#save-car-daily").css('border', '2px solid red');
                                     }
 
-                                }else {
+                                } else {
                                     $("#save-car-fuelType").css('border', '2px solid red');
                                 }
-                            }else {
+                            } else {
                                 $("#save-car-mileage").css('border', '2px solid red');
                             }
 
-                        }else {
+                        } else {
                             $("#save-car-passengers").css('border', '2px solid red');
                         }
 
-                    }else {
+                    } else {
                         $("#save-car-color").css('border', '2px solid red');
                     }
-                }else {
+                } else {
                     $("#save-car-transmission").css('border', '2px solid red');
                 }
-            }else {
+            } else {
                 $("#save-car-type").css('border', '2px solid red');
             }
-        }else {
+        } else {
             $("#save-car-brand").css('border', '2px solid red');
         }
-    }else {
+    } else {
         $("#save-car-registration-no").css('border', '2px solid red');
     }
 }
@@ -347,121 +362,121 @@ function updateCarValidation() {
     let interior = $("#admin-update-interior")[0].files.length;
 
 
-    if (regExVehicleNo.test(registration_no)){
+    if (regExVehicleNo.test(registration_no)) {
         $("#admin-update-registration-no").css('border', '2px solid blue');
-        if (regExBrand.test(brand)){
+        if (regExBrand.test(brand)) {
             $("#admin-update-brand").css('border', '2px solid blue');
-            if (regExType.test(type)){
+            if (regExType.test(type)) {
                 $("#admin-update-type").css('border', '2px solid blue');
-                if (regExTransmission.test(transmission)){
+                if (regExTransmission.test(transmission)) {
                     $("#admin-update-transmission").css('border', '2px solid blue');
-                    if(regExColor.test(color)){
+                    if (regExColor.test(color)) {
                         $("#admin-update-color").css('border', '2px solid blue');
-                        if (regExPassengers.test(passengers)){
+                        if (regExPassengers.test(passengers)) {
                             $("#admin-update-passengers").css('border', '2px solid blue');
-                            if (regExMileage.test(mileage)){
+                            if (regExMileage.test(mileage)) {
                                 $("#admin-update-mileage").css('border', '2px solid blue');
-                                if (regExFuel.test(fuel)){
+                                if (regExFuel.test(fuel)) {
                                     $("#admin-update-fuel").css('border', '2px solid blue');
-                                    if (regExDaily.test(daily)){
+                                    if (regExDaily.test(daily)) {
                                         $("#admin-update-daily").css('border', '2px solid blue');
-                                        if (regExMonthly.test(monthly)){
+                                        if (regExMonthly.test(monthly)) {
                                             $("#admin-update-monthly").css('border', '2px solid blue');
-                                            if (regExFreeKmDay.test(freeKmDay)){
+                                            if (regExFreeKmDay.test(freeKmDay)) {
                                                 $("#admin-update-freeKm-day").css('border', '2px solid blue');
-                                                if (regExFreeKmMonth.test(freeKmMonth)){
+                                                if (regExFreeKmMonth.test(freeKmMonth)) {
                                                     $("#admin-update-freeKn-month").css('border', '2px solid blue');
-                                                    if (regExExtraKmPrice.test(extraKmPrice)){
+                                                    if (regExExtraKmPrice.test(extraKmPrice)) {
                                                         $("#admin-update-extraKm").css('border', '2px solid blue');
-                                                        if (regExWaiverPayment.test(waiverPayment)){
+                                                        if (regExWaiverPayment.test(waiverPayment)) {
                                                             $("#admin-update-waiverPayment").css('border', '2px solid blue');
-                                                            if (regExStatus.test(status)){
+                                                            if (regExStatus.test(status)) {
                                                                 $("#admin-update-status").css('border', '2px solid blue');
-                                                                if (frontView!==0){
+                                                                if (frontView !== 0) {
                                                                     $("#admin-update-front").css('border', '2px solid blue');
-                                                                    if (backView!==0){
+                                                                    if (backView !== 0) {
                                                                         $("#admin-update-back").css('border', '2px solid blue');
-                                                                        if (sideView!==0){
+                                                                        if (sideView !== 0) {
                                                                             $("#admin-update-side").css('border', '2px solid blue');
-                                                                            if (interior!==0){
+                                                                            if (interior !== 0) {
                                                                                 $("#admin-update-interior").css('border', '2px solid blue');
                                                                                 updateCar();
-                                                                            }else {
+                                                                            } else {
                                                                                 $("#admin-update-interior").css('border', '2px solid red');
                                                                             }
-                                                                        }else {
+                                                                        } else {
                                                                             $("#admin-update-side").css('border', '2px solid red');
                                                                         }
-                                                                    }else {
+                                                                    } else {
                                                                         $("#admin-update-back").css('border', '2px solid red');
                                                                     }
-                                                                }else {
+                                                                } else {
                                                                     $("#admin-update-front").css('border', '2px solid red');
                                                                 }
-                                                            }else{
+                                                            } else {
                                                                 $("#admin-update-status").css('border', '2px solid red');
                                                             }
-                                                        }else {
+                                                        } else {
                                                             $("#admin-update-waiverPayment").css('border', '2px solid red');
                                                         }
-                                                    }else {
+                                                    } else {
                                                         $("#admin-update-extraKm").css('border', '2px solid red');
                                                     }
-                                                }else {
+                                                } else {
                                                     $("#admin-car-").css('border', '2px solid red');
                                                 }
-                                            }else {
+                                            } else {
                                                 $("#admin-update-freeKn-month").css('border', '2px solid red');
                                             }
-                                        }else {
+                                        } else {
                                             $("#admin-update-monthly").css('border', '2px solid red');
                                         }
-                                    }else {
+                                    } else {
                                         $("#admin-update-daily").css('border', '2px solid red');
                                     }
-                                }else {
+                                } else {
                                     $("#admin-update-fuel").css('border', '2px solid red');
                                 }
-                            }else {
+                            } else {
                                 $("#admin-update-mileage").css('border', '2px solid red');
                             }
-                        }else {
+                        } else {
                             $("#admin-update-passengers").css('border', '2px solid red');
                         }
 
-                    }else {
+                    } else {
                         $("#admin-update-color").css('border', '2px solid red');
                     }
-                }else {
+                } else {
                     $("#admin-update-transmission").css('border', '2px solid red');
                 }
-            }else {
+            } else {
                 $("#admin-update-type").css('border', '2px solid red');
             }
-        }else {
+        } else {
             $("#admin-update-brand").css('border', '2px solid red');
         }
-    }else {
+    } else {
         $("#admin-update-registration-no").css('border', '2px solid red');
     }
 }
 
-function totalCalculateValidation(){
-    var regExDamage=/^[0-9][0-9]*([.][0-9]{2})?$/
-    var regExTotal=/^[0-9]{1,4}$/
+function totalCalculateValidation() {
+    var regExDamage = /^[0-9][0-9]*([.][0-9]{2})?$/
+    var regExTotal = /^[0-9]{1,4}$/
 
     let totalKm = $("#admin-payment-totalKm").val();
     let damage = $("#admin-payment-damage-cost").val();
 
-    if (regExTotal.test(totalKm)){
+    if (regExTotal.test(totalKm)) {
         $("#admin-payment-totalKm").css('border', '2px solid blue');
-        if (regExDamage.test(damage)){
+        if (regExDamage.test(damage)) {
             $("#admin-payment-damage-cost").css('border', '2px solid blue');
             calculateTotal()
-        }else {
+        } else {
             $("#admin-payment-damage-cost").css('border', '2px solid red');
         }
-    }else {
+    } else {
         $("#admin-payment-totalKm").css('border', '2px solid red');
     }
 

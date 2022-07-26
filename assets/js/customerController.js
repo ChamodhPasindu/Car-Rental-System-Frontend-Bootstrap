@@ -9,7 +9,6 @@ $("#registerNowBtn").click(function () {
     registerFormValidation()
 })
 
-
 function registerCustomer() {
     var data = new FormData();
 
@@ -17,7 +16,6 @@ function registerCustomer() {
     let nicFileName = nic.name;
     let license = $("#register-form-License-image")[0].files[0];
     let licenseFileName = license.name;
-
 
     data.append("file", nic);
     data.append("file", license);
@@ -55,6 +53,15 @@ function registerCustomer() {
             console.log(err);
         }
     });
+    cleanRegisterForm()
+}
+
+function cleanRegisterForm() {
+    $('#register-form-name,#register-form-nic,#register-form-email,#register-form-mobile, #register-form-address,#register-form-user-name ,#register-form-password, #register-form-NIC-image, #register-form-License-image').css({
+        border: '1px solid gray',
+    })
+    $('#register-form-name,#register-form-nic,#register-form-email,#register-form-mobile, #register-form-address,#register-form-user-name ,#register-form-password, #register-form-NIC-image, #register-form-License-image').val("")
+
 }
 
 function openCustomerHome(data) {
@@ -202,7 +209,7 @@ function updateCustomer() {
             if (res.status === 200) {
                 alert(res.message)
             } else {
-                alert("Cant update your password in this moment")
+                alert("Cant update your Details in this moment")
             }
         },
         error: function (ob) {

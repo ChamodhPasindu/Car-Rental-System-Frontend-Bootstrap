@@ -75,6 +75,13 @@ $("#admin-car-needMaintain").click(function () {
     loadAllCars("carsNeedMaintain")
 })
 
+function clearSaveCarForm() {
+$('#save-car-registration-no,#save-car-brand,#save-car-type,#save-car-transmission,#save-car-color,#save-car-passengers,#save-car-mileage,#save-car-fuelType,#save-car-daily,#save-car-monthly,#save-car-freeKm-day,#save-car-freeKm-month,#save-car-extraKm-price,#save-car-waiver-payment,#save-car-status,#save-car-frontView,#save-car-backView,#save-car-sideView,#save-car-interior').css({
+    border: '1px solid #c4c4c4',
+})
+$('#save-car-registration-no,#save-car-brand,#save-car-type,#save-car-transmission,#save-car-color,#save-car-passengers,#save-car-mileage,#save-car-fuelType,#save-car-daily,#save-car-monthly,#save-car-freeKm-day,#save-car-freeKm-month,#save-car-extraKm-price,#save-car-waiver-payment,#save-car-status,#save-car-frontView,#save-car-backView,#save-car-sideView,#save-car-interior').val("")
+}
+
 //----------Save Car
 function saveCar() {
     var data = new FormData();
@@ -145,7 +152,7 @@ function saveCar() {
             console.log(err);
         }
     });
-
+    clearSaveCarForm();
 }
 
 //-------------Load All Cars
@@ -215,6 +222,7 @@ $("#btnUpdateCar").click(function () {
         updateCarValidation()
 })
 
+
 function updateCar() {
     var data = new FormData();
 
@@ -281,7 +289,16 @@ function updateCar() {
             console.log(err);
         }
     });
+    clearUpdateCarForm()
 }
+
+
+function clearUpdateCarForm() {
+$('#admin-update-registration-no,#admin-update-brand,#admin-update-type,#admin-update-transmission,#admin-update-color,#admin-update-passengers,#admin-update-mileage,#admin-update-fuel,#admin-update-daily,#admin-update-monthly,#admin-update-freeKm-day,#admin-update-freeKn-month,#admin-update-extraKm,#admin-update-waiverPayment,#admin-update-status,#admin-update-front,#admin-update-back,#admin-update-side,#admin-update-interior').css({
+    border: '1px solid #c4c4c4',
+})
+    $('#admin-update-registration-no,#admin-update-brand,#admin-update-type,#admin-update-transmission,#admin-update-color,#admin-update-passengers,#admin-update-mileage,#admin-update-fuel,#admin-update-daily,#admin-update-monthly,#admin-update-freeKm-day,#admin-update-freeKn-month,#admin-update-extraKm,#admin-update-waiverPayment,#admin-update-status,#admin-update-front,#admin-update-back,#admin-update-side,#admin-update-interior').val("")
+    }
 
 function loadUpcomingReservation() {
     $.ajax({
@@ -351,7 +368,6 @@ function setDriverData(data) {
         $("#customer-reservation-driver-mobile").text(data[0].driver.mobile)
         $("#customer-reservation-driver-joinDate").text(data[0].driver.join_date)
     }
-
 }
 
 $("#unavailableBtn").click(function () {
@@ -359,7 +375,6 @@ $("#unavailableBtn").click(function () {
     setCarStatus(vehicle_no, status)
     loadAllCars("unavailableOrAvailableCarsByStatus/Available")
 })
-
 
 $("#availableBtn").click(function () {
     var status = "Available";
@@ -384,6 +399,7 @@ function setCarStatus(id, status) {
     $.ajax({
         url: baseUrl + "controller/car?id=" + id + "&status=" + status,
         method: "PUT",
+        async: false,
         success: function (res) {
             if (res.status === 200) {
                 alert(res.message)
@@ -396,10 +412,30 @@ function setCarStatus(id, status) {
     });
 }
 
-let homeDivArray = ["#divOne", "#divTwo", "#divThree"];
 $("#customer-searchCarBtn").click(function () {
     getAvailableCar();
 })
+
+function getAvailableCar() {
+    var start_date = $("#customer-home-pickup").val()
+    var end_date = $("#customer-home-return").val()
+
+    $.ajax({
+        url: baseUrl + "controller/car/availableOrRentalCarsByDate?pick_up_date=" + start_date + "&return_date=" + end_date + "&status=Available",
+        method: 'GET',
+        success: function (resp) {
+            if (resp.status === 200) {
+                carList = resp.data;
+                setCarDetailsToHomeDiv()
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+let homeDivArray = ["#divOne", "#divTwo", "#divThree"];
 
 var objNo = 0;
 
@@ -413,7 +449,6 @@ function setCarDetailsToHomeDiv() {
         if (i > 2) {
             return
         }
-
 
         let img = "#" + $(homeDivArray[i]).children()[0].id
         let type = "#" + $(homeDivArray[i]).children().children()[0].id;
@@ -506,25 +541,6 @@ function setCarDetailsToModal(obj) {
 
     $("#customer-reservation-customer-pickUpTime").text()
     $("#customer-reservation-customer-driverCheck").text()
-}
-
-function getAvailableCar() {
-    var start_date = $("#customer-home-pickup").val()
-    var end_date = $("#customer-home-return").val()
-
-    $.ajax({
-        url: baseUrl + "controller/car/availableOrRentalCarsByDate?pick_up_date=" + start_date + "&return_date=" + end_date + "&status=Available",
-        method: 'GET',
-        success: function (resp) {
-            if (resp.status === 200) {
-                carList = resp.data;
-                setCarDetailsToHomeDiv()
-            }
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
 }
 
 $("#btnReservationSave").click(function () {

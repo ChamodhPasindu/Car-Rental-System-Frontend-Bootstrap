@@ -25,3 +25,7 @@
     height: 201px;
     overflow: auto;
 }
+.get-center{
+    display: flex;
+    justify-content: center;
+}

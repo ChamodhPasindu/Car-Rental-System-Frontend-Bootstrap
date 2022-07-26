@@ -7,6 +7,7 @@ $("#btnDriverSave").click(function () {
 
 })
 
+
 function saveDriver() {
     var driverDTO = {
         nic: $("#save-driver-nic").val(),
@@ -36,6 +37,15 @@ function saveDriver() {
             console.log(ob.responseJSON.message);
         }
     })
+    clearDriverSaveForm()
+}
+
+
+function clearDriverSaveForm() {
+    $('#save-driver-nic,#save-driver-name,#save-driver-address,#save-driver-license,#save-driver-mobile,#save-driver-date,#save-driver-user-name,#save-driver-password').css({
+        border: '1px solid #c4c4c4',
+    })
+    $('#save-driver-nic,#save-driver-name,#save-driver-address,#save-driver-license,#save-driver-mobile,#save-driver-date,#save-driver-user-name,#save-driver-password').val("")
 }
 
 $("#admin-driverBtn").click(function () {
@@ -107,6 +117,7 @@ function setDataToVieDriverModal(data) {
     $("#admin-update-driver-password").val(data.password)
 }
 
+
 function updateDriver() {
     var driver = {
         nic: $("#admin-update-driver-nic").val(),
@@ -134,7 +145,17 @@ function updateDriver() {
             console.log(err);
         }
     });
+    clearUpdateDriverForm()
 }
+
+
+function clearUpdateDriverForm() {
+    $(' #admin-update-driver-name,#admin-update-driver-address,#admin-update-driver-license,#admin-update-driver-mobile,#admin-update-driver-userName,#admin-update-driver-password').css({
+        border: '1px solid #c4c4c4',
+    })
+    $(' #admin-update-driver-name,#admin-update-driver-address,#admin-update-driver-license,#admin-update-driver-mobile,#admin-update-driver-userName,#admin-update-driver-password').val("")
+    }
+
 
 $("#btnUpdateDriver").click(function () {
     driverUpdateValidation()

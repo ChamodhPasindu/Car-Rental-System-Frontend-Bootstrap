@@ -92,6 +92,7 @@ $("#admin-payment-cash").keyup(function (event) {
 
 });
 
+
 $("#admin-payment-paidBtn").click(function () {
 
     var total = $("#admin-payment-subTotal").val()
@@ -118,21 +119,30 @@ $("#admin-payment-paidBtn").click(function () {
         }
     }
 
-    $.ajax({
-        url: baseUrl + "controller/payment",
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(reservation),
-        success: function (res) {
-            if (res.status === 200) {
-                alert(res.message)
+        $.ajax({
+            url: baseUrl + "controller/payment",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(reservation),
+            success: function (res) {
+                if (res.status === 200) {
+                    alert(res.message)
+                }
+            },
+            error: function (ob) {
+                console.log(ob.responseJSON.message);
             }
-        },
-        error: function (ob) {
-            console.log(ob.responseJSON.message);
-        }
-    });
+        });
+    clearPaymentForm();
 })
+
+function clearPaymentForm() {
+    $('#admin-payment-totalKm,#admin-payment-damage-cost,#admin-payment-cash,#admin-payment-discount,#admin-payment-reservation-searchText').css({
+        border: '1px solid #c4c4c4',
+    })
+    $('#admin-payment-totalKm,#admin-payment-damage-cost,#admin-payment-cash,#admin-payment-discount,#admin-payment-reservation-searchText').val("")
+}
+
 
 function generateBillId() {
     $.ajax({

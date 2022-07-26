@@ -357,7 +357,7 @@ function setDataToDiv(string, car) {
     $(divs[list_no].monthly).text(car.monthly_rate)
     $(divs[list_no].fuel).text(car.fuel_type)
     $(divs[list_no].transmission).text(car.transmission)
-    $(divs[list_no].img).attr("src", baseUrl + car.carImgDetail.image_2)
+    $(divs[list_no].img).attr("src", baseUrl + car.carImgDetail.image_1)
 
 
 }
@@ -381,7 +381,7 @@ $("#home-nextBtn").click(function () {
             $(divs[x].monthly).text(data[list_no].monthly_rate)
             $(divs[x].fuel).text(data[list_no].fuel_type)
             $(divs[x].transmission).text(data[list_no].transmission)
-            $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_2)
+            $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_1)
 
             previous = x;
             if (x >= 2) {
@@ -412,7 +412,7 @@ $("#home-PreviousBtn").click(function () {
             $(divs[x].monthly).text(data[list_no].monthly_rate)
             $(divs[x].fuel).text(data[list_no].fuel_type)
             $(divs[x].transmission).text(data[list_no].transmission)
-            $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_2)
+            $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_1)
             previous = x;
             if (x <= 2) {
                 previous = x;

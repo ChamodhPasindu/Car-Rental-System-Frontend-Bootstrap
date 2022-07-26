@@ -19,8 +19,7 @@ $("#admin-payment-searchBtn").click(function () {
     });
 })
 
-$("#admin-payment-done-calculate").click(function () {
-
+function calculateTotal() {
     let days = $("#admin-payment-noOf-date").val();
     let totalKm = $("#admin-payment-totalKm").val();
     let driver_fee = $("#admin-payment-driver-fee").val();
@@ -51,25 +50,46 @@ $("#admin-payment-done-calculate").click(function () {
     if (driver_fee === "Not Required") {
         $("#admin-payment-total").val(totalPrice);
     } else {
-        $("#admin-payment-total").val(totalPrice + driver_fee);
+        $("#admin-payment-total").val((+totalPrice) + (+driver_fee));
     }
+}
+
+$("#admin-payment-done-calculate").click(function () {
+    totalCalculateValidation();
+
 })
 
 $("#admin-payment-discount").keyup(function (event) {
-    if (event.key === "Enter") {
-        let discount = $("#admin-payment-discount").val();
-        let total = $("#admin-payment-total").val() - (discount / 100);
+    var regExDiscount = /^[0-9][0-9]*([.][0-9]{2})?$/
+    if (regExDiscount.test($("#admin-payment-discount").val())) {
+        $("#admin-payment-discount").css('border', '2px solid blue');
 
-        $("#admin-payment-subTotal").val(total);
+        if (event.key === "Enter") {
+            let discount = $("#admin-payment-discount").val();
+            let total = $("#admin-payment-total").val() - (discount / 100);
+
+            $("#admin-payment-subTotal").val(total);
+        }
+    } else {
+        $("#admin-payment-discount").css('border', '2px solid red');
     }
+
 });
 $("#admin-payment-cash").keyup(function (event) {
-    if (event.key === "Enter") {
-        let cash = $("#admin-payment-cash").val();
-        let balance = cash - $("#admin-payment-subTotal").val()
+    var regExDiscount = /^[0-9][0-9]*([.][0-9]{2})?$/
+    if (regExDiscount.test($("#admin-payment-cash").val())) {
+        $("#admin-payment-cash").css('border', '2px solid blue');
 
-        $("#admin-payment-balance").val(balance);
+        if (event.key === "Enter") {
+            let cash = $("#admin-payment-cash").val();
+            let balance = cash - $("#admin-payment-subTotal").val()
+
+            $("#admin-payment-balance").val(balance.toFixed(2));
+        }
+    } else {
+        $("#admin-payment-cash").css('border', '2px solid red');
     }
+
 });
 
 $("#admin-payment-paidBtn").click(function () {
@@ -97,7 +117,6 @@ $("#admin-payment-paidBtn").click(function () {
             reserve_id: $("#admin-payment-reservation-searchText").val(),
         }
     }
-    console.log(reservation)
 
     $.ajax({
         url: baseUrl + "controller/payment",

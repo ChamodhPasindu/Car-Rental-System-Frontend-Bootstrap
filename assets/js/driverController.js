@@ -1,7 +1,13 @@
 var driver_nic;
 
-$("#btnDriverSave").click(function () {
 
+
+$("#btnDriverSave").click(function () {
+    driverSaveValidation()
+
+})
+
+function saveDriver() {
     var driverDTO = {
         nic: $("#save-driver-nic").val(),
         driver_name: $("#save-driver-name").val(),
@@ -13,7 +19,6 @@ $("#btnDriverSave").click(function () {
         password: $("#save-driver-password").val(),
     }
     var serialize = $("#driverSaveForm").serialize();
-    console.log(serialize)
 
     $.ajax({
         url: baseUrl + "controller/driver/addDriver",
@@ -27,10 +32,11 @@ $("#btnDriverSave").click(function () {
             }
         },
         error: function (ob) {
+            alert(ob.responseJSON.message);
             console.log(ob.responseJSON.message);
         }
     })
-})
+}
 
 $("#admin-driverBtn").click(function () {
     $("#admin-all-drivers-title").css("display", "block")
@@ -101,7 +107,7 @@ function setDataToVieDriverModal(data) {
     $("#admin-update-driver-password").val(data.password)
 }
 
-$("#btnUpdateDriver").click(function () {
+function updateDriver() {
     var driver = {
         nic: $("#admin-update-driver-nic").val(),
         address: $("#admin-update-driver-address").val(),
@@ -128,10 +134,13 @@ $("#btnUpdateDriver").click(function () {
             console.log(err);
         }
     });
+}
+
+$("#btnUpdateDriver").click(function () {
+    driverUpdateValidation()
 })
 
 $("#admin-driver-viewDetailsBtn").click(function () {
-    console.log(driver_nic)
     if (driver_nic == null) {
         return
     }
@@ -140,7 +149,6 @@ $("#admin-driver-viewDetailsBtn").click(function () {
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
-                console.log(resp.data)
                 setDataToVieDriverModal(resp.data);
             }
         },
@@ -153,7 +161,6 @@ $("#admin-driver-viewDetailsBtn").click(function () {
 function loadDriverSchedule(data) {
     $("#driver-schedule").empty();
 
-    console.log(data.nic)
 
     $.ajax({
         url: baseUrl + "controller/driver/weeklyAndMonthlyScheduleByDriver?id=" + data.nic + "&date=Weekly",
@@ -197,9 +204,3 @@ function loadDriverScheduleForAdmin() {
         }
     });
 }
-
-$("#admin-all-drivers-schedule-table>tr").click(function () {
-
-    let one = $(this).children(":eq(0)").text();
-    console.log(one)
-});

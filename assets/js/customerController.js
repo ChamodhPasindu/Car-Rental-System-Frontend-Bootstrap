@@ -6,7 +6,7 @@ var customer_nic;
 
 
 $("#registerNowBtn").click(function () {
-    registerCustomer()
+    registerFormValidation()
 })
 
 
@@ -17,6 +17,7 @@ function registerCustomer() {
     let nicFileName = nic.name;
     let license = $("#register-form-License-image")[0].files[0];
     let licenseFileName = license.name;
+
 
     data.append("file", nic);
     data.append("file", license);
@@ -32,6 +33,7 @@ function registerCustomer() {
         register_date: $("#register-form-date").val(),
         nic_img: nicFileName,
         license_img: licenseFileName,
+
     }
     data.append("customer", new Blob([JSON.stringify(customerDTO)], {type: "application/json"}));
 
@@ -43,7 +45,6 @@ function registerCustomer() {
         processData: false,
         data: data,
         success: function (resp) {
-            console.log(resp.data)
             alert(resp.message);
             if (!(resp.data == null)) {
                 openCustomerHome(resp.data)
@@ -111,7 +112,6 @@ $("#admin-customer-viewBtn").click(function () {
         method: "GET",
         success: function (resp) {
             if (resp.status === 200) {
-                console.log(resp.data)
                 setDataToViewCustomerModal(resp.data);
             }
         },
@@ -156,7 +156,6 @@ function changePassword(nic, user_name, newPassword) {
         user_name: user_name,
         password: newPassword
     }
-    console.log(user)
 
     $.ajax({
         url: baseUrl + "controller/customer/accountSecurity",
@@ -177,14 +176,17 @@ function changePassword(nic, user_name, newPassword) {
 }
 
 $("#customer-updateBtn").click(function () {
+    customerUpdateValidation()
+})
 
+function updateCustomer() {
     var newDetails = {
         nic: $("#customer-profile-nic").val(),
         user_name: customer.user_name,
         password: customer.password,
         customer_name: $("#customer-profile-name").val(),
         license_img: customer.license_img,
-        nic_img: customer.nic,
+        nic_img: customer.nic_img,
         address: $("#customer-profile-address").val(),
         mobile: $("#customer-profile-mobile").val(),
         email: $("#customer-profile-email").val(),
@@ -207,5 +209,5 @@ $("#customer-updateBtn").click(function () {
             console.log(ob.responseJSON.message);
         }
     });
-})
+}
 

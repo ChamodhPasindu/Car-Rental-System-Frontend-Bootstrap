@@ -159,17 +159,26 @@ function updateOrDenyReservation(id, status, driver) {
 }
 
 $("#btnAcceptReservation").click(function () {
-    if (data.driver_status === "YES") {
-        var id = data.reserve_id;
-        var status = "Accept"
-        var driver = $("#admin-update-reservation-driver").val();
-        updateOrDenyReservation(id, status, driver);
-    } else {
-        var id = data.reserve_id;
-        var status = "Accept"
-        var driver = "";
-        updateOrDenyReservation(id, status, driver);
+
+    var regExDriverNic = /^[0-9]{12}\b|[0-9]{10}[V]$/;
+    if (regExDriverNic.test($("#admin-update-reservation-driver").val())){
+        $("#admin-update-reservation-driver").css('border', '2px solid blue');
+        if (data.driver_status === "YES") {
+            var id = data.reserve_id;
+            var status = "Accept"
+            var driver = $("#admin-update-reservation-driver").val();
+            updateOrDenyReservation(id, status, driver);
+        } else {
+            var id = data.reserve_id;
+            var status = "Accept"
+            var driver = "";
+            updateOrDenyReservation(id, status, driver);
+        }
+    }else {
+        $("#admin-update-reservation-driver").css('border', '2px solid red');
     }
+
+
 })
 
 $("#btnDenyReservation").click(function () {

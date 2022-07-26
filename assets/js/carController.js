@@ -2,7 +2,7 @@ var vehicle_no;
 var carList;
 
 $("#btnCarSave").click(function () {
-    saveCar()
+    saveCarValidation()
 })
 $("#admin-car-available").click(function () {
     $("#unavailableBtn").css("display", "block");
@@ -212,12 +212,7 @@ function setDataToUpdateModel(data) {
 }
 
 $("#btnUpdateCar").click(function () {
-    if ($("#admin-update-front")[0].files.length === 0 || $("#admin-update-side")[0].files.length === 0 ||
-        $("#admin-update-back")[0].files.length === 0 || $("#admin-update-interior")[0].files.length === 0) {
-        alert("If You Update This Details,Select New Pictures");
-    } else {
-        updateCar();
-    }
+        updateCarValidation()
 })
 
 function updateCar() {
@@ -266,8 +261,6 @@ function updateCar() {
         status: $("#admin-update-status").val(),
         carImgDetail: carImgDetailDTO,
     }
-
-    console.log(carDTO)
 
     data.append("car", new Blob([JSON.stringify(carDTO)], {type: "application/json"}));
 
@@ -411,7 +404,6 @@ $("#customer-searchCarBtn").click(function () {
 var objNo = 0;
 
 function setCarDetailsToHomeDiv() {
-    console.log(carList)
 
     for (var i = 0; carList.length >= i; i++) {
         $("#homeUnavailableTag").css("display", "none")
@@ -422,7 +414,6 @@ function setCarDetailsToHomeDiv() {
             return
         }
 
-        console.log($(homeDivArray[i]).children().children())
 
         let img = "#" + $(homeDivArray[i]).children()[0].id
         let type = "#" + $(homeDivArray[i]).children().children()[0].id;
@@ -450,21 +441,18 @@ function setCarDetailsToHomeDiv() {
 $("#card-one-bookBtn").click(function () {
     let id = $("#card-one-car-id").text();
     let obj = carList.find(o => o.registration_no === id);
-    console.log(obj)
     setCarDetailsToModal(obj)
 
 })
 $("#card-two-bookBtn").click(function () {
     let id = $("#card-two-car-id").text();
     let obj = carList.find(o => o.registration_no === id);
-    console.log(obj)
     setCarDetailsToModal(obj)
 
 })
 $("#card-three-bookBtn").click(function () {
     let id = $("#card-three-car-id").text();
     let obj = carList.find(o => o.registration_no === id);
-    console.log(obj)
     setCarDetailsToModal(obj)
 
 })
@@ -554,8 +542,6 @@ $("#btnReservationSave").click(function () {
         driver_status = "NO"
     }
 
-    console.log(driver_status)
-
     let reservation = {
         reserve_id: $("#customer-reservation-reserve-id").val(),
         reserve_date: today,
@@ -576,8 +562,6 @@ $("#btnReservationSave").click(function () {
     }
     data.append("reservation", new Blob([JSON.stringify(reservation)], {type: "application/json"}));
 
-    console.log(day)
-    console.log(reservation)
 
     $.ajax({
         url: baseUrl + "controller/reservation",

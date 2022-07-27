@@ -86,9 +86,7 @@
 
         </div>
     </nav>
-
 </header>
-
 <main>
 
     <section style="display:block;" id="landingPage">
@@ -127,10 +125,10 @@
                             <h5 id="today-one-car-monthly" class="custom-card-price">RS:5200</h5>
 
                             <hr style="clear:both;"/>
-                            <h5 class=" float-start ms-2">
+                            <h5 id="today-one-fuel-main" class=" float-start ms-2">
                                 <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> <span
                                     id="today-one-car-fuel">Diesel</span></h5>
-                            <h5 class="float-end me-2">
+                            <h5 id="today-one-transmission-main" class="float-end me-2">
                                 <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i><span
                                     id="today-one-car-transmission"></span></h5>
                             <br style="clear:both;">
@@ -149,10 +147,10 @@
                             <h5 id="today-two-car-monthly" class="custom-card-price">RS:5200</h5>
 
                             <hr style="clear:both;"/>
-                            <h5 class=" float-start ms-2">
+                            <h5 id="today-two-fuel-main" class=" float-start ms-2">
                                 <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i> <span
                                     id="today-two-car-fuel">Diesel</span></h5>
-                            <h5 class="float-end me-2">
+                            <h5 id="today-two-transmission-main" class="float-end me-2">
                                 <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i><span
                                     id="today-two-car-transmission">Auto</span></h5>
                             <br style="clear:both;">
@@ -171,10 +169,10 @@
                             <h5 id="today-three-car-monthly" class="custom-card-price">RS:5200</h5>
 
                             <hr style="clear:both;"/>
-                            <h5 class=" float-start ms-2">
+                            <h5 id="today-three-fuel-main" class=" float-start ms-2">
                                 <i class="fa-solid fs-3 me-1 mt-2 text-secondary fa-gas-pump"></i><span
                                     id="today-three-car-fuel"> Diesel</span></h5>
-                            <h5 class="float-end me-2">
+                            <h5 id="today-three-transmission-main" class="float-end me-2">
                                 <i class="fa-solid fs-3 mt-2 me-2 text-secondary fa-car-rear"></i><span
                                     id="today-three-car-transmission">Auto</span></h5>
                             <br style="clear:both;">
@@ -325,7 +323,7 @@
 
         </div>
 
-    </section><!--done-->
+    </section>
 
     <section style="display:none;" id="loginPage">
         <div class="login-container">
@@ -369,7 +367,7 @@
             </div>
         </div>
 
-    </section><!--done-->
+    </section>
 
     <section style="display:none;" id="customer">
 
@@ -645,7 +643,7 @@
                                                     <div>
                                                         <label for="register-form-date"
                                                                class=" col-form-label fw-bold ">PickUp Time</label>
-                                                        <input id="customer-reservation-customer-pickUpTime"  value="00:00:00" type="time" step="1"class="form-control border-secondary mb-3">
+                                                        <input id="customer-reservation-customer-pickUpTime"  value="00:00:00" type="time" step="1"class="form-control  mb-3">
                                                     </div>
                                                     <div>
                                                         <label class="col-form-label fw-bold">PickUp Venue:</label>
@@ -679,10 +677,10 @@
 
                     </div>
                     <div class="customer-home-div-two">
-                        <button type="button" class="btn btn-light me-1">
+                        <button id="customer-home-previousCarBtn" type="button" class="btn btn-light me-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-left"></i>
                         </button>
-                        <button type="button" class="btn btn-light ms-1">
+                        <button id="customer-home-nextCarBtn" type="button" class="btn btn-light ms-1">
                             <i class="fa-solid fs-2 fa-circle-arrow-right"></i>
                         </button>
                     </div>
@@ -708,7 +706,7 @@
                             <div class="card-header border-2 fw-bold">Reservation Status
                                 <span  id="customer-reservationStatus" class=" ms-3 fw-bold ">No Reservation</span></div>
                             <div class="card-body text-center">
-                                <h5  class="card-title text-center fw-bolder"><span id="customer-reservation-id"> Reservation ID</span> :</h5>
+                                <h5  class="card-title text-center fw-bolder">Reservation ID : <span id="customer-reservation-id"> </span></h5>
                                 <br>
                                 <p class="card-title fs-5 fw-bold">Name : <span id="customer-reservation-name"></span></p>
                                 <p class="card-title fs-5 fw-bold">Vehicle No : <span id="customer-reservation-vehicle"></span></p>

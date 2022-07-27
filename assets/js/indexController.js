@@ -5,12 +5,15 @@ var now = new Date();
 var day = ("0" + now.getDate()).slice(-2);
 var month = ("0" + (now.getMonth() + 1)).slice(-2);
 var today = now.getFullYear() + "-" + (month) + "-" + (day);
+var tomorrow = now.getFullYear() + "-" + (month) + "-" + ((+day)+(+1));
 
 
 /*---------------Navigation---------------*/
 loadTodayAvailableCars();
 //-------------login page------------
 $("#loginFormBtn").click(function () {
+    listNo=0
+
     $("#landingPage").css('display', 'none')
     $("#landingNavbar").css('display', 'none')
 
@@ -39,7 +42,6 @@ $(".backToHomeBtn").click(function () {
 
 //----------------------user Login
 $("#loginUserBtn").click(function () {
-
 
     let userDTO = {
         user_name: $("#login-page-user-name").val(),
@@ -72,6 +74,18 @@ $("#loginUserBtn").click(function () {
     });
 })
 
+function clearAllReservationDetails() {
+    $("#customer-reservationStatus").text("No Reservation")
+    $("#customer-reservationStatus").css("color", "black")
+
+    $("#driverStatus").text("Not Required")
+    $("#driverStatus").css("color", "black")
+
+
+    $('#customer-reservation-driver-id,#customer-reservation-driver-name, #customer-reservation-driver-license,#customer-reservation-driver-mobile, #customer-reservation-driver-joinDate').text("")
+    $('#customer-reservation-id,#customer-reservation-name,#customer-reservation-vehicle,#customer-reservation-venue,#customer-reservation-pickUp-time,#customer-reservation-pickUp-date,#customer-reservation-return-date,#customer-reservation-days').text("")
+}
+
 //---------Customer Login
 function customerLogin(data) {
     customer = data
@@ -86,6 +100,7 @@ function customerLogin(data) {
     $("#customer-profile-mobile").val(data.mobile)
 
     getAvailableCar();
+    clearAllReservationDetails()
 
 }
 
@@ -103,6 +118,13 @@ function driverLogin(data) {
 function adminLogin(data) {
     $("#loginPage").css("display", "none")
     $("#admin").css("display", "block")
+
+    $("#adminDailySummary").css("display", "block")
+    $("#adminCars").css("display", "none")
+    $("#adminReservation").css("display", "none")
+    $("#adminDrivers").css("display", "none")
+    $("#adminCustomer").css("display", "none")
+    $("#adminPayments").css("display", "none")
 
     loadDailySummary();
 
@@ -122,8 +144,8 @@ $("#logOutBtn").click(function () {
     $("#landingNavbar").css("display", "block")
 
     loadTodayAvailableCars()
+    listNo=0;
 })
-
 
 //----------------customer navigation
 //---Home
@@ -143,6 +165,7 @@ $("#customerReservationBtn").click(function () {
     loadUpcomingReservation();
 
 })
+
 //---Account
 $("#customerAccountBtn").click(function () {
     $("#customerHome").css("display", "none")
@@ -152,7 +175,6 @@ $("#customerAccountBtn").click(function () {
 })
 
 //---------------customer Profile navigations
-
 $("#customerInformationBtn").click(function () {
     $("#customerProfileChangePassword").css("display", "none")
 
@@ -283,17 +305,15 @@ $("#adminPaymentBtn").click(function () {
 
 //--------------Today available cars------------
 
-var data = []
 
 function loadTodayAvailableCars() {
-
     $.ajax({
-        url: baseUrl + "controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=null&status=Available",
+        url: baseUrl + "controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=&status=Available",
         method: 'GET',
         success: function (resp) {
             if (resp.status === 200) {
-                data = resp.data
-                loadDataToDiv(resp.data)
+                carList = resp.data
+                loadDataToDiv()
             }
         },
         error: function (err) {
@@ -302,155 +322,61 @@ function loadTodayAvailableCars() {
     });
 }
 
-var list_no;
-var previous;
 
 let divArray = ["#div-one", "#div-two", "#div-three"];
-let divs = [{
-    img: "#today-one-car-img",
-    type: "#today-one-car-type",
-    brand: "#today-one-car-brand",
-    daily: "#today-one-car-daily",
-    monthly: "#today-one-car-monthly",
-    fuel: "#today-one-car-fuel",
-    transmission: "#today-one-car-transmission"
-}, {
-    img: "#today-two-car-img",
-    type: "#today-two-car-type",
-    brand: "#today-two-car-brand",
-    daily: "#today-two-car-daily",
-    monthly: "#today-two-car-monthly",
-    fuel: "#today-two-car-fuel",
-    transmission: "#today-two-car-transmission"
-}, {
-    img: "#today-three-car-img",
-    type: "#today-three-car-type",
-    brand: "#today-three-car-brand",
-    daily: "#today-three-car-daily",
-    monthly: "#today-three-car-monthly",
-    fuel: "#today-three-car-fuel",
-    transmission: "#today-three-car-transmission"
-}]
 
+function loadDataToDiv() {
+    displayDiv=0
+    for (var i = 0; listNo <= carList.length-1; i++,listNo++,displayDiv++) {
 
-function loadDataToDiv(data) {
-    for (var i = 0; i <= data.length - 1; i++) {
+        $("#tag").css("display", "none")
+        $(divArray[i]).css("display", "block")
 
-        if (i >= 3) {
-        } else {
-            list_no = i;
-            setDataToDiv(divArray[i], data[i])
+        if (i > 2) {
+            break
         }
+        let img = "#" + $(divArray[i]).children()[0].id
+        let type = "#" + $(divArray[i]).children().children()[0].id;
+        let brand = "#" + $(divArray[i]).children().children()[1].id;
+        let daily = "#" + $(divArray[i]).children().children()[4].id
+        let monthly = "#" + $(divArray[i]).children().children()[7].id
 
+        let fuel = "#" + $("#" + $(divArray[i]).children().children()[9].id).children()[1].id;
+        let transmission = "#" + $("#" + $(divArray[i]).children().children()[10].id).children()[1].id;
+
+        $(img).attr("src", baseUrl + carList[listNo].carImgDetail.image_1)
+        $(type).text(carList[listNo].type)
+        $(brand).text(carList[listNo].brand)
+        $(daily).text(carList[listNo].daily_rate)
+        $(monthly).text(carList[listNo].monthly_rate)
+        $(fuel).text(carList[listNo].fuel_type)
+        $(transmission).text(carList[listNo].transmission)
     }
-}
-
-
-function setDataToDiv(string, car) {
-
-    $("#tag").css("display", "none")
-    $(string).css("display", "block")
-
-    $(divs[list_no].type).text(car.type)
-    $(divs[list_no].brand).text(car.brand)
-    $(divs[list_no].daily).text(car.daily_rate)
-    $(divs[list_no].monthly).text(car.monthly_rate)
-    $(divs[list_no].fuel).text(car.fuel_type)
-    $(divs[list_no].transmission).text(car.transmission)
-    $(divs[list_no].img).attr("src", baseUrl + car.carImgDetail.image_1)
-
 
 }
+
 
 $("#home-nextBtn").click(function () {
-    console.log("next:" + "list-" + list_no, " previous-" + previous)
-
-
-    if (data.length > list_no) {
-        list_no++
-        $(divArray[0]).css("display", "none")
-        $(divArray[1]).css("display", "none")
-        $(divArray[2]).css("display", "none")
-
-        for (var i = list_no, x = 0; list_no <= data.length - 1; list_no++, x++) { //i=2 //x=0
-            $(divArray[x]).css("display", "block")
-
-            $(divs[x].type).text(data[list_no].type)
-            $(divs[x].brand).text(data[list_no].brand)
-            $(divs[x].daily).text(data[list_no].daily_rate)
-            $(divs[x].monthly).text(data[list_no].monthly_rate)
-            $(divs[x].fuel).text(data[list_no].fuel_type)
-            $(divs[x].transmission).text(data[list_no].transmission)
-            $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_1)
-
-            previous = x;
-            if (x >= 2) {
-                previous = x;
-                return
-            }
-        }
+    if (carList.length===listNo){
+        return
     }
+    $('#div-one, #div-two,#div-three').css({
+        display:'none'
+    })
+
+    loadDataToDiv()
 
 })
 
 $("#home-PreviousBtn").click(function () {
-    console.log("back:" + "list-" + list_no, " previous" + previous)
-
-    if (list_no > 3) {
-
-        list_no--
-        $(divArray[0]).css("display", "none")
-        $(divArray[1]).css("display", "none")
-        $(divArray[2]).css("display", "none")
-
-        for (var i = list_no, x = 0; list_no >= 3; list_no--, x--) { //i=2 //x=0
-            $(divArray[x]).css("display", "block")
-
-            $(divs[x].type).text(data[list_no].type)
-            $(divs[x].brand).text(data[list_no].brand)
-            $(divs[x].daily).text(data[list_no].daily_rate)
-            $(divs[x].monthly).text(data[list_no].monthly_rate)
-            $(divs[x].fuel).text(data[list_no].fuel_type)
-            $(divs[x].transmission).text(data[list_no].transmission)
-            $(divs[x].img).attr("src", baseUrl + data[list_no].carImgDetail.image_1)
-            previous = x;
-            if (x <= 2) {
-                previous = x;
-                return
-            }
-        }
+    if (3 >= listNo){
+        return
     }
-    /*
-
-
-        if (list_no>3) {
-            list_no-- //4
-             $(divArray[0]).css("display", "none")
-             $(divArray[1]).css("display", "none")
-             $(divArray[2]).css("display", "none")
-
-            list_no=list_no-previous;//3
-
-             for (var x = 2; list_no >= 1; list_no--, x--) {
-                 $(divArray[x]).css("display", "block")
-
-                 $(divs[x].type).text(data[list_no-1].type)
-                 $(divs[x].brand).text(data[list_no-1].brand)
-                 $(divs[x].daily).text(data[list_no-1].daily_rate)
-                 $(divs[x].monthly).text(data[list_no-1].monthly_rate)
-                 $(divs[x].fuel).text(data[list_no-1].fuel_type)
-                 $(divs[x].transmission).text(data[list_no-1].transmission)
-                 $(divs[x].img).attr("src", baseUrl + data[list_no-1].carImgDetail.image_2)
-
-                 console.log(x)
-
-                 if (x >= 0) {
-                     list_no=list_no+3
-                     previous=0;
-                     return
-                 }
-             }
-        }*/
+    $('#div-one, #div-two,#div-three').css({
+        display:'none'
+    })
+    listNo=listNo-(displayDiv+3)
+    loadDataToDiv()
 })
 
 //--Admin Dashboard

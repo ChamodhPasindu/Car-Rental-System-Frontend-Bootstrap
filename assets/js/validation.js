@@ -26,6 +26,9 @@ var regExExtraKmPrice = /^[0-9]{1,6}$/
 var regExWaiverPayment = /^[0-9]{1,6}$/
 var regExStatus = /^[A-z.\s]{3,10}$/
 
+var regExVenue=/^[A-z\s+]{5,50}$/
+
+
 function registerFormValidation() {
 
     let name = $("#register-form-name").val();
@@ -482,4 +485,18 @@ function totalCalculateValidation() {
 
 }
 
+function reservationValidation(){
+    let venue = $("#customer-reservation-customer-venue").val();
 
+    if (regExVenue.test(venue)){
+        $("#customer-reservation-customer-venue").css('border', '2px solid blue');
+        if ($("#slip-image")[0].files.length!==0){
+            $("#slip-image").css('border', '2px solid blue');
+            saveReservation()
+        }else {
+            $("#slip-image").css('border', '2px solid red');
+        }
+    }else {
+        $("#customer-reservation-customer-venue").css('border', '2px solid red');
+    }
+}

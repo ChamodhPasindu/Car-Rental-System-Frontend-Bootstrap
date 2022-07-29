@@ -15,6 +15,7 @@ $("#admin-payment-searchBtn").click(function () {
         error: function (err) {
             alert("Wrong reservation ID you entered")
             console.log(err);
+            clearPaymentForm();
         }
     });
 })
@@ -66,15 +67,17 @@ $("#admin-payment-discount").keyup(function (event) {
 
         if (event.key === "Enter") {
             let discount = $("#admin-payment-discount").val();
-            let total = $("#admin-payment-total").val() - (discount / 100);
+            let total = $("#admin-payment-total").val()
+            var subTotal= (+total)-(+total*discount/100);
 
-            $("#admin-payment-subTotal").val(total);
+            $("#admin-payment-subTotal").val(subTotal);
         }
     } else {
         $("#admin-payment-discount").css('border', '2px solid red');
     }
 
 });
+
 $("#admin-payment-cash").keyup(function (event) {
     var regExDiscount = /^[0-9][0-9]*([.][0-9]{2})?$/
     if (regExDiscount.test($("#admin-payment-cash").val())) {
@@ -91,7 +94,6 @@ $("#admin-payment-cash").keyup(function (event) {
     }
 
 });
-
 
 $("#admin-payment-paidBtn").click(function () {
 
@@ -119,30 +121,30 @@ $("#admin-payment-paidBtn").click(function () {
         }
     }
 
-        $.ajax({
-            url: baseUrl + "controller/payment",
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(reservation),
-            success: function (res) {
-                if (res.status === 200) {
-                    alert(res.message)
-                }
-            },
-            error: function (ob) {
-                console.log(ob.responseJSON.message);
+    $.ajax({
+        url: baseUrl + "controller/payment",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(reservation),
+        success: function (res) {
+            if (res.status === 200) {
+                alert(res.message)
             }
-        });
+        },
+        error: function (ob) {
+            console.log(ob.responseJSON.message);
+        }
+    });
     clearPaymentForm();
+    generateBillId()
 })
 
 function clearPaymentForm() {
     $('#admin-payment-totalKm,#admin-payment-damage-cost,#admin-payment-cash,#admin-payment-discount,#admin-payment-reservation-searchText').css({
         border: '1px solid #c4c4c4',
     })
-    $('#admin-payment-totalKm,#admin-payment-damage-cost,#admin-payment-cash,#admin-payment-discount,#admin-payment-reservation-searchText').val("")
+    $('#admin-payment-balance,#admin-payment-subTotal,#admin-payment-total,#admin-payment-refund,#admin-payment-driver-fee,#admin-payment-billId,#admin-payment-pay-date,#admin-payment-noOf-date,#admin-payment-return-date,#admin-payment-pickUp-date,#admin-payment-registrationNo,#admin-payment-customer-name,#admin-payment-totalKm,#admin-payment-damage-cost,#admin-payment-cash,#admin-payment-discount,#admin-payment-reservation-searchText').val("")
 }
-
 
 function generateBillId() {
     $.ajax({
@@ -161,16 +163,20 @@ function generateBillId() {
 }
 
 function loadDataToFields(data) {
-    $("#admin-payment-customer-name").val(data.customer.user_name)
-    $("#admin-payment-registrationNo").val(data.car.registration_no)
-    $("#admin-payment-pickUp-date").val(data.pick_up_date)
-    $("#admin-payment-return-date").val(data.return_date)
-    $("#admin-payment-noOf-date").val(data.no_of_days)
-    $("#admin-payment-pay-date").val(today)
+    if (data.reservation_status==="Accept"){
+        $("#admin-payment-customer-name").val(data.customer.user_name)
+        $("#admin-payment-registrationNo").val(data.car.registration_no)
+        $("#admin-payment-pickUp-date").val(data.pick_up_date)
+        $("#admin-payment-return-date").val(data.return_date)
+        $("#admin-payment-noOf-date").val(data.no_of_days)
+        $("#admin-payment-pay-date").val(today)
 
-    if (data.driver_status === "YES") {
-        $("#admin-payment-driver-fee").val(data.no_of_days * 1000)
-    } else {
-        $("#admin-payment-driver-fee").val("Not Required")
+        if (data.driver_status === "YES") {
+            $("#admin-payment-driver-fee").val(data.no_of_days * 1000)
+        } else {
+            $("#admin-payment-driver-fee").val("Not Required")
+        }
+    }else {
+        alert("This Reservation Transaction Is Already Done Or Canceled");
     }
 }

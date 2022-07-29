@@ -4,7 +4,6 @@ $('#customer-home-return').val(tomorrow);
 var customer;
 var customer_nic;
 
-
 $("#registerNowBtn").click(function () {
     registerFormValidation()
 })

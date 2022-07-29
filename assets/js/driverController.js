@@ -1,12 +1,8 @@
 var driver_nic;
 
-
-
 $("#btnDriverSave").click(function () {
     driverSaveValidation()
-
 })
-
 
 function saveDriver() {
     var driverDTO = {
@@ -19,7 +15,6 @@ function saveDriver() {
         user_name: $("#save-driver-user-name").val(),
         password: $("#save-driver-password").val(),
     }
-    var serialize = $("#driverSaveForm").serialize();
 
     $.ajax({
         url: baseUrl + "controller/driver/addDriver",
@@ -39,7 +34,6 @@ function saveDriver() {
     })
     clearDriverSaveForm()
 }
-
 
 function clearDriverSaveForm() {
     $('#save-driver-nic,#save-driver-name,#save-driver-address,#save-driver-license,#save-driver-mobile,#save-driver-date,#save-driver-user-name,#save-driver-password').css({
@@ -61,7 +55,6 @@ $("#admin-driverBtn").click(function () {
 
     loadAllDrivers()
 })
-
 
 $("#admin-scheduleBtn").click(function () {
     $("#admin-all-drivers-title").css("display", "none")
@@ -117,7 +110,6 @@ function setDataToVieDriverModal(data) {
     $("#admin-update-driver-password").val(data.password)
 }
 
-
 function updateDriver() {
     var driver = {
         nic: $("#admin-update-driver-nic").val(),
@@ -148,17 +140,24 @@ function updateDriver() {
     clearUpdateDriverForm()
 }
 
-
 function clearUpdateDriverForm() {
     $(' #admin-update-driver-name,#admin-update-driver-address,#admin-update-driver-license,#admin-update-driver-mobile,#admin-update-driver-userName,#admin-update-driver-password').css({
         border: '1px solid #c4c4c4',
     })
     $(' #admin-update-driver-name,#admin-update-driver-address,#admin-update-driver-license,#admin-update-driver-mobile,#admin-update-driver-userName,#admin-update-driver-password').val("")
-    }
-
+}
 
 $("#btnUpdateDriver").click(function () {
     driverUpdateValidation()
+})
+
+$("#btnDeleteDriver").click(function (){
+    let res = confirm("Do you really need to delete this Driver ?");
+    if (res) {
+        $("#updateDriverModel").modal("toggle");
+        loadAllDrivers();
+        clearUpdateDriverForm()
+    }
 })
 
 $("#admin-driver-viewDetailsBtn").click(function () {
@@ -181,7 +180,6 @@ $("#admin-driver-viewDetailsBtn").click(function () {
 
 function loadDriverSchedule(data) {
     $("#driver-schedule").empty();
-
 
     $.ajax({
         url: baseUrl + "controller/driver/weeklyAndMonthlyScheduleByDriver?id=" + data.nic + "&date=Weekly",

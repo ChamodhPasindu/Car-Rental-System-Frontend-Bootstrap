@@ -36,6 +36,7 @@ function loadPendingReservations() {
                 $("#admin-reservation-table>tr").click(function () {
                     reservation_Id = $(this).children(":eq(0)").text();
                     $("#admin-update-reservation").prop('disabled', false);
+                    console.log(reservation_Id)
                 });
             }
         }
@@ -160,8 +161,10 @@ function updateOrDenyReservation(id, status, driver) {
 
 $("#btnAcceptReservation").click(function () {
 
+    let driverField = $("#admin-update-reservation-driver").val();
+
     var regExDriverNic = /^[0-9]{12}\b|[0-9]{10}[V]$/;
-    if (regExDriverNic.test($("#admin-update-reservation-driver").val())){
+    if (regExDriverNic.test(driverField)||driverField==="Not Required") {
         $("#admin-update-reservation-driver").css('border', '2px solid blue');
         if (data.driver_status === "YES") {
             var id = data.reserve_id;
@@ -174,7 +177,7 @@ $("#btnAcceptReservation").click(function () {
             var driver = "";
             updateOrDenyReservation(id, status, driver);
         }
-    }else {
+    } else {
         $("#admin-update-reservation-driver").css('border', '2px solid red');
     }
 
@@ -182,10 +185,14 @@ $("#btnAcceptReservation").click(function () {
 })
 
 $("#btnDenyReservation").click(function () {
-    var id = data.reserve_id;
-    var status = "Deny"
-    var driver = "";
-    updateOrDenyReservation(id, status, driver);
+    let res = confirm("Do you really need to Cancel this Reservation ?");
+    if (res) {
+        var id = data.reserve_id;
+        var status = "Deny"
+        var driver = "";
+        updateOrDenyReservation(id, status, driver);
+        $("#updateReservationModel").modal("toggle");
+    }
 })
 
 function getReservationDriver(reserve_id) {

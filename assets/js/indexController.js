@@ -5,14 +5,14 @@ var now = new Date();
 var day = ("0" + now.getDate()).slice(-2);
 var month = ("0" + (now.getMonth() + 1)).slice(-2);
 var today = now.getFullYear() + "-" + (month) + "-" + (day);
-var tomorrow = now.getFullYear() + "-" + (month) + "-" + ((+day)+(+1));
+var tomorrow = now.getFullYear() + "-" + (month) + "-" + ((+day) + (+1));
 
 
 /*---------------Navigation---------------*/
 loadTodayAvailableCars();
 //-------------login page------------
 $("#loginFormBtn").click(function () {
-    listNo=0
+    listNo = 0
 
     $("#landingPage").css('display', 'none')
     $("#landingNavbar").css('display', 'none')
@@ -21,7 +21,6 @@ $("#loginFormBtn").click(function () {
 })
 
 //-------------register page
-
 $(".getStartBtn").click(function () {
     $("#landingPage").css('display', 'none')
     $("#landingNavbar").css('display', 'none')
@@ -84,6 +83,8 @@ function clearAllReservationDetails() {
 
     $('#customer-reservation-driver-id,#customer-reservation-driver-name, #customer-reservation-driver-license,#customer-reservation-driver-mobile, #customer-reservation-driver-joinDate').text("")
     $('#customer-reservation-id,#customer-reservation-name,#customer-reservation-vehicle,#customer-reservation-venue,#customer-reservation-pickUp-time,#customer-reservation-pickUp-date,#customer-reservation-return-date,#customer-reservation-days').text("")
+    $("#customer-upcoming-reservation-table").empty();
+
 }
 
 //---------Customer Login
@@ -144,7 +145,7 @@ $("#logOutBtn").click(function () {
     $("#landingNavbar").css("display", "block")
 
     loadTodayAvailableCars()
-    listNo=0;
+    listNo = 0;
 })
 
 //----------------customer navigation
@@ -163,7 +164,6 @@ $("#customerReservationBtn").click(function () {
     $("#customerReservation").css("display", "block")
 
     loadUpcomingReservation();
-
 })
 
 //---Account
@@ -305,7 +305,6 @@ $("#adminPaymentBtn").click(function () {
 
 //--------------Today available cars------------
 
-
 function loadTodayAvailableCars() {
     $.ajax({
         url: baseUrl + "controller/car/availableOrRentalCarsByDate?pick_up_date=" + today + "&return_date=&status=Available",
@@ -322,12 +321,11 @@ function loadTodayAvailableCars() {
     });
 }
 
-
 let divArray = ["#div-one", "#div-two", "#div-three"];
 
 function loadDataToDiv() {
-    displayDiv=0
-    for (var i = 0; listNo <= carList.length-1; i++,listNo++,displayDiv++) {
+    displayDiv = 0
+    for (var i = 0; listNo <= carList.length - 1; i++, listNo++, displayDiv++) {
 
         $("#tag").css("display", "none")
         $(divArray[i]).css("display", "block")
@@ -355,13 +353,12 @@ function loadDataToDiv() {
 
 }
 
-
 $("#home-nextBtn").click(function () {
-    if (carList.length===listNo){
+    if (carList.length === listNo) {
         return
     }
     $('#div-one, #div-two,#div-three').css({
-        display:'none'
+        display: 'none'
     })
 
     loadDataToDiv()
@@ -369,13 +366,13 @@ $("#home-nextBtn").click(function () {
 })
 
 $("#home-PreviousBtn").click(function () {
-    if (3 >= listNo){
+    if (3 >= listNo) {
         return
     }
     $('#div-one, #div-two,#div-three').css({
-        display:'none'
+        display: 'none'
     })
-    listNo=listNo-(displayDiv+3)
+    listNo = listNo - (displayDiv + 3)
     loadDataToDiv()
 })
 

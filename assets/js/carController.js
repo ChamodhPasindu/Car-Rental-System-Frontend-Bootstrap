@@ -1,5 +1,7 @@
 var vehicle_no;
 var carList;
+var reservationId;
+var reservationList;
 
 $("#btnCarSave").click(function () {
     saveCarValidation()
@@ -76,10 +78,10 @@ $("#admin-car-needMaintain").click(function () {
 })
 
 function clearSaveCarForm() {
-$('#save-car-registration-no,#save-car-brand,#save-car-type,#save-car-transmission,#save-car-color,#save-car-passengers,#save-car-mileage,#save-car-fuelType,#save-car-daily,#save-car-monthly,#save-car-freeKm-day,#save-car-freeKm-month,#save-car-extraKm-price,#save-car-waiver-payment,#save-car-status,#save-car-frontView,#save-car-backView,#save-car-sideView,#save-car-interior').css({
-    border: '1px solid #c4c4c4',
-})
-$('#save-car-registration-no,#save-car-brand,#save-car-type,#save-car-transmission,#save-car-color,#save-car-passengers,#save-car-mileage,#save-car-fuelType,#save-car-daily,#save-car-monthly,#save-car-freeKm-day,#save-car-freeKm-month,#save-car-extraKm-price,#save-car-waiver-payment,#save-car-status,#save-car-frontView,#save-car-backView,#save-car-sideView,#save-car-interior').val("")
+    $('#save-car-registration-no,#save-car-brand,#save-car-type,#save-car-transmission,#save-car-color,#save-car-passengers,#save-car-mileage,#save-car-fuelType,#save-car-daily,#save-car-monthly,#save-car-freeKm-day,#save-car-freeKm-month,#save-car-extraKm-price,#save-car-waiver-payment,#save-car-status,#save-car-frontView,#save-car-backView,#save-car-sideView,#save-car-interior').css({
+        border: '1px solid #c4c4c4',
+    })
+    $('#save-car-registration-no,#save-car-brand,#save-car-type,#save-car-transmission,#save-car-color,#save-car-passengers,#save-car-mileage,#save-car-fuelType,#save-car-daily,#save-car-monthly,#save-car-freeKm-day,#save-car-freeKm-month,#save-car-extraKm-price,#save-car-waiver-payment,#save-car-status,#save-car-frontView,#save-car-backView,#save-car-sideView,#save-car-interior').val("")
 }
 
 //----------Save Car
@@ -193,7 +195,6 @@ $("#viewButton").click(function () {
     });
 })
 
-
 function setDataToUpdateModel(data) {
     $("#admin-update-registration-no").val(data.registration_no)
     $("#admin-update-brand").val(data.brand)
@@ -217,9 +218,17 @@ function setDataToUpdateModel(data) {
 }
 
 $("#btnUpdateCar").click(function () {
-        updateCarValidation()
+    updateCarValidation()
 })
 
+$("#customer-upcoming-reservationBtn").click(function (){
+    clearAllReservationDetails()
+    loadUpcomingReservation()
+})
+$("#customer-pending-reservationBtn").click(function (){
+    clearAllReservationDetails()
+    loadPendingReservation()
+})
 function updateCar() {
     var data = new FormData();
 
@@ -290,11 +299,26 @@ function updateCar() {
 }
 
 function clearUpdateCarForm() {
-$('#admin-update-registration-no,#admin-update-brand,#admin-update-type,#admin-update-transmission,#admin-update-color,#admin-update-passengers,#admin-update-mileage,#admin-update-fuel,#admin-update-daily,#admin-update-monthly,#admin-update-freeKm-day,#admin-update-freeKn-month,#admin-update-extraKm,#admin-update-waiverPayment,#admin-update-status,#admin-update-front,#admin-update-back,#admin-update-side,#admin-update-interior').css({
-    border: '1px solid #c4c4c4',
-})
+    $('#admin-update-registration-no,#admin-update-brand,#admin-update-type,#admin-update-transmission,#admin-update-color,#admin-update-passengers,#admin-update-mileage,#admin-update-fuel,#admin-update-daily,#admin-update-monthly,#admin-update-freeKm-day,#admin-update-freeKn-month,#admin-update-extraKm,#admin-update-waiverPayment,#admin-update-status,#admin-update-front,#admin-update-back,#admin-update-side,#admin-update-interior').css({
+        border: '1px solid #c4c4c4',
+    })
     $('#admin-update-registration-no,#admin-update-brand,#admin-update-type,#admin-update-transmission,#admin-update-color,#admin-update-passengers,#admin-update-mileage,#admin-update-fuel,#admin-update-daily,#admin-update-monthly,#admin-update-freeKm-day,#admin-update-freeKn-month,#admin-update-extraKm,#admin-update-waiverPayment,#admin-update-status,#admin-update-front,#admin-update-back,#admin-update-side,#admin-update-interior').val("")
+}
+
+function loadUpcomingReservationTable(data) {
+    $("#customer-upcoming-reservation-table").empty();
+
+    for (const reservation of data) {
+        let row = `<tr><td>${reservation.reserve_id}</td></tr>`;
+        $("#customer-upcoming-reservation-table").append(row);
+
+        $("#customer-upcoming-reservation-table>tr").off("click");
+        $("#customer-upcoming-reservation-table>tr").click(function () {
+            reservationId = $(this).children(":eq(0)").text();
+            setReservationData(reservationId);
+        });
     }
+}
 
 function loadUpcomingReservation() {
     $.ajax({
@@ -303,8 +327,29 @@ function loadUpcomingReservation() {
         success: function (resp) {
             if (resp.status === 200) {
                 if (!(resp.data.length === 0)) {
-                    setReservationData(resp.data);
-                    loadDriverInfo()
+                    reservationList=resp.data
+                    setReservationData(resp.data[0].reserve_id);
+                    loadUpcomingReservationTable(resp.data)
+                }
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+function loadPendingReservation() {
+    $.ajax({
+        url: baseUrl + "controller/customer/customerReservationByStatus/?id=" + customer.nic + "&status=Pending",
+        method: "GET",
+        success: function (resp) {
+            if (resp.status === 200) {
+                if (!(resp.data.length === 0)) {
+                    reservationList=resp.data
+                    console.log(resp.data)
+                    setReservationData(resp.data[0].reserve_id);
+                    loadUpcomingReservationTable(resp.data)
                 }
             }
         },
@@ -332,36 +377,48 @@ function loadDriverInfo() {
 }
 
 function setReservationData(data) {
-    $("#customer-reservationStatus").text("ACTIVE")
-    $("#customer-reservationStatus").css("color", "green")
+    let obj = reservationList.find(o => o.reserve_id === data);
 
-    $("#customer-reservation-id").text(data[0].reserve_id)
-    $("#customer-reservation-name").text(data[0].customer.customer_name)
-    $("#customer-reservation-vehicle").text(data[0].car.registration_no)
-    $("#customer-reservation-venue").text(data[0].pick_up_and_return_venue)
-    $("#customer-reservation-pickUp-time").text(data[0].pick_up_time)
-    $("#customer-reservation-pickUp-date").text(data[0].pick_up_date)
-    $("#customer-reservation-return-date").text(data[0].return_date)
-    $("#customer-reservation-days").text(data[0].no_of_days)
+    if (obj.reservation_status==="Accept"){
+        $("#customer-reservationStatus").text("ACTIVE")
+        $("#customer-reservationStatus").css("color", "green")
+    }else {
+        $("#customer-reservationStatus").text("Pending")
+        $("#customer-reservationStatus").css("color", "orange")
+    }
 
+
+       $("#customer-reservation-id").text(obj.reserve_id)
+       $("#customer-reservation-name").text(obj.customer.customer_name)
+       $("#customer-reservation-vehicle").text(obj.car.registration_no)
+       $("#customer-reservation-venue").text(obj.pick_up_and_return_venue)
+       $("#customer-reservation-pickUp-time").text(obj.pick_up_time)
+       $("#customer-reservation-pickUp-date").text(obj.pick_up_date)
+       $("#customer-reservation-return-date").text(obj.return_date)
+       $("#customer-reservation-days").text(obj.no_of_days)
+
+    loadDriverInfo()
 }
 
 function setDriverData(data) {
 
     let reserveId = $("#customer-reservation-id").text();
-    let id = data[0].carReservation.reserve_id;
-
-    if (id === reserveId) {
-
+    let obj = data.find(o => o.carReservation.reserve_id === reserveId);
+    console.log(obj)
+    if (typeof obj !== 'undefined'){
         $("#driverStatus").text("YES")
         $("#customer-reservationStatus").css("color", "green")
         $("#driverStatus").css("color", "green")
 
-        $("#customer-reservation-driver-id").text(data[0].driver.nic)
-        $("#customer-reservation-driver-name").text(data[0].driver.driver_name)
-        $("#customer-reservation-driver-license").text(data[0].driver.license_no)
-        $("#customer-reservation-driver-mobile").text(data[0].driver.mobile)
-        $("#customer-reservation-driver-joinDate").text(data[0].driver.join_date)
+        $("#customer-reservation-driver-id").text(obj.driver.nic)
+        $("#customer-reservation-driver-name").text(obj.driver.driver_name)
+        $("#customer-reservation-driver-license").text(obj.driver.license_no)
+        $("#customer-reservation-driver-mobile").text(obj.driver.mobile)
+        $("#customer-reservation-driver-joinDate").text(obj.driver.join_date)
+    }else {
+        $("#driverStatus").text("NO")
+        $("#driverStatus").css("color", "red")
+        $("#customer-reservation-driver-id,#customer-reservation-driver-name,#customer-reservation-driver-license,#customer-reservation-driver-mobile,#customer-reservation-driver-joinDate").text("")
     }
 }
 
@@ -431,12 +488,13 @@ function getAvailableCar() {
 
 let homeDivArray = ["#divOne", "#divTwo", "#divThree"];
 
-var listNo=0;
-var displayDiv=0;
-function setCarDetailsToHomeDiv() {
-    displayDiv=0
+var listNo = 0;
+var displayDiv = 0;
 
-    for (var i = 0; listNo <= carList.length-1; i++,listNo++,displayDiv++) {
+function setCarDetailsToHomeDiv() {
+    displayDiv = 0
+
+    for (var i = 0; listNo <= carList.length - 1; i++, listNo++, displayDiv++) {
         $("#homeUnavailableTag").css("display", "none")
         $(homeDivArray[i]).css("display", "block")
 
@@ -487,24 +545,24 @@ $("#card-three-bookBtn").click(function () {
 })
 
 $("#customer-home-nextCarBtn").click(function () {
-    if (carList.length===listNo){
+    if (carList.length === listNo) {
         return
     }
     $('#divOne, #divTwo,#divThree').css({
-        display:'none'
+        display: 'none'
     })
 
     setCarDetailsToHomeDiv()
 
 })
 $("#customer-home-previousCarBtn").click(function () {
-    if (3 >= listNo){
+    if (3 >= listNo) {
         return
     }
     $('#divOne, #divTwo,#divThree').css({
-        display:'none'
+        display: 'none'
     })
-    listNo=listNo-(displayDiv+3)
+    listNo = listNo - (displayDiv + 3)
     setCarDetailsToHomeDiv()
 })
 
@@ -609,6 +667,7 @@ function saveReservation() {
         },
         error: function (err) {
             console.log(err);
+            getAvailableCar();
         }
     });
 
@@ -620,4 +679,14 @@ function saveReservation() {
 
 $("#btnReservationSave").click(function () {
     reservationValidation()
+})
+
+$("#btnDeleteCar").click(function (){
+    let res = confirm("Do you really need to delete this Car ?");
+    if (res) {
+        $("#updateCarModel").modal("toggle");
+        loadAllCars("allCarDetail");
+        clearUpdateCarForm();
+    }
+
 })

@@ -88,7 +88,6 @@
     </nav>
 </header>
 <main>
-
     <section style="display:block;" id="landingPage">
         <div class="custom-container-one">
             <div class="container-one">
@@ -695,7 +694,8 @@
             <div class="customer-res-container">
                 <div class="customer-res-sub__container">
                     <div>
-                        <button class="btn btn-outline-dark fs-5"> Upcoming Reservation</button>
+                        <button id="customer-upcoming-reservationBtn" class="btn btn-outline-dark fs-5 me-2"> Upcoming Reservation</button>
+                        <button id="customer-pending-reservationBtn" class="btn btn-outline-dark fs-5 ms-2"> Pending Reservation</button>
                         <button style="display:none;margin-left: 20px" class="btn btn-outline-dark fs-5"> Previous
                             Reservation
                         </button>
@@ -731,6 +731,19 @@
 
                             </div>
                         </div>
+                        <div style="height: 80%;width: 15%" class="border-radius-shadow">
+
+                            <table class="table table-hover table-borderless  ">
+                                <thead style="background-color: #f2f2f2;border-bottom: 1px solid #e9e9e9" class="text-center">
+                                <tr >
+                                    <th class="text-center" scope="col">Reservations</th>
+                                </tr>
+                                </thead>
+                                <tbody id="customer-upcoming-reservation-table">
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div>
                         <button type="button" class="btn btn-light me-1">
@@ -745,7 +758,7 @@
             </div>
 
 
-        </section><!--done 2nd-->
+        </section>
 
         <section style="display: none" id="customerProfile">
             <div class="customer-pro-container">
@@ -818,7 +831,7 @@
                 </div>
             </div>
 
-        </section> <!--done-->
+        </section>
     </section>
 
     <section style="display:none;" id="driver">
@@ -896,7 +909,7 @@
                 <div style="display:block;margin-top:3%" id="adminDailySummary" class="admin-dashboard-sub-container">
                     <div class="row-1">
                         <div class="card text-primary mb-3 mt-3 border-radius-shadow" style="width: 23%;height: 100%;">
-                            <div style="font-size: 1vw" class="card-header fw-bold text-center">WEEKLY INCOME</div>
+                            <div style="font-size: 1vw" class="card-header fw-bold text-center">DAILY INCOME</div>
                             <div class="card-body">
                                 <h6 style="font-size: 1.2vw" class="card-title text-center ">LKR</h6>
                                 <h6 id="admin-daily-income" style="font-size:2vw" class="card-text text-center ">000</h6>
@@ -988,8 +1001,7 @@
                             </table>
                         </div>
                     </div>
-
-                </div>  <!--done-->
+                </div>
 
                 <div style="display:none;margin-top: 3%" id="adminReservation" class="admin-dashboard-sub-container ">
                     <div class="sub-detail-container">
@@ -1107,7 +1119,7 @@
                         </div>
                     </div>
 
-                </div><!--pending-->
+                </div>
 
                 <div style="display: none;margin-top:5%" id="adminCustomer" class="admin-dashboard-sub-container">
                     <div class="sub-detail-container">
@@ -1138,7 +1150,7 @@
                     </div>
 
 
-                </div><!--pending-->
+                </div>
 
                 <div style="display:none;margin-top: 5%" id="adminDrivers" class="admin-dashboard-sub-container">
                     <div class="sub-detail-container">
@@ -1220,7 +1232,7 @@
                         </div>
                     </div>
 
-                </div><!--pending-->
+                </div>
 
                 <div style="display:none;" id="adminPayments" class="admin-dashboard-sub-container">
                     <div class="inside-payment-container">
@@ -1488,14 +1500,14 @@
                         </div>
                     </div>
                 </div>
-            </div><!--done-->
-            <!-------------Update Car----------->
+            </div>
+            <!-------------Edit Car----------->
             <div class="modal fade" id="updateCarModel" tabindex="-1" aria-labelledby="bookCarModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog-centered modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-dark text-light">
-                            <h5 class="modal-title " id="updateCarModalLabel">Update Car</h5>
+                            <h5 class="modal-title " id="updateCarModalLabel">Edit Car</h5>
                             <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
@@ -1646,6 +1658,7 @@
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close
                             </button>
+                            <button type="button" id="btnDeleteCar" class="btn btn-outline-danger" >Delete</button>
                             <button type="button" id="btnUpdateCar" class="btn btn-dark" >Update</button>
                         </div>
                     </div>
@@ -1827,14 +1840,14 @@
                         </div>
                     </div>
                 </div>
-            </div><!--done-->
-            <!---------------Update Driver------------->
+            </div>
+            <!---------------Edit Driver------------->
             <div class="modal fade" id="updateDriverModel" tabindex="-1" aria-labelledby="bookCarModalLabel"
                  aria-hidden="true">
                 <div class="modal-dialog-centered modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-dark text-light">
-                            <h5 class="modal-title " >Update Driver Details</h5>
+                            <h5 class="modal-title " >Edit Driver Details</h5>
                             <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                         </div>
@@ -1904,13 +1917,13 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="btnDeleteDriver" class="btn btn-outline-danger">Delete</button>
                             <button type="button" id="btnUpdateDriver" class="btn btn-dark">Update</button>
 
                         </div>
                     </div>
                 </div>
-            </div><!--done-->
-
+            </div>
 
             <!---------------Update Reservation------------->
             <div class="modal fade" id="updateReservationModel" tabindex="-1" aria-labelledby="bookCarModalLabel"

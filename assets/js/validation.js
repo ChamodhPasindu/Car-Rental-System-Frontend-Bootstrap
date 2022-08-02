@@ -24,7 +24,7 @@ var regExFreeKmDay = /^[0-9]{1,4}$/
 var regExFreeKmMonth = /^[0-9]{1,4}$/
 var regExExtraKmPrice = /^[0-9]{1,6}$/
 var regExWaiverPayment = /^[0-9]{1,6}$/
-var regExStatus = /^[A-z.\s]{3,10}$/
+var regExStatus = /^[A-z.\s]{3,15}$/
 
 var regExVenue = /^[A-z\s+]{5,50}$/
 

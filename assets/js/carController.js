@@ -82,10 +82,13 @@ function clearSaveCarForm() {
         border: '1px solid #c4c4c4',
     })
     $('#save-car-registration-no,#save-car-brand,#save-car-type,#save-car-transmission,#save-car-color,#save-car-passengers,#save-car-mileage,#save-car-fuelType,#save-car-daily,#save-car-monthly,#save-car-freeKm-day,#save-car-freeKm-month,#save-car-extraKm-price,#save-car-waiver-payment,#save-car-status,#save-car-frontView,#save-car-backView,#save-car-sideView,#save-car-interior').val("")
+
+    $("#save-car-type,#save-car-transmission,#save-car-status,#save-car-fuelType").val("Select One")
 }
 
 //----------Save Car
 function saveCar() {
+
     var data = new FormData();
 
     let front = $("#save-car-frontView")[0].files[0];
@@ -149,6 +152,7 @@ function saveCar() {
             }
         },
         error: function (err) {
+            alert(err.resposeJSON.message);
             console.log(err);
         }
     });

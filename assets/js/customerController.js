@@ -1,6 +1,8 @@
 $('#register-form-date').val(today);
 $('#customer-home-pickup').val(today);
 $('#customer-home-return').val(tomorrow);
+console.log(tomorrow)
+console.log(today)
 var customer;
 var customer_nic;
 

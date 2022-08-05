@@ -668,6 +668,9 @@ function saveReservation() {
         success: function (resp) {
             console.log(resp.data)
             alert(resp.message);
+            listNo=0;
+            getAvailableCar();
+            $("#bookNowModel").modal("toggle");
         },
         error: function (err) {
             console.log(err);
@@ -692,5 +695,4 @@ $("#btnDeleteCar").click(function (){
         loadAllCars("allCarDetail");
         clearUpdateCarForm();
     }
-
 })

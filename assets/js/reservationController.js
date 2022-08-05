@@ -177,6 +177,7 @@ $("#btnAcceptReservation").click(function () {
             var driver = "";
             updateOrDenyReservation(id, status, driver);
         }
+        $("#updateReservationModel").modal("toggle");
     } else {
         $("#admin-update-reservation-driver").css('border', '2px solid red');
     }

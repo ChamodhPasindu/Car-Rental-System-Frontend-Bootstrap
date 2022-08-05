@@ -5,7 +5,7 @@ var now = new Date();
 var day = ("0" + now.getDate()).slice(-2);
 var month = ("0" + (now.getMonth() + 1)).slice(-2);
 var today = now.getFullYear() + "-" + (month) + "-" + (day);
-var tomorrow = now.getFullYear() + "-" + (month) + "-" + ((+day) + (+1));
+var tomorrow = now.getFullYear() + "-" + (month) + "-" + ("0"+((+day) + (+1))).slice(-2);
 
 
 /*---------------Navigation---------------*/
@@ -324,6 +324,7 @@ function loadTodayAvailableCars() {
 let divArray = ["#div-one", "#div-two", "#div-three"];
 
 function loadDataToDiv() {
+
     displayDiv = 0
     for (var i = 0; listNo <= carList.length - 1; i++, listNo++, displayDiv++) {
 
